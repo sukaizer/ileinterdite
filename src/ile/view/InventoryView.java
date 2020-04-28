@@ -17,10 +17,17 @@ public class InventoryView extends JPanel implements Observer {
     private final static int WIDTH = 50*Model.LONGUEUR;
     private final static int HEIGHT = 40*Model.LONGUEUR;
 
-    private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.JPG"));
+    /*
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
+    */
+
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
 
     private JLabel title;
     private ArrayList<JLabel> players;
@@ -40,9 +47,9 @@ public class InventoryView extends JPanel implements Observer {
         this.title.setVisible(true);
         this.players = new ArrayList<>();
         for (int i = 0 ; i < this.model.getPlayers().size() ; i++) {
-            this.players.add(new JLabel("Joueur " + i));
+            this.players.add(new JLabel("Joueur " + (i+1)));
             this.add(this.players.get(i));
-            this.players.get(i).setBounds(WIDTH/15, (i+1)*HEIGHT/this.players.size(), size.width, size.height);
+            this.players.get(i).setBounds(WIDTH/15, (i+1)*HEIGHT/this.model.getPlayers().size(), size.width, size.height);
         }
     }
 
@@ -53,5 +60,10 @@ public class InventoryView extends JPanel implements Observer {
 
     public void paint(Graphics g){
         super.paint(g);
+        for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
+            for (int j = 0 ; j < this.model.getPlayers().get(i).getKey().size(); j++) {
+                int l = 0;
+            }
+        }
     }
 }

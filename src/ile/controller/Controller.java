@@ -55,7 +55,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
                 break;
             case KeyEvent.VK_A:
-                this.model.getPlayers().get(this.model.getTour()).getArtifact();
+                this.model.getPlayers().get(this.model.getTour()).probArtifact();
                 break;
         }
     }

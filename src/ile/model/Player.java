@@ -90,11 +90,11 @@ public class Player {
     public void addKey(){
         float probK = ThreadLocalRandom.current().nextFloat();
         if(probK >= PROBKEY){
-            this.pocket.add(getKey());
+            this.pocket.add(probKey());
         }
     }
 
-    public Key getKey(){
+    public Key probKey(){
         float probK = ThreadLocalRandom.current().nextFloat();
         if(probK >= 0.75){
             return Key.Air;
@@ -105,7 +105,7 @@ public class Player {
         }else return Key.Water;
     }
 
-    public void getArtifact(){
+    public void probArtifact(){                      //touhouhijacklol
         if(this.getArea().getType() == Type.Water){
             if(this.pocket.contains(Key.Water)) this.artifacts.add(Key.Water);
         } else if(this.getArea().getType() == Type.Fire){
@@ -115,5 +115,13 @@ public class Player {
         } else if(this.getArea().getType() == Type.Earth){
             if(this.pocket.contains(Key.Earth)) this.artifacts.add(Key.Earth);
         }
+    }
+
+    public ArrayList<Key> getKey() {
+        return this.pocket;
+    }
+
+    public ArrayList<Key> getArtifacts() {
+        return this.artifacts;
     }
 }
