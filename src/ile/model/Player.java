@@ -10,7 +10,6 @@ public class Player {
     private int x;
     private int y;
     private ArrayList<Key> pocket;
-    private ArrayList<Key> artifacts;
     public int energy;
     private final double PROBKEY = 0.05;
     private Model model;
@@ -20,7 +19,6 @@ public class Player {
         this.x = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
         this.y = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
         this.pocket = new ArrayList<>();
-        this.artifacts = new ArrayList<>();
         this.energy = 3;
     }
 
@@ -107,13 +105,13 @@ public class Player {
 
     public void probArtifact(){                      //touhouhijacklol
         if(this.getArea().getType() == Type.Water){
-            if(this.pocket.contains(Key.Water)) this.artifacts.add(Key.Water);
+            if(this.pocket.contains(Key.Water)) this.model.addArtifact(Key.Water);
         } else if(this.getArea().getType() == Type.Fire){
-            if(this.pocket.contains(Key.Fire)) this.artifacts.add(Key.Fire);
+            if(this.pocket.contains(Key.Fire)) this.model.addArtifact(Key.Fire);
         } else if(this.getArea().getType() == Type.Air){
-            if(this.pocket.contains(Key.Air)) this.artifacts.add(Key.Air);
+            if(this.pocket.contains(Key.Air)) this.model.addArtifact(Key.Air);
         } else if(this.getArea().getType() == Type.Earth){
-            if(this.pocket.contains(Key.Earth)) this.artifacts.add(Key.Earth);
+            if(this.pocket.contains(Key.Earth)) this.model.addArtifact(Key.Earth);
         }
     }
 
@@ -121,7 +119,4 @@ public class Player {
         return this.pocket;
     }
 
-    public ArrayList<Key> getArtifacts() {
-        return this.artifacts;
-    }
 }

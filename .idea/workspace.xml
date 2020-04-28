@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="bug affichage presque entierement reglé">
+    <list default="true" id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/GridView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/GridView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/InventoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/InventoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,14 +300,27 @@
       <option name="project" value="LOCAL" />
       <updated>1588090192486</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="test">
+      <created>1588094876548</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1588094876548</updated>
+    </task>
+    <task id="LOCAL-00032" summary="test">
+      <created>1588101177856</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1588101177856</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="i" />
     <MESSAGE value="affichage fonctionnel Q1 OK" />
-    <MESSAGE value="test" />
     <MESSAGE value="affichagee joueur" />
     <MESSAGE value="affichage joueur v2" />
     <MESSAGE value="mini-bug tours fixed" />
@@ -330,7 +343,8 @@
     <MESSAGE value="bug pannel, je pense qu'on devrait recoder notre affichage graphique" />
     <MESSAGE value="bug affichage" />
     <MESSAGE value="bug affichage presque entierement reglé" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug affichage presque entierement reglé" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="588" y="214" width="800" height="677" key="#Notifications" timestamp="1587483801697">
@@ -349,34 +363,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587714281468" />
-    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588094307877">
+    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588101177104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588094307877" />
+    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588101177104" />
     <state x="600" y="129" width="777" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587572450771" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1588101145861">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101145861" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587558723866">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587558723866" />
-    <state width="1877" height="300" key="GridCell.Tab.0.bottom" timestamp="1588094842959">
+    <state width="1877" height="300" key="GridCell.Tab.0.bottom" timestamp="1588101238118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588094842959" />
+    <state width="1877" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
     <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536409" />
-    <state width="1877" height="300" key="GridCell.Tab.0.center" timestamp="1588094842959">
+    <state width="1877" height="300" key="GridCell.Tab.0.center" timestamp="1588101238118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588094842959" />
+    <state width="1877" height="300" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
     <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536407" />
-    <state width="1877" height="300" key="GridCell.Tab.0.left" timestamp="1588094842959">
+    <state width="1877" height="300" key="GridCell.Tab.0.left" timestamp="1588101238118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588094842959" />
+    <state width="1877" height="300" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
     <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536406" />
-    <state width="1877" height="300" key="GridCell.Tab.0.right" timestamp="1588094842959">
+    <state width="1877" height="300" key="GridCell.Tab.0.right" timestamp="1588101238118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588094842959" />
+    <state width="1877" height="300" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
     <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536408" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588088066060">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -418,10 +436,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587643413912" />
-    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588090193770">
+    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588101222412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588090193770" />
+    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588101222412" />
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587642860302" />
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587484573691">
       <screen x="67" y="27" width="1853" height="1053" />

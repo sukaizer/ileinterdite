@@ -10,11 +10,13 @@ public class Model extends Observable {
     private Area[][] areas;
     private ArrayList<Area> lands; //lands non submergées
     private ArrayList<Player> players;
+    private ArrayList<Key> artifacts;
     private int tour;
 
     public Model(){
         this.tour = 0;
         this.players = new ArrayList<>();
+        this.artifacts = new ArrayList<>();
         this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
@@ -164,4 +166,13 @@ public class Model extends Observable {
         }
         return nearby;
     }
+
+    public void addArtifact(Key key){
+        this.artifacts.add(key);
+    }
+
+    public ArrayList<Key> getArtifacts() {
+        return this.artifacts;
+    }
+
 }
