@@ -17,8 +17,6 @@ public class GridView extends JPanel implements Observer {
     private final static int TAILLE = 50;
     private BufferedImage[] imagePlayer = new BufferedImage[4];
     private BufferedImage[] imageElement = new BufferedImage[5];
-    private JLabel actionCount; //add à InfoView
-    private JLabel floodIndication; //same
 
     public GridView(Model model) throws IOException {
         this.model = model;
@@ -34,7 +32,21 @@ public class GridView extends JPanel implements Observer {
 
         /**
          * chargement des images
+         *
         **/
+
+        this.imagePlayer[0] = ImageIO.read(new File("src/files/player1.PNG"));
+        this.imagePlayer[1] = ImageIO.read(new File("src/files/player2.PNG"));
+        this.imagePlayer[2] = ImageIO.read(new File("src/files/player3.PNG"));
+        this.imagePlayer[3] = ImageIO.read(new File("src/files/player4.PNG"));
+
+        this.imageElement[0] = ImageIO.read(new File("src/files/air.PNG"));
+        this.imageElement[1] = ImageIO.read(new File("src/files/water.PNG"));
+        this.imageElement[2] = ImageIO.read(new File("src/files/fire.PNG"));
+        this.imageElement[3] = ImageIO.read(new File("src/files/earth.PNG"));
+        this.imageElement[4] = ImageIO.read(new File("src/files/h.PNG"));
+
+
         /*
         this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player1.PNG"));
         this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player2.PNG"));
@@ -48,28 +60,9 @@ public class GridView extends JPanel implements Observer {
         this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));*/
 
 
-
-        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player1.PNG"));
-        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player2.PNG"));
-        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player3.PNG"));
-        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player4.PNG"));
-
-        this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
-        this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
-        this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
-        this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
-        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));
-
-
         //on ajoute un controlleur pour la fenetre principale
         Controller ctrl = new Controller(this.model,new ButtonView(this.model,this),this);
         addMouseListener(ctrl);
-        /*
-        this.floodIndication = new JLabel("Vous pouvez cliquer sur une case à assécher");
-        this.add(this.floodIndication);
-        this.floodIndication.setVisible(false);
-        this.actionCount = new JLabel("Nombre d'actions restantes : " + 3);
-        this.add(this.actionCount);*/
     }
 
     /**
@@ -83,7 +76,6 @@ public class GridView extends JPanel implements Observer {
     }
 
     public void paint(Graphics g) {
-        //super.repaint();
         for(int i=1; i<=Model.LONGUEUR; i++) {
             for(int j=1; j<=Model.LONGUEUR; j++) {
                 Area a = model.getArea(i-1, j-1);
