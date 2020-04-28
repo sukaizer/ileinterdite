@@ -175,4 +175,29 @@ public class Model extends Observable {
         return this.artifacts;
     }
 
+    public boolean testWin(){
+        if(this.artifacts.size() == 4){
+            for (Player player : this.players) {
+                if (player.getArea().getType() != Type.Heliport) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return true if loose
+     */
+    public boolean testLoose(){
+        for (Player player : this.players) {
+            if(player.getArea().getState() == State.Submerged){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
