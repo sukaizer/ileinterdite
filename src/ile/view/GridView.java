@@ -36,16 +36,16 @@ public class GridView extends JPanel implements Observer {
          * chargement des images
         **/
 
-        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player1.PNG"));
-        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player2.PNG"));
-        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player3.PNG"));
-        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player4.PNG"));
+        this.imagePlayer[0] = ImageIO.read(new File("src/files/player1.PNG"));
+        this.imagePlayer[1] = ImageIO.read(new File("src/files/player2.PNG"));
+        this.imagePlayer[2] = ImageIO.read(new File("src/files/player3.PNG"));
+        this.imagePlayer[3] = ImageIO.read(new File("src/files/player4.PNG"));
 
-        this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
-        this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
-        this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
-        this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
-        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));
+        this.imageElement[0] = ImageIO.read(new File("src/files/air.PNG"));
+        this.imageElement[1] = ImageIO.read(new File("src/files/water.PNG"));
+        this.imageElement[2] = ImageIO.read(new File("src/files/fire.PNG"));
+        this.imageElement[3] = ImageIO.read(new File("src/files/earth.PNG"));
+        this.imageElement[4] = ImageIO.read(new File("src/files/h.PNG"));
 
 
         //on ajoute un controlleur pour la fenetre principale
