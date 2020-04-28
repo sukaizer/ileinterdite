@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/view/InfoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/InfoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/view/InventoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/InventoryView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProjectId" id="1arAuMwsnatCegQkPrBl5LjA0oE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ile.Main" />
+      <module name="ileinterdite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="test" />
+      <created>1587483560103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587483560103</updated>
+    </task>
+    <task id="LOCAL-00001" summary="i">
+      <created>1587483754139</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587483754139</updated>
+    </task>
+    <task id="LOCAL-00002" summary="i">
+      <created>1587483805475</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587483805475</updated>
+    </task>
+    <task id="LOCAL-00003" summary="affichage fonctionnel Q1 OK">
+      <created>1587484580756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587484580756</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test">
+      <created>1587484610326</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587484610326</updated>
+    </task>
+    <task id="LOCAL-00005" summary="affichagee joueur">
+      <created>1587487667529</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587487667529</updated>
+    </task>
+    <task id="LOCAL-00006" summary="affichage joueur v2">
+      <created>1587500967235</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587500967235</updated>
+    </task>
+    <task id="LOCAL-00007" summary="mini-bug tours fixed">
+      <created>1587559874424</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587559874424</updated>
+    </task>
+    <task id="LOCAL-00008" summary="On peut assécher les zones en appuyant sur A">
+      <created>1587562239039</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587562239039</updated>
+    </task>
+    <task id="LOCAL-00009" summary="J'avais oublié un &quot;!&quot;">
+      <created>1587562362965</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587562362965</updated>
+    </task>
+    <task id="LOCAL-00010" summary="double button fixed">
+      <created>1587572450915</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587572450915</updated>
+    </task>
+    <task id="LOCAL-00011" summary="partie 2 presque finie">
+      <created>1587574192435</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587574192435</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Partie 2 terminée.">
+      <created>1587575801976</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587575801976</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Partie 2 terminée.  + essais de souris cliquable">
+      <created>1587582280008</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587582280008</updated>
+    </task>
+    <task id="LOCAL-00014" summary="tests">
+      <created>1587630904244</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587630904244</updated>
+    </task>
+    <task id="LOCAL-00015" summary="La Souris marche !!!!!!!! Partie 2 COMPLETEMENT finie :)))">
+      <created>1587633375518</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587633375518</updated>
+    </task>
+    <task id="LOCAL-00016" summary="partie 3 début">
+      <created>1587636601901</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587636601901</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ajout d'une mini-feature qui indique quand on peut unflood (mini-bug graphique)">
+      <created>1587642615754</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587642615754</updated>
+    </task>
+    <task id="LOCAL-00018" summary="ajout d'une mini-feature qui indique quand on peut unflood (mini-bug graphique)">
+      <created>1587642798115</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587642798115</updated>
+    </task>
+    <task id="LOCAL-00019" summary="ajout d'une mini-feature qui indique quand on peut unflood (mini-bug graphique)">
+      <created>1587642851837</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587642851837</updated>
+    </task>
+    <task id="LOCAL-00020" summary="ajout d'une mini-feature qui indique quand on peut unflood (mini-bug graphique)">
+      <created>1587646308336</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1587646308336</updated>
+    </task>
+    <task id="LOCAL-00021" summary="commit please">
+      <created>1587647592756</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587647592756</updated>
+    </task>
+    <task id="LOCAL-00022" summary="new borderLayout">
+      <created>1587648985715</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587648985715</updated>
+    </task>
+    <task id="LOCAL-00023" summary="new class infoview pour les textes a afficher mais toujours meme probleme graphique a regler !!!">
+      <created>1587649673424</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1587649673424</updated>
+    </task>
+    <task id="LOCAL-00024" summary="probleme graphique sur les nouveaux pannels">
+      <created>1587651739571</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1587651739571</updated>
+    </task>
+    <task id="LOCAL-00025" summary="bug assechement meme case reglé, bug graphique des 2 derniers panels non résolu">
+      <created>1587655299628</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1587655299628</updated>
+    </task>
+    <task id="LOCAL-00026" summary="test paint">
+      <created>1587657869793</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587657869793</updated>
+    </task>
+    <task id="LOCAL-00027" summary="test paint">
+      <created>1587713583969</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1587713583969</updated>
+    </task>
+    <task id="LOCAL-00028" summary="bug pannel, je pense qu'on devrait recoder notre affichage graphique">
+      <created>1587725364663</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1587725364663</updated>
+    </task>
+    <task id="LOCAL-00029" summary="bug affichage">
+      <created>1588084101010</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1588084101010</updated>
+    </task>
+    <task id="LOCAL-00030" summary="bug affichage presque entierement reglé">
+      <created>1588090192486</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1588090192486</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="i" />
+    <MESSAGE value="affichage fonctionnel Q1 OK" />
+    <MESSAGE value="test" />
+    <MESSAGE value="affichagee joueur" />
+    <MESSAGE value="affichage joueur v2" />
+    <MESSAGE value="mini-bug tours fixed" />
+    <MESSAGE value="On peut assécher les zones en appuyant sur A" />
+    <MESSAGE value="J'avais oublié un &quot;!&quot;" />
+    <MESSAGE value="double button fixed" />
+    <MESSAGE value="partie 2 presque finie" />
+    <MESSAGE value="Partie 2 terminée." />
+    <MESSAGE value="Partie 2 terminée.  + essais de souris cliquable" />
+    <MESSAGE value="tests" />
+    <MESSAGE value="La Souris marche !!!!!!!! Partie 2 COMPLETEMENT finie :)))" />
+    <MESSAGE value="partie 3 début" />
+    <MESSAGE value="ajout d'une mini-feature qui indique quand on peut unflood (mini-bug graphique)" />
+    <MESSAGE value="commit please" />
+    <MESSAGE value="new borderLayout" />
+    <MESSAGE value="new class infoview pour les textes a afficher mais toujours meme probleme graphique a regler !!!" />
+    <MESSAGE value="probleme graphique sur les nouveaux pannels" />
+    <MESSAGE value="bug assechement meme case reglé, bug graphique des 2 derniers panels non résolu" />
+    <MESSAGE value="test paint" />
+    <MESSAGE value="bug pannel, je pense qu'on devrait recoder notre affichage graphique" />
+    <MESSAGE value="bug affichage" />
+    <MESSAGE value="bug affichage presque entierement reglé" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug affichage presque entierement reglé" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="588" y="214" width="800" height="677" key="#Notifications" timestamp="1587483801697">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="214" width="800" height="677" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1587483801697" />
+    <state x="626" y="293" width="724" height="519" key="#com.intellij.ide.util.ExportDialog" timestamp="1587570228033">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="626" y="293" width="724" height="519" key="#com.intellij.ide.util.ExportDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587570228033" />
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1587714281468">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587714281468" />
+    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588090191718">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588090191718" />
+    <state x="600" y="129" width="777" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587572450771" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587558723866">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587558723866" />
+    <state width="1877" height="300" key="GridCell.Tab.0.bottom" timestamp="1588091812422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588091812422" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536409" />
+    <state width="1877" height="300" key="GridCell.Tab.0.center" timestamp="1588091812421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588091812421" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536407" />
+    <state width="1877" height="300" key="GridCell.Tab.0.left" timestamp="1588091812421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588091812421" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536406" />
+    <state width="1877" height="300" key="GridCell.Tab.0.right" timestamp="1588091812421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588091812421" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536408" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588088066060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588088066060" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229336" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1588088066060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588088066060" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229297" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1588088066060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588088066060" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229277" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1588088066060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588088066060" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229317" />
+    <state width="1807" height="344" key="GridCell.Tab.2.bottom" timestamp="1587570229421">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.2.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229421" />
+    <state width="1807" height="344" key="GridCell.Tab.2.center" timestamp="1587570229381">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.2.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229381" />
+    <state width="1807" height="344" key="GridCell.Tab.2.left" timestamp="1587570229361">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.2.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229361" />
+    <state width="1807" height="344" key="GridCell.Tab.2.right" timestamp="1587570229401">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.2.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229401" />
+    <state x="747" y="236" key="VCS.ChangeListViewerDialog" timestamp="1587643413912">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="747" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587643413912" />
+    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588090193770">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588090193770" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587642860302" />
+    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587484573691">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587484573691" />
+    <state x="342" y="140" key="new project wizard" timestamp="1587716944862">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1587716944862" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1588082217655">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588082217655" />
+    <state x="153" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1587575465619">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="153" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587575465619" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ileinterdite$Main.ic" NAME="Main Coverage Results" MODIFIED="1587642379204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ile.*</FILTER>
+    </SUITE>
+  </component>
+</project>
