@@ -1,14 +1,12 @@
 package ile.view;
 
 import ile.Observer;
-import ile.model.Area;
-import ile.model.Model;
-import ile.model.Player;
-import ile.model.State;
+import ile.model.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class InfoView extends JPanel implements Observer {
@@ -40,16 +38,27 @@ public class InfoView extends JPanel implements Observer {
         this.b = false;
         this.b2 = false;
         this.actionCount.setText("Nombre d'actions restantes : " + this.model.getPlayers().get(this.model.getTour()).energy);
-        Area[] nearby = this.model.getNearby(this.model.getPlayers().get(this.model.getTour()).getArea()); //les cases a coté du joueur dont c'est le tour
-        for (Area area : nearby) {
-            if (area.getState().equals(State.Flooded) && this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
-                this.b = true;
+
+        if(this.model.getPlayers().get(this.model.getTour()) instanceof PlayerExplorateur){
+            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) this.model.getPlayers().get(this.model.getTour()));
+            for (Area area : nearby) {
+                if (area.getState().equals(State.Flooded) && this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
+                    this.b = true;
+                }
+            }
+        }else{
+            Area[] nearby = this.model.getNearby(this.model.getPlayers().get(this.model.getTour()).getArea()); //les cases a coté du joueur dont c'est le tour
+            for (Area area : nearby) {
+                if (area.getState().equals(State.Flooded) && this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
+                    this.b = true;
+                }
+            }
+
+            if(this.model.getPlayers().get(this.model.getTour()).takeArtifact()){
+                this.b2 = true;
             }
         }
 
-        if(this.model.getPlayers().get(this.model.getTour()).takeArtifact()){
-            this.b2 = true;
-        }
         this.floodIndication.setVisible(b);
         this.artifactIndication.setVisible(b2);
     }

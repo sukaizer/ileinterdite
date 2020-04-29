@@ -7,13 +7,13 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Player {
     //TODO
     //on s'en occupera plus tard
-    private int x;
-    private int y;
-    private ArrayList<Key> pocket;
-    private Key[] keyPosition;
+    protected int x;
+    protected int y;
+    protected ArrayList<Key> pocket;
+    protected Key[] keyPosition;
     public int energy;
-    private final double PROBKEY = 0.20;
-    private Model model;
+    protected final double PROBKEY = 0.20;
+    protected Model model;
 
     public Player(Model model){
         this.model = model;

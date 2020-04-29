@@ -17,10 +17,12 @@ public class Model extends Observable {
         this.tour = 0;
         this.players = new ArrayList<>();
         this.artifacts = new ArrayList<>();
+
+        this.players.add(new PlayerExplorateur(this)); //test
         this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
-        this.players.add(new Player(this));
+
         this.areas = new Area[LONGUEUR][LONGUEUR];
         this.lands = new ArrayList<>();
         for (int i = 0; i < LONGUEUR; i++) {
@@ -167,6 +169,24 @@ public class Model extends Observable {
         return nearby;
     }
 
+    /**
+     * Retourne les cases autour du joueur
+     * @param a joueur de type explorateur
+     * @return ArrayList<Area>
+     */
+    public ArrayList<Area> getNearby(PlayerExplorateur a){ //à vérifier TODO
+        ArrayList<Area> nearby = new ArrayList<>();
+        for (int i = a.getX() - 1; i < a.getX() + 1 ; i++) {
+            for (int j = a.getY() - 1; j < a.getY() + 1; j++) {
+                if(i > - 1 && j > - 1 && i < LONGUEUR && j < LONGUEUR){
+                    nearby.add(areas[i][j]);
+                }
+            }
+        }
+        return nearby;
+    }
+
+
     public void addArtifact(Key key){
         this.artifacts.add(key);
     }
@@ -203,6 +223,30 @@ public class Model extends Observable {
             }
         }
         return false;
+    }
+
+    public ArrayList<Area> nonSubmergedAreas(){
+        ArrayList<Area> a = new ArrayList<>();
+        for (Area area:this.lands) {
+            if(!area.getState().equals(State.Submerged)) a.add(area);
+        }
+        return a;
+    }
+
+    public void deplacementPilote(PlayerPilote p){
+        p.deplacementPilote();
+    }
+
+    public void unflooding(PlayerIngenieur p){
+        p.floodPlus();
+    }
+
+    public int getFlood(PlayerIngenieur p){
+        return p.getFlood();
+    }
+
+    public void resetFlood(PlayerIngenieur p){
+        p.setFlood();
     }
 
 }

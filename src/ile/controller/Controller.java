@@ -1,8 +1,6 @@
 package ile.controller;
 
-import ile.model.Area;
-import ile.model.Direction;
-import ile.model.Model;
+import ile.model.*;
 import ile.view.ButtonView;
 import ile.view.GridView;
 import ile.view.View;
@@ -33,6 +31,9 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 this.model.flooding();
                 for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
                     this.model.getPlayers().get(i).reset();
+                    if(this.model.getPlayers().get(i) instanceof PlayerIngenieur){
+                        this.model.resetFlood((PlayerIngenieur) this.model.getPlayers().get(i));
+                    }
                 }
             }
             this.model.getPlayers().get(this.model.getTour()).addKey();
@@ -64,6 +65,10 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
             case KeyEvent.VK_A:
                 this.model.getPlayers().get(this.model.getTour()).probArtifact();
                 break;
+            case KeyEvent.VK_E:
+                if(this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote)
+                this.model.deplacementPilote((PlayerPilote) this.model.getPlayers().get(this.model.getTour()));
+                break;
         }
         if(this.model.testLoose()) this.view.endGameLoose();
         if(this.model.testWin()) this.view.endGameWin();
@@ -79,17 +84,41 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
         int x = e.getX();
         int y = e.getY();
         int t = this.grid.getTaille();
-        Area[] nearby = this.model.getNearby(this.model.getPlayers().get(this.model.getTour()).getArea()); //les cases a coté du joueur dont c'est le tour
 
-        for (Area area : nearby) {
-            if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
-                if(this.model.getPlayers().get(this.model.getTour()).hasEnergy()){
-                    int[] a = area.unflood();
-                    this.model.getPlayers().get(this.model.getTour()).loseEnergy();
-                    this.model.unflooding(a[0], a[1]);
+        if(this.model.getPlayers().get(this.model.getTour()) instanceof PlayerExplorateur){
+            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) this.model.getPlayers().get(this.model.getTour()));
+            for (Area area : nearby) {
+                if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
+                    if(this.model.getPlayers().get(this.model.getTour()).hasEnergy()){
+                        int[] a = area.unflood();
+                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                        this.model.unflooding(a[0], a[1]);
+                    }
+                }
+            }
+
+        }else{
+            Area[] nearby = this.model.getNearby(this.model.getPlayers().get(this.model.getTour()).getArea()); //les cases a coté du joueur dont c'est le tour
+
+            for (Area area : nearby) {
+                if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
+                    if(this.model.getPlayers().get(this.model.getTour()) instanceof PlayerIngenieur){ //classe Ingenieur
+                        if(this.model.getPlayers().get(this.model.getTour()).hasEnergy() && this.model.getFlood((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())) < 2){
+                            int[] a = area.unflood();
+                            this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                            this.model.unflooding(a[0], a[1]);
+                            this.model.unflooding((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour()));
+                        }
+                    }
+                    if(this.model.getPlayers().get(this.model.getTour()).hasEnergy()){
+                        int[] a = area.unflood();
+                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                        this.model.unflooding(a[0], a[1]);
+                    }
                 }
             }
         }
+
     }
 
     @Override
