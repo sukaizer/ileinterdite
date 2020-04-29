@@ -174,7 +174,7 @@ public class Model extends Observable {
      * @param a joueur de type explorateur
      * @return ArrayList<Area>
      */
-    public ArrayList<Area> getNearby(PlayerExplorateur a){ //à vérifier TODO
+    public ArrayList<Area> getNearby(PlayerExplorateur a){
         ArrayList<Area> nearby = new ArrayList<>();
         for (int i = a.getX() - 1; i < a.getX() + 2 ; i++) {
             for (int j = a.getY() - 1; j < a.getY() + 2 ; j++) {

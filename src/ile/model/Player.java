@@ -1,5 +1,4 @@
 package ile.model;
-import ile.Observable;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,7 +14,7 @@ public class Player {
     protected final double PROBKEY = 0.20;
     protected Model model;
 
-    public Player(Model model){
+    public Player(Model model) {
         this.model = model;
         this.x = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
         this.y = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
@@ -29,20 +28,26 @@ public class Player {
         this.energy = 3;
     }
 
-    public void gainEnergy() { this.energy++;}
+    public void gainEnergy() {
+        this.energy++;
+    }
 
-    public void loseEnergy() { this.energy--;}
+    public void loseEnergy() {
+        this.energy--;
+    }
 
-    public boolean hasEnergy() { return this.energy > 0;}
+    public boolean hasEnergy() {
+        return this.energy > 0;
+    }
 
 
-    public boolean endTour(){
+    public boolean endTour() {
         return this.energy == 0;
     }
 
 
     //mettre le compteur d'energy dans la fonction Action
-    public void Deplacement(Direction d){
+    public void Deplacement(Direction d) {
         if (this.energy > 0) {
             switch (d) {
                 case UP:
@@ -75,58 +80,64 @@ public class Player {
 
     /**
      * Renvoie une nouvelle zone sur laquelle se trouve le joueur
+     *
      * @return
      */
-    public Area getArea(){
-        return this.model.getArea(this.x,this.y);
+    public Area getArea() {
+        return this.model.getArea(this.x, this.y);
     }
 
-    public int getX(){
+    public int getX() {
         return this.x;
     }
-    public int getY(){
+
+    public int getY() {
         return this.y;
     }
 
-    public void addKey(){
+    public void addKey() {
         float probK = ThreadLocalRandom.current().nextFloat();
-        if(probK <= PROBKEY){
+        if (probK <= PROBKEY) {
             this.pocket.add(probKey());
         }
     }
 
-    public Key probKey(){
+    public Key probKey() {
         float probK = ThreadLocalRandom.current().nextFloat();
-        if(probK >= 0.75){
+        if (probK >= 0.75) {
             return Key.Air;
-        }else if(probK >= 0.5){
+        } else if (probK >= 0.5) {
             return Key.Earth;
-        }else if(probK >= 0.25){
+        } else if (probK >= 0.25) {
             return Key.Fire;
-        }else return Key.Water;
+        } else return Key.Water;
     }
 
-    public void probArtifact(){                      //touhouhijacklol
-        if(this.getArea().getType() == Type.Water){
-            if(this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water)) this.model.addArtifact(Key.Water);
-        } else if(this.getArea().getType() == Type.Fire){
-            if(this.pocket.contains(Key.Fire) && !this.model.getArtifacts().contains(Key.Fire)) this.model.addArtifact(Key.Fire);
-        } else if(this.getArea().getType() == Type.Air){
-            if(this.pocket.contains(Key.Air) && !this.model.getArtifacts().contains(Key.Air)) this.model.addArtifact(Key.Air);
-        } else if(this.getArea().getType() == Type.Earth){
-            if(this.pocket.contains(Key.Earth) && !this.model.getArtifacts().contains(Key.Earth)) this.model.addArtifact(Key.Earth);
+    public void probArtifact() {                      //touhouhijacklol
+        if (this.getArea().getType() == Type.Water) {
+            if (this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water))
+                this.model.addArtifact(Key.Water);
+        } else if (this.getArea().getType() == Type.Fire) {
+            if (this.pocket.contains(Key.Fire) && !this.model.getArtifacts().contains(Key.Fire))
+                this.model.addArtifact(Key.Fire);
+        } else if (this.getArea().getType() == Type.Air) {
+            if (this.pocket.contains(Key.Air) && !this.model.getArtifacts().contains(Key.Air))
+                this.model.addArtifact(Key.Air);
+        } else if (this.getArea().getType() == Type.Earth) {
+            if (this.pocket.contains(Key.Earth) && !this.model.getArtifacts().contains(Key.Earth))
+                this.model.addArtifact(Key.Earth);
         }
     }
 
 
-    public boolean takeArtifact(){
-        if(this.getArea().getType() == Type.Water){
+    public boolean takeArtifact() {
+        if (this.getArea().getType() == Type.Water) {
             return this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water);
-        } else if(this.getArea().getType() == Type.Fire){
+        } else if (this.getArea().getType() == Type.Fire) {
             return this.pocket.contains(Key.Fire) && !this.model.getArtifacts().contains(Key.Fire);
-        } else if(this.getArea().getType() == Type.Air){
+        } else if (this.getArea().getType() == Type.Air) {
             return this.pocket.contains(Key.Air) && !this.model.getArtifacts().contains(Key.Air);
-        } else if(this.getArea().getType() == Type.Earth){
+        } else if (this.getArea().getType() == Type.Earth) {
             return this.pocket.contains(Key.Earth) && !this.model.getArtifacts().contains(Key.Earth);
         }
         return false;
@@ -143,7 +154,7 @@ public class Player {
      */
     public int numberKeys(Key type) {
         int res = 0;
-        for (int i = 0 ; i < this.pocket.size() ; i++) {
+        for (int i = 0; i < this.pocket.size(); i++) {
             if (this.pocket.get(i) == type) {
                 res++;
             }
