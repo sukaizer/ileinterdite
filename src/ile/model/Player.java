@@ -12,7 +12,7 @@ public class Player {
     private ArrayList<Key> pocket;
     private Key[] keyPosition;
     public int energy;
-    private final double PROBKEY = 0.05;
+    private final double PROBKEY = 0.20;
     private Model model;
 
     public Player(Model model){
@@ -90,7 +90,7 @@ public class Player {
 
     public void addKey(){
         float probK = ThreadLocalRandom.current().nextFloat();
-        if(probK >= PROBKEY){
+        if(probK <= PROBKEY){
             this.pocket.add(probKey());
         }
     }

@@ -82,7 +82,7 @@ public class InventoryView extends JPanel implements Observer {
     //le bons nombre de clés
     //conditions des ifs bien remplies
     public void paintComponent(Graphics g){
-        //super.paint(g);
+        super.getParent().repaint();
         //key
         int margin = this.title.getPreferredSize().width + WIDTH/15;
         for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
@@ -91,46 +91,46 @@ public class InventoryView extends JPanel implements Observer {
                     case Water:
                         int gigi1 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Water)+1);
                         g.drawImage(this.keyWater, (gigi1) * margin + (gigi1-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE, this);
-                        if (this.model.getPlayers().get(i).numberKeys(Key.Water) > 1) {
+                        /*if (this.model.getPlayers().get(i).numberKeys(Key.Water) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
                             g.fill3DRect(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
                             JLabel w = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Water));
                             w.setBounds(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
                             this.add(w);
-                        }
+                        }*/
                         break;
                     case Earth:
                         int gigi2 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Earth)+1);
                         g.drawImage(this.keyEarth, (gigi2)*margin + (gigi2-1)*SIDE, (i+1)*HEIGHT/this.model.getPlayers().size() + 40, SIDE, SIDE, this);
-                        if (this.model.getPlayers().get(i).numberKeys(Key.Earth) > 1) {
+                        /*if (this.model.getPlayers().get(i).numberKeys(Key.Earth) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
                             g.fill3DRect(gigi2*margin + (gigi2-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
                             JLabel e = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Water));
                             e.setBounds((gigi2) * margin + (gigi2-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
                             this.add(e);
-                        }
+                        }*/
                         break;
                     case Fire:
                         int gigi3 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Fire)+1) ;
                         g.drawImage(this.keyFire, (gigi3)*margin + (gigi3-1)*SIDE, (i+1)*HEIGHT/this.model.getPlayers().size() + 40, SIDE, SIDE, this);
-                        if (this.model.getPlayers().get(i).numberKeys(Key.Fire) > 1) {
+                        /*if (this.model.getPlayers().get(i).numberKeys(Key.Fire) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
                             g.fill3DRect(gigi3*margin + (gigi3-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
                             JLabel f = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Fire));
                             f.setBounds((gigi3) * margin + (gigi3-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
                             this.add(f);
-                        }
+                        }*/
                         break;
                     case Air:
                         int gigi4 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Air)+1) ;
                         g.drawImage(this.keyAir, (gigi4)*margin + (gigi4-1)*SIDE, (i+1)*HEIGHT/this.model.getPlayers().size() + 40, SIDE, SIDE, this);
-                        if (this.model.getPlayers().get(i).numberKeys(Key.Air) > 1) {
+                        /*if (this.model.getPlayers().get(i).numberKeys(Key.Air) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
                             g.fill3DRect(gigi4*margin + (gigi4-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
                             JLabel a = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Air));
                             a.setBounds((gigi4) * margin + (gigi4-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
                             this.add(a);
-                        }
+                        }*/
                        break;
                 }
             }
