@@ -18,7 +18,7 @@ public class Model extends Observable {
         this.players = new ArrayList<>();
         this.artifacts = new ArrayList<>();
 
-        this.players.add(new PlayerExplorateur(this)); //test TODO
+        this.players.add(new Player(this)); //test TODO
         this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
@@ -248,5 +248,6 @@ public class Model extends Observable {
     public void resetFlood(PlayerIngenieur p){
         p.setFlood();
     }
+
 
 }
