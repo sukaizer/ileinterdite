@@ -1,6 +1,7 @@
 package ile.view;
 
 import ile.Observer;
+import ile.controller.InventoryController;
 import ile.model.Key;
 import ile.model.Model;
 
@@ -17,7 +18,7 @@ import javax.imageio.ImageIO;
 
 
 
-public class InventoryView extends JPanel implements Observer, MouseListener {
+public class InventoryView extends JPanel implements Observer{
     private Model model;
     private final static int WIDTH = 50*Model.LONGUEUR;
     private final static int HEIGHT = 40*Model.LONGUEUR;
@@ -83,15 +84,10 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
         public boolean inCase(int a, int b) {
             return (a >= this.x && a <= (this.x+this.SIDE) && b >= this.y && b <= (this.y+this.SIDE));
         }
-
-        public Key getKey() {
-            return this.key;
-        }
     }
 
     private ArrayList<ArrayList<Case>> takeCases;
     private ArrayList<ArrayList<Case>> dropCases;
-
     public InventoryView(Model model) throws IOException {
         this.model = model;
         this.setLayout(null);
@@ -111,7 +107,7 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
         this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
         this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
 
-        model.addObserver(this);
+        model.addObserver( this);
         Dimension dim = new Dimension(WIDTH, HEIGHT);
         this.setPreferredSize(dim);
 
@@ -148,9 +144,11 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
         this.dropCases.add(d1);
         this.dropCases.add(d2);
         this.dropCases.add(d3);
+
+        InventoryController ctrl = new InventoryController(this.model, this);
+        addMouseListener(ctrl);
     }
 
-    @Override
     public void update() {
         repaint();
     }
@@ -257,7 +255,7 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
                     }
                 }
                 if (!refill) {
-                    this.takeCases.get(i).add(new Case(j * margin + (j - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, this.model.getPlayers().get(i).positionKey().get(j)));
+                    this.takeCases.get(i).add(new Case((j+1) * margin + j* SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, this.model.getPlayers().get(i).positionKey().get(j)));
                 }
                 refill = false;
             }
@@ -266,34 +264,22 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
 
     public void fillDropCases() {
         if (this.model.getHand().hasKey()) {
-            if (this.dropCases.size() <= 4) {
-                for (int i = 0; i < this.model.getPlayers().size(); i++) {
-                    if (this.dropCases.get(i).size() <= 4) {
-                        for (int j = 0; j < this.imageElement.length; j++) {
-                            this.dropCases.get(i).add(new Case(margin + j * inSIDE, (i + 1) * HEIGHT / this.model.getPlayers().size(), inSIDE, j));
-                        }
+            for (int i = 0; i < this.model.getPlayers().size(); i++) {
+                if (this.dropCases.get(i).size() < 4) {
+                    for (int j = 0; j < this.imageElement.length; j++) {
+                        this.dropCases.get(i).add(new Case(margin + j * inSIDE, (i + 1) * HEIGHT / this.model.getPlayers().size(), inSIDE, j));
                     }
                 }
             }
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
 
+    public ArrayList<ArrayList<Case>> getTakeCases() {
+        return this.takeCases;
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {}
-
-    @Override
-    public void mouseReleased(MouseEvent e) {}
-
-    @Override
-    public void mouseEntered(MouseEvent e) {}
-
-    @Override
-    public void mouseExited(MouseEvent e) {}
+    public ArrayList<ArrayList<Case>> getDropCases() {
+        return dropCases;
+    }
 }
