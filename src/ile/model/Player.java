@@ -118,6 +118,20 @@ public class Player {
         }
     }
 
+
+    public boolean takeArtifact(){
+        if(this.getArea().getType() == Type.Water){
+            return this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water);
+        } else if(this.getArea().getType() == Type.Fire){
+            return this.pocket.contains(Key.Fire) && !this.model.getArtifacts().contains(Key.Fire);
+        } else if(this.getArea().getType() == Type.Air){
+            return this.pocket.contains(Key.Air) && !this.model.getArtifacts().contains(Key.Air);
+        } else if(this.getArea().getType() == Type.Earth){
+            return this.pocket.contains(Key.Earth) && !this.model.getArtifacts().contains(Key.Earth);
+        }
+        return false;
+    }
+
     public ArrayList<Key> getKey() {
         return this.pocket;
     }
