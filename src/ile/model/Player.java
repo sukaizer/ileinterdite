@@ -14,6 +14,7 @@ public class Player {
     public int energy;
     private final double PROBKEY = 0.05;
     private Model model;
+    private boolean alive;
 
     public Player(Model model){
         this.model = model;
@@ -21,7 +22,9 @@ public class Player {
         this.y = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
         this.pocket = new ArrayList<>();
         this.energy = 3;
+        this.alive = true;
         this.keyPosition = new Key[4];
+
     }
 
     public void reset() {
@@ -107,13 +110,13 @@ public class Player {
 
     public void probArtifact(){                      //touhouhijacklol
         if(this.getArea().getType() == Type.Water){
-            if(this.pocket.contains(Key.Water)) this.model.addArtifact(Key.Water);
+            if(this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water)) this.model.addArtifact(Key.Water);
         } else if(this.getArea().getType() == Type.Fire){
-            if(this.pocket.contains(Key.Fire)) this.model.addArtifact(Key.Fire);
+            if(this.pocket.contains(Key.Fire) && !this.model.getArtifacts().contains(Key.Fire)) this.model.addArtifact(Key.Fire);
         } else if(this.getArea().getType() == Type.Air){
-            if(this.pocket.contains(Key.Air)) this.model.addArtifact(Key.Air);
+            if(this.pocket.contains(Key.Air) && !this.model.getArtifacts().contains(Key.Air)) this.model.addArtifact(Key.Air);
         } else if(this.getArea().getType() == Type.Earth){
-            if(this.pocket.contains(Key.Earth)) this.model.addArtifact(Key.Earth);
+            if(this.pocket.contains(Key.Earth) && !this.model.getArtifacts().contains(Key.Earth)) this.model.addArtifact(Key.Earth);
         }
     }
 
@@ -121,6 +124,11 @@ public class Player {
         return this.pocket;
     }
 
+
+    public void setDead(){
+        this.alive = false;
+    }
+  
     /*
     return the number of the same jey before this one for a character
     @key : the position of the key (always under the pocket size)
