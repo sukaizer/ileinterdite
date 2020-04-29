@@ -46,10 +46,9 @@ public class InfoView extends JPanel implements Observer {
                 this.b = true;
             }
         }
-        for (Player player : this.model.getPlayers()){
-            if(player.takeArtifact()){
-                this.b2 = true;
-            }
+
+        if(this.model.getPlayers().get(this.model.getTour()).takeArtifact()){
+            this.b2 = true;
         }
         this.floodIndication.setVisible(b);
         this.artifactIndication.setVisible(b2);
