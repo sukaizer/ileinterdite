@@ -6,6 +6,8 @@ import ile.model.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,11 +15,16 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 
-public class InventoryView extends JPanel implements Observer {
+
+public class InventoryView extends JPanel implements Observer, MouseListener {
     private Model model;
     private final static int WIDTH = 50*Model.LONGUEUR;
     private final static int HEIGHT = 40*Model.LONGUEUR;
     private final static int SIDE = Model.LONGUEUR*4;
+    private final static int inSIDE = SIDE/2;
+
+    private static int margin;
+
     /*
     private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
     private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
@@ -35,9 +42,56 @@ public class InventoryView extends JPanel implements Observer {
     private JLabel title;
     private ArrayList<JLabel> players;
 
+    public class Case {
+        private int x;
+        private int y;
+        private int SIDE;
+        private Key key;
+
+        public Case(int x, int y, int side, Key k) {
+            this.x = x;
+            this.y = y;
+            this.SIDE = side;
+            this.key = k;
+        }
+
+        public Case(int x, int y, int side, int key){
+            this.x = x;
+            this.y = y;
+            this.SIDE = side;
+            switch (key){
+                case 0:
+                    this.key = Key.Air;
+                    break;
+                case 1:
+                    this.key = Key.Water;
+                    break;
+                case 2:
+                    this.key = Key.Fire;
+                    break;
+                case 3:
+                    this.key = Key.Earth;
+                    break;
+            }
+        }
+
+        public boolean inCase(int a, int b) {
+            return (a >= this.x && a <= (this.x+this.SIDE) && b >= this.y && b <= (this.y+this.SIDE));
+        }
+
+        public Key getKey() {
+            return this.key;
+        }
+    }
+
+    private ArrayList<ArrayList<Case>> takeCases;
+    private ArrayList<ArrayList<Case>> dropCases;
+
     public InventoryView(Model model) throws IOException {
         this.model = model;
         this.setLayout(null);
+
+
 
         /*
         this.imageElement[0] = ImageIO.read(new File("src/files/air.PNG"));
@@ -68,6 +122,11 @@ public class InventoryView extends JPanel implements Observer {
             this.add(this.players.get(i));
             this.players.get(i).setBounds(WIDTH/15, (i+1)*HEIGHT/this.model.getPlayers().size(), size.width, size.height);
         }
+
+        this.margin = this.title.getPreferredSize().width + WIDTH/15;
+
+        this.takeCases = new ArrayList<>();
+        this.dropCases = new ArrayList<>();
     }
 
     @Override
@@ -84,51 +143,50 @@ public class InventoryView extends JPanel implements Observer {
     public void paint(Graphics g){
         super.paint(g);
         //key
-        int margin = this.title.getPreferredSize().width + WIDTH/15;
         for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
             for (int j = 0 ; j < this.model.getPlayers().get(i).getKey().size(); j++) {
                 switch(this.model.getPlayers().get(i).getKey().get(j)) {
                     case Water:
                         int gigi1 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Water)+1);
-                        g.drawImage(this.keyWater, (gigi1) * margin + (gigi1-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE, this);
+                        g.drawImage(this.keyWater, (gigi1) * margin + (gigi1-1) * SIDE, (i + 1) * (HEIGHT / this.model.getPlayers().size())+SIDE, SIDE, SIDE, this);
                         if (this.model.getPlayers().get(i).numberKeys(Key.Water) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
-                            g.fill3DRect(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
+                            g.fill3DRect(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, 30, 30, true);
                             JLabel w = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Water));
-                            w.setBounds(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
+                            w.setBounds(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(w);
                         }
                         break;
                     case Earth:
                         int gigi2 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Earth)+1);
-                        g.drawImage(this.keyEarth, (gigi2)*margin + (gigi2-1)*SIDE, (i+1)*HEIGHT/this.model.getPlayers().size() + 40, SIDE, SIDE, this);
+                        g.drawImage(this.keyEarth, (gigi2)*margin + (gigi2-1)*SIDE, (i+1)*(HEIGHT / this.model.getPlayers().size())+SIDE, SIDE, SIDE, this);
                         if (this.model.getPlayers().get(i).numberKeys(Key.Earth) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
-                            g.fill3DRect(gigi2*margin + (gigi2-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
+                            g.fill3DRect(gigi2*margin + (gigi2-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, 30, 30, true);
                             JLabel e = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Water));
-                            e.setBounds((gigi2) * margin + (gigi2-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
+                            e.setBounds((gigi2) * margin + (gigi2-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(e);
                         }
                         break;
                     case Fire:
                         int gigi3 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Fire)+1) ;
-                        g.drawImage(this.keyFire, (gigi3)*margin + (gigi3-1)*SIDE, (i+1)*HEIGHT/this.model.getPlayers().size() + 40, SIDE, SIDE, this);
+                        g.drawImage(this.keyFire, (gigi3)*margin + (gigi3-1)*SIDE, (i+1)*(HEIGHT / this.model.getPlayers().size())+SIDE, SIDE, SIDE, this);
                         if (this.model.getPlayers().get(i).numberKeys(Key.Fire) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
-                            g.fill3DRect(gigi3*margin + (gigi3-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
+                            g.fill3DRect(gigi3*margin + (gigi3-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, 30, 30, true);
                             JLabel f = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Fire));
-                            f.setBounds((gigi3) * margin + (gigi3-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
+                            f.setBounds((gigi3) * margin + (gigi3-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(f);
                         }
                         break;
                     case Air:
                         int gigi4 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Air)+1) ;
-                        g.drawImage(this.keyAir, (gigi4)*margin + (gigi4-1)*SIDE, (i+1)*HEIGHT/this.model.getPlayers().size() + 40, SIDE, SIDE, this);
+                        g.drawImage(this.keyAir, (gigi4)*margin + (gigi4-1)*SIDE, (i+1)*(HEIGHT / this.model.getPlayers().size())+SIDE, SIDE, SIDE, this);
                         if (this.model.getPlayers().get(i).numberKeys(Key.Air) > 1) {
                             g.setColor(new Color(255, 255, 255, 180));
-                            g.fill3DRect(gigi4*margin + (gigi4-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, 30, 30, true);
+                            g.fill3DRect(gigi4*margin + (gigi4-1)*SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, 30, 30, true);
                             JLabel a = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Air));
-                            a.setBounds((gigi4) * margin + (gigi4-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + 40, SIDE, SIDE);
+                            a.setBounds((gigi4) * margin + (gigi4-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(a);
                         }
                        break;
@@ -155,5 +213,57 @@ public class InventoryView extends JPanel implements Observer {
                     g.drawImage(imageElement[3], 4*WIDTH/5, HEIGHT/30+SIDE/2, SIDE*2, SIDE*2, this);
             }
         }
+        //hand
+        if (this.model.getHand().hasKey()) {
+            for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
+                for (int j = 0 ; j < this.imageElement.length ; j++) {
+                    g.drawImage(imageElement[j], margin + j*inSIDE, (i+1)*HEIGHT/this.model.getPlayers().size(), inSIDE, inSIDE, this);
+                    fillDropCases();
+                }
+            }
+        }
     }
+
+    public void fillTakeCase() {
+
+    }
+
+    public void fillDropCases() {
+        if (this.model.getHand().hasKey()) {
+            if (this.dropCases.size() < 4) {
+                for (int i = 0; i < this.model.getPlayers().size(); i++) {
+                    if (this.dropCases.get(i).size() < 4) {
+                        for (int j = 0; j < this.imageElement.length; j++) {
+                            this.dropCases.get(i).add(new Case(margin + j * inSIDE, (i + 1) * HEIGHT / this.model.getPlayers().size(), inSIDE, j));
+                        }
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < this.model.getPlayers().size(); i++) {
+                for (int j = 0; j < this.imageElement.length; j++) {
+                    this.dropCases.get(i).clear();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {}
+
+    @Override
+    public void mouseReleased(MouseEvent e) {}
+
+    @Override
+    public void mouseEntered(MouseEvent e) {}
+
+    @Override
+    public void mouseExited(MouseEvent e) {}
 }

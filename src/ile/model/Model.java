@@ -10,6 +10,7 @@ public class Model extends Observable {
     private Area[][] areas;
     private ArrayList<Area> lands; //lands non submergées
     private ArrayList<Player> players;
+    private Hand hand;
     private ArrayList<Key> artifacts;
     private int tour;
 
@@ -21,6 +22,7 @@ public class Model extends Observable {
         this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
+        this.hand = new Hand();
         this.areas = new Area[LONGUEUR][LONGUEUR];
         this.lands = new ArrayList<>();
         for (int i = 0; i < LONGUEUR; i++) {
@@ -75,6 +77,10 @@ public class Model extends Observable {
 
     public ArrayList<Player> getPlayers(){
         return this.players;
+    }
+
+    public Hand getHand() {
+        return this.hand;
     }
 
     public int getTour(){
