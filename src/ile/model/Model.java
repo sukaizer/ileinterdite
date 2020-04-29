@@ -18,7 +18,7 @@ public class Model extends Observable {
         this.players = new ArrayList<>();
         this.artifacts = new ArrayList<>();
 
-        this.players.add(new Player(this)); //test TODO
+        this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
@@ -103,6 +103,12 @@ public class Model extends Observable {
 
     public void unflooding(int x, int y) {
         if (this.areas[x][y].getState() == State.Flooded){
+            this.areas[x][y].unFloodState();
+        }
+    }
+
+    public void unflooding(int x, int y, boolean b){
+        if (this.areas[x][y].getState() == State.Flooded || this.areas[x][y].getState() == State.Submerged){
             this.areas[x][y].unFloodState();
         }
     }
@@ -218,7 +224,7 @@ public class Model extends Observable {
      */
     public boolean testLoose(){
         for (Player player : this.players) {
-            if(player.getArea().getState() == State.Submerged){
+            if(player.getArea().getState() == State.Submerged && !(player instanceof PlayerPlongeur)){
                 return true;
             }
         }

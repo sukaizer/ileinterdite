@@ -18,9 +18,7 @@ public class Area {
     }
 
     public void unFloodState() {
-        if (this.state == State.Flooded) {
-            this.state = State.Normal;
-        }
+        this.state = State.Normal;
     }
 
     public void floodState() {

@@ -64,7 +64,6 @@ public class Player {
                     break;
                 case RIGHT:
                     if (this.x < Model.LONGUEUR - 1) {
-                        //System.out.println("yes");
                         this.x++;
                         this.energy--;
                     }
