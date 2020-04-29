@@ -14,7 +14,6 @@ public class Player {
     public int energy;
     private final double PROBKEY = 0.05;
     private Model model;
-    private boolean alive;
 
     public Player(Model model){
         this.model = model;
@@ -22,7 +21,6 @@ public class Player {
         this.y = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
         this.pocket = new ArrayList<>();
         this.energy = 3;
-        this.alive = true;
         this.keyPosition = new Key[4];
 
     }
@@ -125,10 +123,6 @@ public class Player {
     }
 
 
-    public void setDead(){
-        this.alive = false;
-    }
-  
     /*
     return the number of the same jey before this one for a character
     @key : the position of the key (always under the pocket size)
