@@ -17,6 +17,9 @@ public class GridView extends JPanel implements Observer {
     private final static int TAILLE = 50;
     private BufferedImage[] imagePlayer = new BufferedImage[4];
     private BufferedImage[] imageElement = new BufferedImage[5];
+    private BufferedImage grass;
+    private BufferedImage flooded;
+    private BufferedImage submerged;
     private View view;
 
     public GridView(Model model,View view) throws IOException {
@@ -36,6 +39,9 @@ public class GridView extends JPanel implements Observer {
          * chargement des images
          *
         **/
+        this.grass = ImageIO.read(new File("src/files/grass.JPG"));
+        this.flooded = ImageIO.read(new File("src/files/flooded.JPG"));
+        this.submerged = ImageIO.read(new File("src/files/submerged.JPG"));
 
         this.imagePlayer[0] = ImageIO.read(new File("src/files/player1.PNG"));
         this.imagePlayer[1] = ImageIO.read(new File("src/files/player2.PNG"));
@@ -86,16 +92,11 @@ public class GridView extends JPanel implements Observer {
 
                 if (a.getType().equals(Type.Land)) { //paint des cases normales
                     if (a.getState().equals(State.Normal)) {
-                        g.setColor(new Color(0, 204, 102));
-                        g.fill3DRect(x, y, TAILLE, TAILLE, true);
+                        g.drawImage(grass, x, y,TAILLE,TAILLE,this);
                     } else if (a.getState().equals(State.Flooded)) {
-                        g.setColor(new Color(0, 204, 102));
-                        g.fill3DRect(x, y, TAILLE, TAILLE/2,true);
-                        g.setColor(new Color(74, 122, 204));
-                        g.fill3DRect(x, y + TAILLE/2, TAILLE, TAILLE/2,true);
+                        g.drawImage(flooded, x, y,TAILLE,TAILLE,this);
                     } else if (a.getState().equals(State.Submerged)) {
-                        g.setColor(new Color(1, 0, 204));
-                        g.fill3DRect(x, y, TAILLE, TAILLE,true);
+                        g.drawImage(submerged, x, y,TAILLE,TAILLE,this);
                     }
                 } else { //paint des elements + heliport
                     if (a.getType().equals(Type.Air)) {
