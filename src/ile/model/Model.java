@@ -176,13 +176,18 @@ public class Model extends Observable {
     }
 
     public boolean testWin(){
+        int n = 0;
         if(this.artifacts.size() == 4){
             for (Player player : this.players) {
-                if (player.getArea().getType() != Type.Heliport) {
-                    return false;
+                if (player.getArea().getType() == Type.Heliport) {
+                    n++;
                 }
             }
-            return true;
+            if(n == this.players.size()){
+                return true;
+            }else{
+                return false;
+            }
         }
         return false;
     }

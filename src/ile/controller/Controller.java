@@ -5,6 +5,8 @@ import ile.model.Direction;
 import ile.model.Model;
 import ile.view.ButtonView;
 import ile.view.GridView;
+import ile.view.View;
+
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,8 +16,11 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
     Model model;
     ButtonView buttons;
     GridView grid;
-    public Controller(Model model,ButtonView buttons,GridView grid) {
+    View view;
+
+    public Controller(Model model,ButtonView buttons,GridView grid, View view) {
         this.model = model;
+        this.view = view;
         this.buttons = buttons;
         this.grid = grid;
     }
@@ -33,8 +38,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
             this.model.getPlayers().get(this.model.getTour()).addKey();
             this.model.nextTour();
         }
-        if(this.model.testLoose()) System.exit(1); //do something
-        this.model.testWin(); //do something
+        if(this.model.testLoose()) this.view.endGameLoose();
+        if(this.model.testWin()) this.view.endGameWin();
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -60,8 +65,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 this.model.getPlayers().get(this.model.getTour()).probArtifact();
                 break;
         }
-        if(this.model.testLoose()) System.exit(1); //do something
-        this.model.testWin(); //do something
+        if(this.model.testLoose()) this.view.endGameLoose();
+        if(this.model.testWin()) this.view.endGameWin();
     }
 
     @Override

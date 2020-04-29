@@ -17,9 +17,11 @@ public class GridView extends JPanel implements Observer {
     private final static int TAILLE = 50;
     private BufferedImage[] imagePlayer = new BufferedImage[4];
     private BufferedImage[] imageElement = new BufferedImage[5];
+    private View view;
 
-    public GridView(Model model) throws IOException {
+    public GridView(Model model,View view) throws IOException {
         this.model = model;
+        this.view = view;
         /** On enregistre la vue [this] en tant qu'observateur de [modele]. */
         model.addObserver(this);
         /**
@@ -61,7 +63,7 @@ public class GridView extends JPanel implements Observer {
 
 
         //on ajoute un controlleur pour la fenetre principale
-        Controller ctrl = new Controller(this.model,new ButtonView(this.model,this),this);
+        Controller ctrl = new Controller(this.model,new ButtonView(this.model,this,this.view),this,this.view);
         addMouseListener(ctrl);
     }
 

@@ -18,7 +18,6 @@ public class Main {
             try {
                 View view = new View(model);
                 model.notifyObservers();
-                //view.updateContentFrame();
             } catch (IOException e) {
                 e.printStackTrace();
             }
