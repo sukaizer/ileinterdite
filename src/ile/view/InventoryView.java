@@ -143,16 +143,16 @@ public class InventoryView extends JPanel implements Observer {
         for (int i = 0 ; i < this.model.getArtifacts().size(); i++) {
             switch(this.model.getArtifacts().get(i)) {
                 case Air:
-                    g.drawImage(imageElement[0], WIDTH/5, HEIGHT/30+SIDE/2, SIDE*2, SIDE*2, this);
+                    g.drawImage(imageElement[0], WIDTH/5, HEIGHT/30+SIDE/2, SIDE, SIDE, this);
                     break;
                 case Fire:
-                    g.drawImage(imageElement[2], 2*WIDTH/5, HEIGHT/30+SIDE/2, SIDE*2, SIDE*2, this);
+                    g.drawImage(imageElement[2], 2*WIDTH/5, HEIGHT/30+SIDE/2, SIDE, SIDE, this);
                     break;
                 case Earth:
-                    g.drawImage(imageElement[3], 3*WIDTH/5, HEIGHT/30+SIDE/2, SIDE*2, SIDE*2, this);
+                    g.drawImage(imageElement[3], 3*WIDTH/5, HEIGHT/30+SIDE/2, SIDE, SIDE, this);
                     break;
                 case Water:
-                    g.drawImage(imageElement[1], 4*WIDTH/5, HEIGHT/30+SIDE/2, SIDE*2, SIDE*2, this);
+                    g.drawImage(imageElement[1], 4*WIDTH/5, HEIGHT/30+SIDE/2, SIDE, SIDE, this);
             }
         }
     }

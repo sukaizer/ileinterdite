@@ -33,6 +33,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
             this.model.getPlayers().get(this.model.getTour()).addKey();
             this.model.nextTour();
         }
+        if(this.model.testLoose()) System.exit(1); //do something
+        this.model.testWin(); //do something
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -58,6 +60,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 this.model.getPlayers().get(this.model.getTour()).probArtifact();
                 break;
         }
+        if(this.model.testLoose()) System.exit(1); //do something
+        this.model.testWin(); //do something
     }
 
     @Override
