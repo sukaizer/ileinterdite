@@ -10,6 +10,7 @@ public class Player {
     private int x;
     private int y;
     private ArrayList<Key> pocket;
+    private Key[] keyPosition;
     public int energy;
     private final double PROBKEY = 0.05;
     private Model model;
@@ -22,6 +23,8 @@ public class Player {
         this.pocket = new ArrayList<>();
         this.energy = 3;
         this.alive = true;
+        this.keyPosition = new Key[4];
+
     }
 
     public void reset() {
@@ -121,7 +124,36 @@ public class Player {
         return this.pocket;
     }
 
+
     public void setDead(){
         this.alive = false;
     }
+  
+    /*
+    return the number of the same jey before this one for a character
+    @key : the position of the key (always under the pocket size)
+     */
+    public int numberKeys(Key type) {
+        int res = 0;
+        for (int i = 0 ; i < this.pocket.size() ; i++) {
+            if (this.pocket.get(i) == type) {
+                res++;
+            }
+        }
+        return res;
+    }
+
+    /*
+    return a [0;3] int indicating the position of a key to print in the Inventory
+     */
+    public ArrayList<Key> positionKey() {
+        ArrayList<Key> po = new ArrayList<>();
+        for (Key k : this.pocket) {
+            if (!po.contains(k)) {
+                po.add(k);
+            }
+        }
+        return po;
+    }
+
 }
