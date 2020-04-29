@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
@@ -75,6 +76,10 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
             }
         }
 
+        public Key getCaseKey() {
+            return this.key;
+        }
+
         public boolean inCase(int a, int b) {
             return (a >= this.x && a <= (this.x+this.SIDE) && b >= this.y && b <= (this.y+this.SIDE));
         }
@@ -126,7 +131,23 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
         this.margin = this.title.getPreferredSize().width + WIDTH/15;
 
         this.takeCases = new ArrayList<>();
+        ArrayList<Case> t0 = new ArrayList<>();
+        ArrayList<Case> t1 = new ArrayList<>();
+        ArrayList<Case> t2 = new ArrayList<>();
+        ArrayList<Case> t3 = new ArrayList<>();
+        this.takeCases.add(t0);
+        this.takeCases.add(t1);
+        this.takeCases.add(t2);
+        this.takeCases.add(t3);
         this.dropCases = new ArrayList<>();
+        ArrayList<Case> d0 = new ArrayList<>();
+        ArrayList<Case> d1 = new ArrayList<>();
+        ArrayList<Case> d2 = new ArrayList<>();
+        ArrayList<Case> d3 = new ArrayList<>();
+        this.dropCases.add(d0);
+        this.dropCases.add(d1);
+        this.dropCases.add(d2);
+        this.dropCases.add(d3);
     }
 
     @Override
@@ -136,7 +157,7 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
 
 
 //les JLabels du nb de clés se mettent derrière les graphics
-//problème sur update de graphics et de JLabel
+// problème sur update de graphics et de JLabel
     //pas de doublons dans getKeys
     //le bons nombre de clés
     //conditions des ifs bien remplies
@@ -145,6 +166,7 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
         //key
         for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
             for (int j = 0 ; j < this.model.getPlayers().get(i).getKey().size(); j++) {
+                fillTakeCase();
                 switch(this.model.getPlayers().get(i).getKey().get(j)) {
                     case Water:
                         int gigi1 = (this.model.getPlayers().get(i).positionKey().indexOf(Key.Water)+1);
@@ -218,31 +240,39 @@ public class InventoryView extends JPanel implements Observer, MouseListener {
             for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
                 for (int j = 0 ; j < this.imageElement.length ; j++) {
                     g.drawImage(imageElement[j], margin + j*inSIDE, (i+1)*HEIGHT/this.model.getPlayers().size(), inSIDE, inSIDE, this);
-                    fillDropCases();
+                    this.fillDropCases();
                 }
             }
         }
     }
 
     public void fillTakeCase() {
-
+        boolean refill = false;
+        for (int i = 0 ; i < this.model.getPlayers().size() ; i++) {
+            for (int j = 0 ; j < this.model.getPlayers().get(i).positionKey().size() ; j++) {
+                for (Case c : this.takeCases.get(i)){
+                    if (c.getCaseKey() == this.model.getPlayers().get(i).positionKey().get(j)) {
+                        refill = true;
+                        break;
+                    }
+                }
+                if (!refill) {
+                    this.takeCases.get(i).add(new Case(j * margin + (j - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, this.model.getPlayers().get(i).positionKey().get(j)));
+                }
+                refill = false;
+            }
+        }
     }
 
     public void fillDropCases() {
         if (this.model.getHand().hasKey()) {
-            if (this.dropCases.size() < 4) {
+            if (this.dropCases.size() <= 4) {
                 for (int i = 0; i < this.model.getPlayers().size(); i++) {
-                    if (this.dropCases.get(i).size() < 4) {
+                    if (this.dropCases.get(i).size() <= 4) {
                         for (int j = 0; j < this.imageElement.length; j++) {
                             this.dropCases.get(i).add(new Case(margin + j * inSIDE, (i + 1) * HEIGHT / this.model.getPlayers().size(), inSIDE, j));
                         }
                     }
-                }
-            }
-        } else {
-            for (int i = 0; i < this.model.getPlayers().size(); i++) {
-                for (int j = 0; j < this.imageElement.length; j++) {
-                    this.dropCases.get(i).clear();
                 }
             }
         }

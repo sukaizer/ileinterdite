@@ -7,6 +7,7 @@ public class Hand {
 
     public Hand() {
         this.key = new ArrayList<>();
+        this.key.add(Key.Earth);
     }
 
     public boolean hasKey() {
