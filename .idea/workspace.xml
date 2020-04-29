@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ile/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/model/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Area.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ile/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/ButtonView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/ButtonView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/GridView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/GridView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/InfoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/InfoView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/InventoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/InventoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/model/PlayerExplorateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/PlayerExplorateur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -399,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588168857110</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="PlayerExplorateur corrigé">
+      <created>1588181099822</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1588181099822</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -448,10 +449,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587714281468" />
-    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588168856405">
+    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588181099009">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588168856405" />
+    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588181099009" />
     <state x="600" y="129" width="777" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587572450771" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1588101145861">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -517,14 +518,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1807" height="344" key="GridCell.Tab.2.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229401" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1588183097956">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1588183097956" />
     <state x="747" y="236" key="VCS.ChangeListViewerDialog" timestamp="1587643413912">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587643413912" />
-    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588168858773">
+    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588181103490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588168858773" />
+    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588181103490" />
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587642860302" />
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587484573691">
       <screen x="67" y="27" width="1853" height="1053" />

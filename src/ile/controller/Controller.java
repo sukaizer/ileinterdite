@@ -50,27 +50,64 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent e) {
         grid.getParent().repaint();
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_UP:
-                this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP); //valable pour les 4 joueurs (future feature)
-                break;
-            case KeyEvent.VK_DOWN:
-                this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN);
-                break;
-            case KeyEvent.VK_LEFT:
-                this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.LEFT);
-                break;
-            case KeyEvent.VK_RIGHT:
-                this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
-                break;
-            case KeyEvent.VK_A:
-                this.model.getPlayers().get(this.model.getTour()).probArtifact();
-                break;
-            case KeyEvent.VK_E:
-                if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote)
-                    this.model.deplacementPilote((PlayerPilote) this.model.getPlayers().get(this.model.getTour()));
-                break;
+        if(this.model.getPlayers().get(this.model.getTour()) instanceof PlayerExplorateur){ //déplacements spéciaux Explorateur
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_NUMPAD8:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP);
+                    break;
+                case KeyEvent.VK_NUMPAD2:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN);
+                    break;
+                case KeyEvent.VK_NUMPAD4:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.LEFT);
+                    break;
+                case KeyEvent.VK_NUMPAD6:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
+                    break;
+                case KeyEvent.VK_NUMPAD7:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP_LEFT);
+                    break;
+                case KeyEvent.VK_NUMPAD9:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP_RIGHT);
+                    break;
+                case KeyEvent.VK_NUMPAD1:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN_LEFT);
+                    break;
+                case KeyEvent.VK_NUMPAD3:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN_RIGHT);
+                    break;
+                case KeyEvent.VK_A:
+                    this.model.getPlayers().get(this.model.getTour()).probArtifact();
+                    break;
+                case KeyEvent.VK_E:
+                    if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote)
+                        this.model.deplacementPilote((PlayerPilote) this.model.getPlayers().get(this.model.getTour()));
+                    break;
+            }
+        }else{
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_NUMPAD8:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP);
+                    break;
+                case KeyEvent.VK_NUMPAD2:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN);
+                    break;
+                case KeyEvent.VK_NUMPAD4:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.LEFT);
+                    break;
+                case KeyEvent.VK_NUMPAD6:
+                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
+                    break;
+                case KeyEvent.VK_A:
+                    this.model.getPlayers().get(this.model.getTour()).probArtifact();
+                    break;
+                case KeyEvent.VK_E:
+                    if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote)
+                        this.model.deplacementPilote((PlayerPilote) this.model.getPlayers().get(this.model.getTour()));
+                    break;
+            }
         }
+
         if (this.model.testLoose()) this.view.endGameLoose();
         if (this.model.testWin()) this.view.endGameWin();
     }
