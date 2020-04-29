@@ -176,8 +176,8 @@ public class Model extends Observable {
      */
     public ArrayList<Area> getNearby(PlayerExplorateur a){ //à vérifier TODO
         ArrayList<Area> nearby = new ArrayList<>();
-        for (int i = a.getX() - 1; i < a.getX() + 1 ; i++) {
-            for (int j = a.getY() - 1; j < a.getY() + 1; j++) {
+        for (int i = a.getX() - 1; i < a.getX() + 2 ; i++) {
+            for (int j = a.getY() - 1; j < a.getY() + 2 ; j++) {
                 if(i > - 1 && j > - 1 && i < LONGUEUR && j < LONGUEUR){
                     nearby.add(areas[i][j]);
                 }
