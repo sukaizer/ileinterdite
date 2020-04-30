@@ -60,6 +60,8 @@ public class View {
         label.setBounds(WIDTH / 2 - d.width/2, HEIGHT / 6, d.width, d.height);
         label.setVisible(true);
         end.add(label);
+        //TODO add les stats de chaque joueur en fin de partie (a faire aussi pour la victoire)
+
         this.frame.add(end, BorderLayout.CENTER);
 
         this.frame.pack();
