@@ -41,11 +41,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
             this.model.nextTour();
         }
         if (this.model.testLoose()) {
-            try {
                 this.view.endGameLoose();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
         }
         if (this.model.testWin()) this.view.endGameWin();
     }
@@ -218,11 +214,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
         }
 
         if (this.model.testLoose()) {
-            try {
-                this.view.endGameLoose();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            this.view.endGameLoose();
         }
         if (this.model.testWin()) this.view.endGameWin();
     }
