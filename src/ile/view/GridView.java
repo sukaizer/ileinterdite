@@ -70,6 +70,7 @@ public class GridView extends JPanel implements Observer {
         //on ajoute un controlleur pour la fenetre principale
         Controller ctrl = new Controller(this.model, new ButtonView(this.model, this, this.view), this, this.view);
         addMouseListener(ctrl);
+        addKeyListener(ctrl);
     }
 
     /**

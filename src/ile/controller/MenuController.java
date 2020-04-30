@@ -1,0 +1,216 @@
+package ile.controller;
+
+import ile.model.*;
+import ile.view.*;
+
+import javax.swing.event.MouseInputListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+
+public class MenuController implements MouseInputListener {
+    Model model;
+    StartView view;
+    MenuView menu;
+    private int count1 = 0;
+    private int count2 = 0;
+    private int count3 = 0;
+    private int count4 = 0;
+    private int count5 = 0;
+    private int count6 = 0;
+
+    public MenuController(Model model, StartView view,MenuView menu){
+        this.model = model;
+        this.view = view;
+        this.menu = menu;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        menu.getParent().repaint();
+        int x = e.getX();
+        int y = e.getY();
+        System.out.println(menu.count);
+        if(x >= MenuView.WIDTH /12  && x <= MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75) {
+            if(count1 == 0){
+                count1++;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                count5 = 0;
+                count6 = 0;
+                menu.description.setText("Peut se déplacer et assécher en diagonale");
+                Dimension s = menu.description.getPreferredSize();
+                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setVisible(true);
+            }else{
+                if(menu.count < 3){
+                    menu.count++;
+                    menu.description.setVisible(false);
+                    model.addPlayer(new PlayerExplorateur(model));
+                }else{
+                    model.addPlayer(new PlayerExplorateur(model));
+                    try {
+                        View view = new View(model);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }else if(x >= 3* MenuView.WIDTH /12  && x <= 3* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+            if(count2 == 0){
+                count2++;
+                count1 = 0;
+                count3 = 0;
+                count4 = 0;
+                count5 = 0;
+                count6 = 0;
+                menu.description.setText("Peut assécher deux zones pour le prix d'une");
+                Dimension s = menu.description.getPreferredSize();
+                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setVisible(true);
+            }else{
+                if(menu.count < 3){
+                    menu.count++;
+                    menu.description.setVisible(false);
+                    model.addPlayer(new PlayerIngenieur(model));
+                }else{
+                    model.addPlayer(new PlayerIngenieur(model));
+                    try {
+                        View view = new View(model);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }else if(x >= 5* MenuView.WIDTH /12  && x <= 5* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+            if(count3 == 0){
+                count3++;
+                count1 = 0;
+                count2 = 0;
+                count4 = 0;
+                count5 = 0;
+                count6 = 0;
+                menu.description.setText("Peut donner une clé à un joueur distant");
+                Dimension s = menu.description.getPreferredSize();
+                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setVisible(true);
+            }else{
+                if(menu.count < 3){
+                    menu.count++;
+                    menu.description.setVisible(false);
+                    model.addPlayer(new PlayerMessager(model));
+                }else{
+                    model.addPlayer(new PlayerMessager(model));
+                    try {
+                        View view = new View(model);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }else if(x >= 7* MenuView.WIDTH /12  && x <= 7* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+            if(count4 == 0){
+                count4++;
+                count1 = 0;
+                count2 = 0;
+                count3 = 0;
+                count5 = 0;
+                count6 = 0;
+                menu.description.setText("Peut assécher une zone submergée");
+                Dimension s = menu.description.getPreferredSize();
+                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setVisible(true);
+            }else{
+                if(menu.count < 3){
+                    menu.count++;
+                    menu.description.setVisible(false);
+                    model.addPlayer(new PlayerNautilus(model));
+                }else{
+                    model.addPlayer(new PlayerNautilus(model));
+                    try {
+                        View view = new View(model);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }else if(x >= 9* MenuView.WIDTH /12  && x <= 9* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+            if(count5 == 0){
+                count5++;
+                count1 = 0;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                count6 = 0;
+                menu.description.setText("En appuyant sur E, vous vous déplacerez sur une case safe aléatoire");
+                Dimension s = menu.description.getPreferredSize();
+                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setVisible(true);
+            }else{
+                if(menu.count < 3){
+                    menu.count++;
+                    menu.description.setVisible(false);
+                    model.addPlayer(new PlayerPilote(model));
+                }else{
+                    model.addPlayer(new PlayerPilote(model));
+                    try {
+                        View view = new View(model);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }else if(x >= 11* MenuView.WIDTH /12  && x <= 11* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+            if(count6 == 0){
+                count6++;
+                count1 = 0;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                count5 = 0;
+                menu.description.setText("Peut traverser les zones submergées sans danger");
+                Dimension s = menu.description.getPreferredSize();
+                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setVisible(true);
+            }else{
+                if(menu.count < 3){
+                    menu.count++;
+                    menu.description.setVisible(false);
+                    model.addPlayer(new PlayerPlongeur(model));
+                }else{
+                    model.addPlayer(new PlayerPlongeur(model));
+                    try {
+                        View view = new View(model);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+    }
+}

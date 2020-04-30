@@ -18,10 +18,10 @@ public class Model extends Observable {
         this.players = new ArrayList<>();
         this.artifacts = new ArrayList<>();
 
+        /*this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
-        this.players.add(new Player(this));
-        this.players.add(new Player(this));
+        this.players.add(new Player(this));*/
 
         this.areas = new Area[LONGUEUR][LONGUEUR];
         this.lands = new ArrayList<>();
@@ -71,6 +71,11 @@ public class Model extends Observable {
         }
 
     }
+
+    public void addPlayer(Player player){
+        this.players.add(player);
+    }
+
     public Area getArea(int x, int y){
         return areas[x][y];
     }
