@@ -25,7 +25,7 @@ public class InventoryView extends JPanel implements Observer{
     private final static int HEIGHT = 40*Model.LONGUEUR;
     private final static int SIDE = Model.LONGUEUR*4;
     private final static int inSIDE = SIDE/2;
-
+    private static int margin;
 
     /*
     private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
@@ -33,10 +33,6 @@ public class InventoryView extends JPanel implements Observer{
     private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
     private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
     */
-
-    private final static int WIDTH = 50 * Model.LONGUEUR;
-    private final static int HEIGHT = 40 * Model.LONGUEUR;
-    private final static int SIDE = Model.LONGUEUR * 4;
 
     private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
     private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
@@ -185,7 +181,7 @@ public class InventoryView extends JPanel implements Observer{
                             JLabel w = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Water));
                             w.setBounds(gigi1 * margin + (gigi1 - 1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(w);
-                        }*/
+                        }
                         break;
                     case Earth:
 
@@ -197,7 +193,7 @@ public class InventoryView extends JPanel implements Observer{
                             JLabel e = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Water));
                             e.setBounds((gigi2) * margin + (gigi2-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(e);
-                        }*/
+                        }
                         break;
                     case Fire:
 
@@ -210,7 +206,7 @@ public class InventoryView extends JPanel implements Observer{
                             JLabel f = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Fire));
                             f.setBounds((gigi3) * margin + (gigi3-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(f);
-                        }*/
+                        }
                         break;
                     case Air:
 
@@ -223,7 +219,7 @@ public class InventoryView extends JPanel implements Observer{
                             JLabel a = new JLabel(""+this.model.getPlayers().get(i).numberKeys(Key.Air));
                             a.setBounds((gigi4) * margin + (gigi4-1) * SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE);
                             this.add(a);
-                        }*/
+                        }
                         break;
                 }
             }
