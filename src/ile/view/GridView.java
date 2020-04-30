@@ -158,4 +158,8 @@ public class GridView extends JPanel implements Observer {
         return TAILLE;
     }
 
+    public BufferedImage[] getImagePlayer(){
+        return this.imagePlayer;
+    }
+
 }

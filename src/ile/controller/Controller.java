@@ -6,6 +6,7 @@ import ile.view.GridView;
 import ile.view.View;
 
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -39,7 +40,13 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
             this.model.getPlayers().get(this.model.getTour()).addKey();
             this.model.nextTour();
         }
-        if (this.model.testLoose()) this.view.endGameLoose();
+        if (this.model.testLoose()) {
+            try {
+                this.view.endGameLoose();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         if (this.model.testWin()) this.view.endGameWin();
     }
 
@@ -210,7 +217,13 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
             }
         }
 
-        if (this.model.testLoose()) this.view.endGameLoose();
+        if (this.model.testLoose()) {
+            try {
+                this.view.endGameLoose();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         if (this.model.testWin()) this.view.endGameWin();
     }
 
