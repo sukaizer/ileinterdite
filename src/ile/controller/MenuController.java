@@ -19,6 +19,14 @@ public class MenuController implements MouseInputListener {
     private int count5 = 0;
     private int count6 = 0;
 
+    private boolean p1 = false;
+    private boolean p2 = false;
+    private boolean p3 = false;
+    private boolean p4 = false;
+    private boolean p5 = false;
+    private boolean p6 = false;
+
+
     public MenuController(Model model, StartView view,MenuView menu){
         this.model = model;
         this.view = view;
@@ -31,7 +39,7 @@ public class MenuController implements MouseInputListener {
         int x = e.getX();
         int y = e.getY();
         System.out.println(menu.count);
-        if(x >= MenuView.WIDTH /12  && x <= MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75) {
+        if(x >= MenuView.WIDTH /12  && x <= MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p1) {
             if(count1 == 0){
                 count1++;
                 count2 = 0;
@@ -48,6 +56,7 @@ public class MenuController implements MouseInputListener {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerExplorateur(model));
+                    this.p1 = true;
                 }else{
                     model.addPlayer(new PlayerExplorateur(model));
                     try {
@@ -57,7 +66,7 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 3* MenuView.WIDTH /12  && x <= 3* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+        }else if(x >= 3* MenuView.WIDTH /12  && x <= 3* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p2){
             if(count2 == 0){
                 count2++;
                 count1 = 0;
@@ -74,6 +83,7 @@ public class MenuController implements MouseInputListener {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerIngenieur(model));
+                    this.p2 = true;
                 }else{
                     model.addPlayer(new PlayerIngenieur(model));
                     try {
@@ -83,7 +93,7 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 5* MenuView.WIDTH /12  && x <= 5* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+        }else if(x >= 5* MenuView.WIDTH /12  && x <= 5* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p3){
             if(count3 == 0){
                 count3++;
                 count1 = 0;
@@ -100,6 +110,7 @@ public class MenuController implements MouseInputListener {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerMessager(model));
+                    this.p3 = true;
                 }else{
                     model.addPlayer(new PlayerMessager(model));
                     try {
@@ -109,7 +120,7 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 7* MenuView.WIDTH /12  && x <= 7* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+        }else if(x >= 7* MenuView.WIDTH /12  && x <= 7* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p4){
             if(count4 == 0){
                 count4++;
                 count1 = 0;
@@ -126,6 +137,7 @@ public class MenuController implements MouseInputListener {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerNautilus(model));
+                    this.p4 = true;
                 }else{
                     model.addPlayer(new PlayerNautilus(model));
                     try {
@@ -135,7 +147,7 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 9* MenuView.WIDTH /12  && x <= 9* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+        }else if(x >= 9* MenuView.WIDTH /12  && x <= 9* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p5){
             if(count5 == 0){
                 count5++;
                 count1 = 0;
@@ -152,6 +164,7 @@ public class MenuController implements MouseInputListener {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerPilote(model));
+                    this.p5 = true;
                 }else{
                     model.addPlayer(new PlayerPilote(model));
                     try {
@@ -161,7 +174,7 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 11* MenuView.WIDTH /12  && x <= 11* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75){
+        }else if(x >= 11* MenuView.WIDTH /12  && x <= 11* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p6){
             if(count6 == 0){
                 count6++;
                 count1 = 0;
@@ -178,6 +191,7 @@ public class MenuController implements MouseInputListener {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerPlongeur(model));
+                    this.p6 = true;
                 }else{
                     model.addPlayer(new PlayerPlongeur(model));
                     try {

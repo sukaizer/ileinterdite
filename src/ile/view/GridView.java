@@ -14,7 +14,7 @@ import java.io.IOException;
 public class GridView extends JPanel implements Observer {
     private Model model;
     private final static int TAILLE = 50;
-    private BufferedImage[] imagePlayer = new BufferedImage[4];
+    private BufferedImage[] imagePlayer = new BufferedImage[6];
     private BufferedImage[] imageElement = new BufferedImage[5];
     private BufferedImage grass;
     private BufferedImage flooded;
@@ -42,10 +42,12 @@ public class GridView extends JPanel implements Observer {
         this.flooded = ImageIO.read(new File("src/files/flooded.JPG"));
         this.submerged = ImageIO.read(new File("src/files/submerged.JPG"));
 
-        this.imagePlayer[0] = ImageIO.read(new File("src/files/player1.PNG"));
-        this.imagePlayer[1] = ImageIO.read(new File("src/files/player2.PNG"));
-        this.imagePlayer[2] = ImageIO.read(new File("src/files/player3.PNG"));
-        this.imagePlayer[3] = ImageIO.read(new File("src/files/player4.PNG"));
+        this.imagePlayer[0] = ImageIO.read(new File("src/files/explo.JPG"));
+        this.imagePlayer[1] = ImageIO.read(new File("src/files/inge.JPG"));
+        this.imagePlayer[2] = ImageIO.read(new File("src/files/messager.JPG"));
+        this.imagePlayer[3] = ImageIO.read(new File("src/files/nautilus.JPG"));
+        this.imagePlayer[4] = ImageIO.read(new File("src/files/pilote.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));
 
         this.imageElement[0] = ImageIO.read(new File("src/files/air.PNG"));
         this.imageElement[1] = ImageIO.read(new File("src/files/water.PNG"));
@@ -129,8 +131,25 @@ public class GridView extends JPanel implements Observer {
                 g.setColor(new Color(254, 255, 255));
                 g.fillRect(p.getX() * TAILLE + 3 - 3, p.getY() * TAILLE + 3 - 3, TAILLE, TAILLE);
             }
-            g.drawImage(imagePlayer[i], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
-            i++;
+            if(p instanceof PlayerExplorateur){
+                g.drawImage(imagePlayer[0], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
+                i++;
+            }else if(p instanceof PlayerIngenieur) {
+                g.drawImage(imagePlayer[1], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
+                i++;
+            }else if(p instanceof PlayerMessager) {
+                g.drawImage(imagePlayer[2], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
+                i++;
+            }else if(p instanceof PlayerNautilus) {
+                g.drawImage(imagePlayer[3], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
+                i++;
+            }else if(p instanceof PlayerPilote) {
+                g.drawImage(imagePlayer[4], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
+                i++;
+            }else if(p instanceof PlayerPlongeur) {
+                g.drawImage(imagePlayer[5], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
+                i++;
+            }
         }
     }
 

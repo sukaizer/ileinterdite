@@ -2,9 +2,13 @@ package ile.view;
 
 import ile.controller.MenuController;
 import ile.model.Model;
+import ile.model.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 public class MenuView extends JPanel {
@@ -19,7 +23,7 @@ public class MenuView extends JPanel {
     private JLabel joueur4;
     private JLabel joueur5;
     private JLabel joueur6;
-
+    private BufferedImage[] imagePlayer = new BufferedImage[6];
     public JLabel description;
     public int count = 0;
 
@@ -35,7 +39,7 @@ public class MenuView extends JPanel {
         addMouseListener(ctrl);
         addMouseMotionListener(ctrl);
 
-        this.title = new JLabel("Choisissez votre personnage");
+        this.title = new JLabel("Choisissez votre personnage (Un personnage par joueur)");
         this.title.setFont(new Font("Calibri", Font.PLAIN, 35));
         Dimension size = this.title.getPreferredSize();
         this.title.setBounds(WIDTH/2 - size.width/2,HEIGHT/8,size.width,size.height);
@@ -83,27 +87,42 @@ public class MenuView extends JPanel {
         this.description.setBounds(WIDTH/2, HEIGHT/2 + 200,s.width,s.height);
         this.add(this.description);
         this.description.setVisible(false);
+
+        this.imagePlayer[0] = ImageIO.read(new File("src/files/explo.JPG"));
+        this.imagePlayer[1] = ImageIO.read(new File("src/files/inge.JPG"));
+        this.imagePlayer[2] = ImageIO.read(new File("src/files/messager.JPG"));
+        this.imagePlayer[3] = ImageIO.read(new File("src/files/nautilus.JPG"));
+        this.imagePlayer[4] = ImageIO.read(new File("src/files/pilote.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));
+
     }
 
     public void paintComponent(Graphics g) {
 
-        g.setColor(new Color(224, 255, 0));
-        g.fill3DRect(WIDTH/12, HEIGHT/2, 75, 75, true);
+        //g.setColor(new Color(224, 255, 0));
+        //g.fill3DRect(WIDTH/12, HEIGHT/2, 75, 75, true);
+        g.drawImage(imagePlayer[0], WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        g.setColor(new Color(59, 255, 0));
-        g.fill3DRect(3 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        //g.setColor(new Color(59, 255, 0));
+        //g.fill3DRect(3 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        g.drawImage(imagePlayer[1], 3 *WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        g.setColor(new Color(255, 0, 3));
-        g.fill3DRect(5 * WIDTH/12, HEIGHT/2, 75, 75, true);
 
-        g.setColor(new Color(255, 0, 227));
-        g.fill3DRect(7 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        //g.setColor(new Color(255, 0, 3));
+        //g.fill3DRect(5 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        g.drawImage(imagePlayer[2], 5 *WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        g.setColor(new Color(78, 255, 233));
-        g.fill3DRect(9 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        //g.setColor(new Color(255, 0, 227));
+        //g.fill3DRect(7 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        g.drawImage(imagePlayer[3], 7*WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        g.setColor(new Color(0, 0, 0));
-        g.fill3DRect(11 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        //g.setColor(new Color(78, 255, 233));
+        //g.fill3DRect(9 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        g.drawImage(imagePlayer[4], 9*WIDTH/12, HEIGHT/2, 75, 75, this);
+
+        //g.setColor(new Color(0, 0, 0));
+        //g.fill3DRect(11 * WIDTH/12, HEIGHT/2, 75, 75, true);
+        g.drawImage(imagePlayer[05], 11*WIDTH/12, HEIGHT/2, 75, 75, this);
 
     }
 }
