@@ -1,6 +1,7 @@
 package ile;
 
 import ile.model.Model;
+import ile.view.StartView;
 import ile.view.View;
 
 import java.io.IOException;
@@ -16,9 +17,8 @@ public class Main {
             /** Voici le contenu qui nous intéresse. */
             Model model = new Model();
             try {
-                View view = new View(model);
+                StartView view = new StartView(model);
                 model.notifyObservers();
-                //view.updateContentFrame();
             } catch (IOException e) {
                 e.printStackTrace();
             }

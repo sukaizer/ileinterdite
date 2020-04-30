@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/GridView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/GridView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ile/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,48 +91,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587483560103</updated>
-    </task>
-    <task id="LOCAL-00001" summary="i">
-      <created>1587483754139</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1587483754139</updated>
-    </task>
-    <task id="LOCAL-00002" summary="i">
-      <created>1587483805475</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1587483805475</updated>
-    </task>
-    <task id="LOCAL-00003" summary="affichage fonctionnel Q1 OK">
-      <created>1587484580756</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1587484580756</updated>
-    </task>
-    <task id="LOCAL-00004" summary="test">
-      <created>1587484610326</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1587484610326</updated>
-    </task>
-    <task id="LOCAL-00005" summary="affichagee joueur">
-      <created>1587487667529</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1587487667529</updated>
-    </task>
-    <task id="LOCAL-00006" summary="affichage joueur v2">
-      <created>1587500967235</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1587500967235</updated>
     </task>
     <task id="LOCAL-00007" summary="mini-bug tours fixed">
       <created>1587559874424</created>
@@ -314,37 +274,198 @@
       <option name="project" value="LOCAL" />
       <updated>1588101177856</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="artifact">
+      <created>1588101923470</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1588101923470</updated>
+    </task>
+    <task id="LOCAL-00034" summary="test loose and test win">
+      <created>1588104028039</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1588104028039</updated>
+    </task>
+    <task id="LOCAL-00035" summary="setDead useless">
+      <created>1588144914625</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1588144914625</updated>
+    </task>
+    <task id="LOCAL-00036" summary="proba key reglé&#10;affichage nb key caché (bug)&#10;sinon ok">
+      <created>1588146189703</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1588146189703</updated>
+    </task>
+    <task id="LOCAL-00037" summary="commit">
+      <created>1588148190713</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1588148190713</updated>
+    </task>
+    <task id="LOCAL-00038" summary="endgame loose and win message">
+      <created>1588156947225</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1588156947225</updated>
+    </task>
+    <task id="LOCAL-00039" summary="new graphics">
+      <created>1588160711084</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1588160711084</updated>
+    </task>
+    <task id="LOCAL-00040" summary="recup artefact affichage info">
+      <created>1588161661495</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1588161661495</updated>
+    </task>
+    <task id="LOCAL-00041" summary="recup artefact affichage info corrigé">
+      <created>1588162171046</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1588162171046</updated>
+    </task>
+    <task id="LOCAL-00042" summary="debut personnages particuliers">
+      <created>1588167989494</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1588167989494</updated>
+    </task>
+    <task id="LOCAL-00043" summary="PlayerExplorateur corrigé">
+      <created>1588168857110</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1588168857110</updated>
+    </task>
+    <task id="LOCAL-00044" summary="PlayerExplorateur corrigé">
+      <created>1588181099822</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1588181099822</updated>
+    </task>
+    <task id="LOCAL-00045" summary="PlayerExplorateur terminé">
+      <created>1588183234299</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1588183234299</updated>
+    </task>
+    <task id="LOCAL-00046" summary="non deplacement zones submergées">
+      <created>1588186325261</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1588186325261</updated>
+    </task>
+    <task id="LOCAL-00047" summary="personnages particuliers">
+      <created>1588189566296</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1588189566296</updated>
+    </task>
+    <task id="LOCAL-00048" summary="choix personnages">
+      <created>1588230137123</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1588230137123</updated>
+    </task>
+    <task id="LOCAL-00049" summary="- Choix personnages + affichage graphique OK &#10;- Bug sur energie des personnages particuliers">
+      <created>1588232921474</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1588232921474</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Personnages Particuliers tous fonctionnels (sauf messager en attente des échanges de clés)">
+      <created>1588235343526</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1588235343527</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Personnages Particuliers tous fonctionnels (sauf messager en attente des échanges de clés) + &#10;Fermeture de fenetre ok !">
+      <created>1588238383050</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1588238383051</updated>
+    </task>
+    <task id="LOCAL-00052" summary="début changement endgame win + loose idée stats de fin de partie">
+      <created>1588245380631</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1588245380631</updated>
+    </task>
+    <task id="LOCAL-00053" summary="optimisation utilisation player">
+      <created>1588247407102</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1588247407102</updated>
+    </task>
+    <task id="LOCAL-00054" summary="optimisation utilisation player + stats">
+      <created>1588247816275</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1588247816275</updated>
+    </task>
+    <task id="LOCAL-00055" summary="stats de fin de partie ok (a faire pour partie gagnante)">
+      <created>1588264332494</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1588264332494</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="i" />
-    <MESSAGE value="affichage fonctionnel Q1 OK" />
-    <MESSAGE value="affichagee joueur" />
-    <MESSAGE value="affichage joueur v2" />
-    <MESSAGE value="mini-bug tours fixed" />
-    <MESSAGE value="On peut assécher les zones en appuyant sur A" />
-    <MESSAGE value="J'avais oublié un &quot;!&quot;" />
-    <MESSAGE value="double button fixed" />
-    <MESSAGE value="partie 2 presque finie" />
-    <MESSAGE value="Partie 2 terminée." />
-    <MESSAGE value="Partie 2 terminée.  + essais de souris cliquable" />
-    <MESSAGE value="tests" />
-    <MESSAGE value="La Souris marche !!!!!!!! Partie 2 COMPLETEMENT finie :)))" />
-    <MESSAGE value="partie 3 début" />
-    <MESSAGE value="ajout d'une mini-feature qui indique quand on peut unflood (mini-bug graphique)" />
-    <MESSAGE value="commit please" />
-    <MESSAGE value="new borderLayout" />
-    <MESSAGE value="new class infoview pour les textes a afficher mais toujours meme probleme graphique a regler !!!" />
-    <MESSAGE value="probleme graphique sur les nouveaux pannels" />
-    <MESSAGE value="bug assechement meme case reglé, bug graphique des 2 derniers panels non résolu" />
-    <MESSAGE value="test paint" />
-    <MESSAGE value="bug pannel, je pense qu'on devrait recoder notre affichage graphique" />
-    <MESSAGE value="bug affichage" />
     <MESSAGE value="bug affichage presque entierement reglé" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="artifact" />
+    <MESSAGE value="test loose and test win" />
+    <MESSAGE value="setDead useless" />
+    <MESSAGE value="proba key reglé&#10;affichage nb key caché (bug)&#10;sinon ok" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="endgame loose and win message" />
+    <MESSAGE value="new graphics" />
+    <MESSAGE value="recup artefact affichage info" />
+    <MESSAGE value="recup artefact affichage info corrigé" />
+    <MESSAGE value="debut personnages particuliers" />
+    <MESSAGE value="PlayerExplorateur corrigé" />
+    <MESSAGE value="PlayerExplorateur terminé" />
+    <MESSAGE value="non deplacement zones submergées" />
+    <MESSAGE value="personnages particuliers" />
+    <MESSAGE value="choix personnages" />
+    <MESSAGE value="- Choix personnages + affichage graphique OK &#10;- Bug sur energie des personnages particuliers" />
+    <MESSAGE value="Personnages Particuliers tous fonctionnels (sauf messager en attente des échanges de clés)" />
+    <MESSAGE value="Personnages Particuliers tous fonctionnels (sauf messager en attente des échanges de clés) + &#10;Fermeture de fenetre ok !" />
+    <MESSAGE value="début changement endgame win + loose idée stats de fin de partie" />
+    <MESSAGE value="optimisation utilisation player" />
+    <MESSAGE value="optimisation utilisation player + stats" />
+    <MESSAGE value="stats de fin de partie ok" />
+    <MESSAGE value="stats de fin de partie ok (a faire pour partie gagnante)" />
+    <option name="LAST_COMMIT_MESSAGE" value="stats de fin de partie ok (a faire pour partie gagnante)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="588" y="214" width="800" height="677" key="#Notifications" timestamp="1587483801697">
@@ -355,46 +476,59 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588092371994" />
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1588190320019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588190320019" />
     <state x="626" y="293" width="724" height="519" key="#com.intellij.ide.util.ExportDialog" timestamp="1587570228033">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="626" y="293" width="724" height="519" key="#com.intellij.ide.util.ExportDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587570228033" />
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1587714281468">
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1588237996138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587714281468" />
-    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588101177104">
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588237996138" />
+    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1588247251402">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588101177104" />
+    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588247251402" />
+    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588229309557">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588229309557" />
+    <state x="552" y="101" width="777" height="847" key="CommitChangelistDialog2" timestamp="1588264331545">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="101" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588264331545" />
     <state x="600" y="129" width="777" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587572450771" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1588101145861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101145861" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587558723866">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="735" y="280" width="424" height="484" key="FileChooserDialogImpl" timestamp="1588189810008">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="735" y="280" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588189810008" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587558723866" />
-    <state width="1877" height="300" key="GridCell.Tab.0.bottom" timestamp="1588101238118">
+    <state width="1877" height="218" key="GridCell.Tab.0.bottom" timestamp="1588270341820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
+    <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588270341820" />
     <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536409" />
-    <state width="1877" height="300" key="GridCell.Tab.0.center" timestamp="1588101238118">
+    <state width="1877" height="218" key="GridCell.Tab.0.center" timestamp="1588270341820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
+    <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588270341820" />
     <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536407" />
-    <state width="1877" height="300" key="GridCell.Tab.0.left" timestamp="1588101238118">
+    <state width="1877" height="218" key="GridCell.Tab.0.left" timestamp="1588270341820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
+    <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588270341820" />
     <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536406" />
-    <state width="1877" height="300" key="GridCell.Tab.0.right" timestamp="1588101238118">
+    <state width="1877" height="218" key="GridCell.Tab.0.right" timestamp="1588270341820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588101238118" />
+    <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588270341820" />
     <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572536408" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588088066060">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -432,31 +566,43 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1807" height="344" key="GridCell.Tab.2.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587570229401" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1588238011499">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1588238011499" />
     <state x="747" y="236" key="VCS.ChangeListViewerDialog" timestamp="1587643413912">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587643413912" />
-    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588101222412">
+    <state x="540" y="258" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588264337285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588101222412" />
+    <state x="540" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588264337285" />
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587642860302" />
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587484573691">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587484573691" />
+    <state x="947" y="103" width="737" height="804" key="find.popup" timestamp="1588270236213">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="947" y="103" width="737" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588270236213" />
+    <state x="741" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588157070079">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="741" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588157070079" />
     <state x="342" y="140" key="new project wizard" timestamp="1587716944862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1587716944862" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1588082217655">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1588197117709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588082217655" />
-    <state x="153" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1587575465619">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588197117709" />
+    <state x="153" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1588156757571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="153" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587575465619" />
+    <state x="153" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588156757571" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ileinterdite$Main.ic" NAME="Main Coverage Results" MODIFIED="1587642379204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -3,7 +3,7 @@ package ile.model;
 public class Area {
     private Type type;
     private State state;
-    private final int x,y;
+    private final int x, y;
 
     public Area(Type type, int x, int y) {
         this.type = type;
@@ -13,18 +13,16 @@ public class Area {
     }
 
 
-    public void changeType(Type type){
+    public void changeType(Type type) {
         this.type = type;
     }
 
     public void unFloodState() {
-        if (this.state == State.Flooded){
-            this.state = State.Normal;
-        }
+        this.state = State.Normal;
     }
 
-    public void floodState(){
-        switch(this.state) {
+    public void floodState() {
+        switch (this.state) {
             case Normal:
                 this.state = State.Flooded;
                 break;
@@ -33,25 +31,29 @@ public class Area {
                 break;
         }
     }
-    public Type getType(){
+
+    public Type getType() {
         return this.type;
     }
-    public State getState(){
+
+    public State getState() {
         return this.state;
     }
-    public int getX(){
+
+    public int getX() {
         return this.x;
     }
-    public int getY(){
+
+    public int getY() {
         return this.y;
     }
 
 
     public int[] unflood() {
         int[] coord = new int[2];
-            coord[0] = this.x;
-            coord[1] = this.y;
-            return coord;
+        coord[0] = this.x;
+        coord[1] = this.y;
+        return coord;
     }
 
 }

@@ -18,11 +18,9 @@ public class Model extends Observable {
         this.tour = 0;
         this.players = new ArrayList<>();
         this.artifacts = new ArrayList<>();
-        this.players.add(new Player(this));
-        this.players.add(new Player(this));
-        this.players.add(new Player(this));
-        this.players.add(new Player(this));
+
         this.hand = new Hand(this);
+
         this.areas = new Area[LONGUEUR][LONGUEUR];
         this.lands = new ArrayList<>();
         for (int i = 0; i < LONGUEUR; i++) {
@@ -71,6 +69,11 @@ public class Model extends Observable {
         }
 
     }
+
+    public void addPlayer(Player player){
+        this.players.add(player);
+    }
+
     public Area getArea(int x, int y){
         return areas[x][y];
     }
@@ -105,10 +108,20 @@ public class Model extends Observable {
         }
     }
 
-    public void unflooding(int x, int y) {
+    public boolean unflooding(int x, int y) {
         if (this.areas[x][y].getState() == State.Flooded){
             this.areas[x][y].unFloodState();
+            return true;
         }
+        return false;
+    }
+
+    public boolean unflooding(int x, int y, boolean b){
+        if (this.areas[x][y].getState() == State.Flooded || this.areas[x][y].getState() == State.Submerged){
+            this.areas[x][y].unFloodState();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -174,6 +187,25 @@ public class Model extends Observable {
     }
 
 
+    /**
+     * Retourne les cases autour du joueur
+     * @param a joueur de type explorateur
+     * @return ArrayList<Area>
+     */
+    public ArrayList<Area> getNearby(PlayerExplorateur a){
+        ArrayList<Area> nearby = new ArrayList<>();
+        for (int i = a.getX() - 1; i < a.getX() + 2 ; i++) {
+            for (int j = a.getY() - 1; j < a.getY() + 2 ; j++) {
+                if(i > - 1 && j > - 1 && i < LONGUEUR && j < LONGUEUR){
+                    nearby.add(areas[i][j]);
+                }
+            }
+        }
+        return nearby;
+    }
+
+
+
     public void addArtifact(Key key){
         this.artifacts.add(key);
     }
@@ -181,5 +213,56 @@ public class Model extends Observable {
     public ArrayList<Key> getArtifacts() {
         return this.artifacts;
     }
+
+    public boolean testWin(){
+        int n = 0;
+        if(this.artifacts.size() == 4){
+            for (Player player : this.players) {
+                if (player.getArea().getType() == Type.Heliport) {
+                    n++;
+                }
+            }
+            if(n == this.players.size()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return true if loose
+     */
+    public boolean testLoose(){
+        for (Player player : this.players) {
+            if(player.getArea().getState() == State.Submerged && !(player instanceof PlayerPlongeur)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ArrayList<Area> nonSubmergedAreas(){
+        return this.lands;
+    }
+
+    public void deplacementPilote(PlayerPilote p){
+        p.deplacementPilote();
+    }
+
+    public void unflooding(PlayerIngenieur p){
+        p.floodPlus();
+    }
+
+    public int getFlood(PlayerIngenieur p){
+        return p.getFlood();
+    }
+
+    public void resetFlood(PlayerIngenieur p){
+        p.setFlood();
+    }
+
 
 }
