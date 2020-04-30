@@ -159,6 +159,7 @@ public class InventoryView extends JPanel implements Observer{
     //conditions des ifs bien remplies
     public void paint(Graphics g){
         super.paint(g);
+
         //key
         for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
             for (int j = 0 ; j < this.model.getPlayers().get(i).getKey().size(); j++) {
@@ -231,16 +232,27 @@ public class InventoryView extends JPanel implements Observer{
                     g.drawImage(imageElement[3], 4*WIDTH/5, HEIGHT/30+SIDE/2, SIDE*2, SIDE*2, this);
             }
         }
+
         //hand
-        /*
         if (this.model.getHand().hasKey()) {
-            for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
-                for (int j = 0 ; j < this.imageElement.length ; j++) {
-                    g.drawImage(imageElement[j], margin + j*inSIDE, (i+1)*HEIGHT/this.model.getPlayers().size(), inSIDE, inSIDE, this);
-                    this.fillDropCases();
-                }
+            Point p = this.getMousePosition();
+            int x = p.x;
+            int y = p.y;
+            switch (this.model.getHand().getKey().get(0)) {
+                case Fire:
+                    g.drawImage(keyFire, x, y, SIDE, SIDE, this);
+                    break;
+                case Water:
+                    g.drawImage(keyWater, x, y, SIDE, SIDE, this);
+                    break;
+                case Earth:
+                    g.drawImage(keyEarth, x, y, SIDE, SIDE, this);
+                    break;
+                case Air:
+                    g.drawImage(keyAir, x, y, SIDE, SIDE, this);
+                    break;
             }
-        }*/
+        }
     }
 
     public void fillTakeCase() {
