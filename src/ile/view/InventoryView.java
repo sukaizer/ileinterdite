@@ -47,20 +47,23 @@ public class InventoryView extends JPanel implements Observer{
     public class Case {
         private int x;
         private int y;
-        private int SIDE;
+        private int width;
+        private int height;
         private Key key;
 
-        public Case(int x, int y, int side, Key k) {
+        public Case(int x, int y, int width, int height, Key k) {
             this.x = x;
             this.y = y;
-            this.SIDE = side;
+            this.width = width;
+            this.height = height;
             this.key = k;
         }
 
-        public Case(int x, int y, int side, int key){
+        public Case(int x, int y, int width, int height, int key){
             this.x = x;
             this.y = y;
-            this.SIDE = side;
+            this.width = width;
+            this.height = height;
             switch (key){
                 case 0:
                     this.key = Key.Air;
@@ -82,12 +85,12 @@ public class InventoryView extends JPanel implements Observer{
         }
 
         public boolean inCase(int a, int b) {
-            return (a >= this.x && a <= (this.x+this.SIDE) && b >= this.y && b <= (this.y+this.SIDE));
+            return (a >= this.x && a <= (this.x+this.width) && b >= this.y && b <= (this.y+this.height));
         }
     }
 
     private ArrayList<ArrayList<Case>> takeCases;
-    private ArrayList<ArrayList<Case>> dropCases;
+    private Case[] dropCases;
     public InventoryView(Model model) throws IOException {
         this.model = model;
         this.setLayout(null);
@@ -135,15 +138,10 @@ public class InventoryView extends JPanel implements Observer{
         this.takeCases.add(t1);
         this.takeCases.add(t2);
         this.takeCases.add(t3);
-        this.dropCases = new ArrayList<>();
-        ArrayList<Case> d0 = new ArrayList<>();
-        ArrayList<Case> d1 = new ArrayList<>();
-        ArrayList<Case> d2 = new ArrayList<>();
-        ArrayList<Case> d3 = new ArrayList<>();
-        this.dropCases.add(d0);
-        this.dropCases.add(d1);
-        this.dropCases.add(d2);
-        this.dropCases.add(d3);
+        this.dropCases = new Case[4];
+        for (int i = 0 ; i < dropCases.length ; i++) {
+            dropCases[i] = new Case(WIDTH/15, (i+1)*HEIGHT/this.model.getPlayers().size(), WIDTH-SIDE,HEIGHT/this.model.getPlayers().size(), Key.Air);
+        }
 
         InventoryController ctrl = new InventoryController(this.model, this);
         addMouseListener(ctrl);
@@ -234,6 +232,7 @@ public class InventoryView extends JPanel implements Observer{
             }
         }
         //hand
+        /*
         if (this.model.getHand().hasKey()) {
             for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
                 for (int j = 0 ; j < this.imageElement.length ; j++) {
@@ -241,7 +240,7 @@ public class InventoryView extends JPanel implements Observer{
                     this.fillDropCases();
                 }
             }
-        }
+        }*/
     }
 
     public void fillTakeCase() {
@@ -255,31 +254,20 @@ public class InventoryView extends JPanel implements Observer{
                     }
                 }
                 if (!refill) {
-                    this.takeCases.get(i).add(new Case((j+1) * margin + j* SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, this.model.getPlayers().get(i).positionKey().get(j)));
+                    this.takeCases.get(i).add(new Case((j+1) * margin + j* SIDE, (i + 1) * HEIGHT / this.model.getPlayers().size() + SIDE, SIDE, SIDE, this.model.getPlayers().get(i).positionKey().get(j)));
                 }
                 refill = false;
             }
         }
     }
 
-    public void fillDropCases() {
-        if (this.model.getHand().hasKey()) {
-            for (int i = 0; i < this.model.getPlayers().size(); i++) {
-                if (this.dropCases.get(i).size() < 4) {
-                    for (int j = 0; j < this.imageElement.length; j++) {
-                        this.dropCases.get(i).add(new Case(margin + j * inSIDE, (i + 1) * HEIGHT / this.model.getPlayers().size(), inSIDE, j));
-                    }
-                }
-            }
-        }
-    }
 
 
     public ArrayList<ArrayList<Case>> getTakeCases() {
         return this.takeCases;
     }
 
-    public ArrayList<ArrayList<Case>> getDropCases() {
+    public Case[] getDropCases() {
         return dropCases;
     }
 }

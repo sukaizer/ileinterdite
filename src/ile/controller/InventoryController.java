@@ -23,20 +23,11 @@ public class InventoryController implements  MouseListener {
         int y = e.getY();
         //drop a key
         if (this.model.getHand().hasKey()) {
-            for (int i = 0 ; i < this.inventory.getDropCases().size() ; i++) {
-                for (int j = 0 ; j < this.inventory.getDropCases().get(i).size() ; j++) {
-                    if (this.inventory.getDropCases().get(i).get(j).inCase(x, y)){
-                        if (j == 0 && this.model.getHand().getKey().get(0) == Key.Air) {
-                            this.model.getPlayers().get(i).getKey().add(Key.Air);
-                        } else if(j == 1 && this.model.getHand().getKey().get(0) == Key.Water){
-                            this.model.getPlayers().get(i).getKey().add(Key.Water);
-                        } else if (j == 2 && this.model.getHand().getKey().get(0) == Key.Fire) {
-                            this.model.getPlayers().get(i).getKey().add(Key.Fire);
-                        } else  {
-                            this.model.getPlayers().get(i).getKey().add(Key.Earth);
-                        }
-                        this.model.getHand().getKey().remove(0);
-                    }
+            for (int i = 0 ; i < this.inventory.getDropCases().length ; i++) {
+                if (this.inventory.getDropCases()[i].inCase(x, y)){
+                    this.model.getPlayers().get(i).getKey().add(this.model.getHand().getKey().get(0));
+                    this.model.getHand().getKey().remove(0);
+                    break;
                 }
             }
         } else {
