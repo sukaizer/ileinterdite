@@ -241,11 +241,6 @@ public class Model extends Observable {
     }
 
     public ArrayList<Area> nonSubmergedAreas(){
-        /*ArrayList<Area> a = new ArrayList<>();
-        for (Area area:this.lands) {
-            if(!area.getState().equals(State.Submerged)) a.add(area);
-        }
-        return a;*/
         return this.lands;
     }
 

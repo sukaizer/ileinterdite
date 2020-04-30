@@ -28,6 +28,7 @@ public class View {
         this.info = new InfoView(model); //vue correspodant aux informations (textes) à afficher au-dessus
 
         this.frame.setLayout(new BorderLayout());
+        this.frame.setResizable(false);
 
         this.frame.add(grid, BorderLayout.CENTER);
         this.frame.add(command, BorderLayout.PAGE_END);

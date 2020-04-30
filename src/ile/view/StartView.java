@@ -25,4 +25,8 @@ public class StartView {
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
     }
+
+    public void closeWindow(){
+        this.frame.setVisible(false);
+    }
 }

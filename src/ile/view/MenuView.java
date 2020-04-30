@@ -122,7 +122,8 @@ public class MenuView extends JPanel {
 
         //g.setColor(new Color(0, 0, 0));
         //g.fill3DRect(11 * WIDTH/12, HEIGHT/2, 75, 75, true);
-        g.drawImage(imagePlayer[05], 11*WIDTH/12, HEIGHT/2, 75, 75, this);
+        g.drawImage(imagePlayer[5], 11*WIDTH/12, HEIGHT/2, 75, 75, this);
 
     }
+
 }

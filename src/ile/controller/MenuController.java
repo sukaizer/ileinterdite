@@ -60,7 +60,8 @@ public class MenuController implements MouseInputListener {
                 }else{
                     model.addPlayer(new PlayerExplorateur(model));
                     try {
-                        View view = new View(model);
+                        View NewView = new View(model);
+                        this.view.closeWindow();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -87,7 +88,8 @@ public class MenuController implements MouseInputListener {
                 }else{
                     model.addPlayer(new PlayerIngenieur(model));
                     try {
-                        View view = new View(model);
+                        View NewView = new View(model);
+                        this.view.closeWindow();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -114,7 +116,8 @@ public class MenuController implements MouseInputListener {
                 }else{
                     model.addPlayer(new PlayerMessager(model));
                     try {
-                        View view = new View(model);
+                        View NewView = new View(model);
+                        this.view.closeWindow();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -141,7 +144,8 @@ public class MenuController implements MouseInputListener {
                 }else{
                     model.addPlayer(new PlayerNautilus(model));
                     try {
-                        View view = new View(model);
+                        View NewView = new View(model);
+                        this.view.closeWindow();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -168,7 +172,8 @@ public class MenuController implements MouseInputListener {
                 }else{
                     model.addPlayer(new PlayerPilote(model));
                     try {
-                        View view = new View(model);
+                        View NewView = new View(model);
+                        this.view.closeWindow();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -195,7 +200,8 @@ public class MenuController implements MouseInputListener {
                 }else{
                     model.addPlayer(new PlayerPlongeur(model));
                     try {
-                        View view = new View(model);
+                        View NewView = new View(model);
+                        this.view.closeWindow();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
