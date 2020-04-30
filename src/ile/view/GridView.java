@@ -38,7 +38,7 @@ public class GridView extends JPanel implements Observer {
          * chargement des images
          *
          **/
-        /*
+
         this.grass = ImageIO.read(new File("src/files/grass.JPG"));
         this.flooded = ImageIO.read(new File("src/files/flooded.JPG"));
         this.submerged = ImageIO.read(new File("src/files/submerged.JPG"));
@@ -55,8 +55,8 @@ public class GridView extends JPanel implements Observer {
         this.imageElement[2] = ImageIO.read(new File("src/files/fire.PNG"));
         this.imageElement[3] = ImageIO.read(new File("src/files/earth.PNG"));
         this.imageElement[4] = ImageIO.read(new File("src/files/h.PNG"));
-*/
 
+        /*
         this.grass = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/grass.JPG"));
         this.flooded = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/flooded.jpg"));
         this.submerged = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/submerged.jpg"));
@@ -68,19 +68,11 @@ public class GridView extends JPanel implements Observer {
         this.imagePlayer[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/pilote.JPG"));
         this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));
 
-
-
-/*
-        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player1.PNG"));
-        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player2.PNG"));
-        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player3.PNG"));
-        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/player4.PNG"));
-*/
         this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
         this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
         this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
         this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
-        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));
+        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));*/
 
 
         //on ajoute un controlleur pour la fenetre principale

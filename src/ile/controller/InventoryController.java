@@ -21,10 +21,10 @@ public class InventoryController implements  MouseListener {
     InventoryView inventory;
 
 
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
+    private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.JPG"));
 
 
     public InventoryController(Model model, InventoryView inventory) throws IOException {

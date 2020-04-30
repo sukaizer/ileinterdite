@@ -26,27 +26,11 @@ public class InventoryView extends JPanel implements Observer{
     private final static int inSIDE = SIDE/2;
     private static int margin;
 
-    /*
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
-    */
 
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
-
-
-    /*
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
-*/
-
-
+    private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.JPG"));
 
 
     private BufferedImage[] imageElement = new BufferedImage[4];
@@ -106,35 +90,28 @@ public class InventoryView extends JPanel implements Observer{
         this.model = model;
         this.setLayout(null);
 
-        this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
-        this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
-        this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
-        this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
+        this.imageElement[0] = ImageIO.read(new File("src/files/air.png"));
+        this.imageElement[1] = ImageIO.read(new File("src/files/water.png"));
+        this.imageElement[2] = ImageIO.read(new File("src/files/fire.png"));
+        this.imageElement[3] = ImageIO.read(new File("src/files/earth.png"));
 
 
-/*
-        this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
-        this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
-        this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
-        this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
-
-*/
-
+        /*
         this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/explo.JPG"));
         this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/inge.JPG"));
         this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/messager.JPG"));
         this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/nautilus.JPG"));
         this.imagePlayer[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/pilote.JPG"));
-        this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));*/
 
-        /*
+
         this.imagePlayer[0] = ImageIO.read(new File("src/files/explo.JPG"));
         this.imagePlayer[1] = ImageIO.read(new File("src/files/inge.JPG"));
         this.imagePlayer[2] = ImageIO.read(new File("src/files/messager.JPG"));
         this.imagePlayer[3] = ImageIO.read(new File("src/files/nautilus.JPG"));
         this.imagePlayer[4] = ImageIO.read(new File("src/files/pilote.JPG"));
         this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));
-         */
+
 
 
         model.addObserver(this);
