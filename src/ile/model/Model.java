@@ -10,6 +10,7 @@ public class Model extends Observable {
     private Area[][] areas;
     private ArrayList<Area> lands; //lands non submergées
     private ArrayList<Player> players;
+    private Hand hand;
     private ArrayList<Key> artifacts;
     private int tour;
 
@@ -17,6 +18,8 @@ public class Model extends Observable {
         this.tour = 0;
         this.players = new ArrayList<>();
         this.artifacts = new ArrayList<>();
+
+        this.hand = new Hand(this);
 
         this.areas = new Area[LONGUEUR][LONGUEUR];
         this.lands = new ArrayList<>();
@@ -77,6 +80,10 @@ public class Model extends Observable {
 
     public ArrayList<Player> getPlayers(){
         return this.players;
+    }
+
+    public Hand getHand() {
+        return this.hand;
     }
 
     public int getTour(){
@@ -179,6 +186,7 @@ public class Model extends Observable {
         return nearby;
     }
 
+
     /**
      * Retourne les cases autour du joueur
      * @param a joueur de type explorateur
@@ -195,6 +203,7 @@ public class Model extends Observable {
         }
         return nearby;
     }
+
 
 
     public void addArtifact(Key key){
