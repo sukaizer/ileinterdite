@@ -57,7 +57,7 @@ public class PlayerExplorateur extends Player {
                 case DOWN_RIGHT:
                     if (this.x < Model.LONGUEUR && this.y < Model.LONGUEUR - 1) {
                         this.x++;
-                        this.y--;
+                        this.y++;
                         this.energy--;
                     }
                     break;
