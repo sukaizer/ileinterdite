@@ -159,7 +159,7 @@ public class InventoryView extends JPanel implements Observer{
     //conditions des ifs bien remplies
     public void paint(Graphics g){
         super.paint(g);
-
+        this.getParent().repaint();
         //key
         for (int i = 0 ; i < this.model.getPlayers().size(); i++) {
             for (int j = 0 ; j < this.model.getPlayers().get(i).getKey().size(); j++) {

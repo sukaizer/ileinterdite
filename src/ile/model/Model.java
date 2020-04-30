@@ -22,7 +22,7 @@ public class Model extends Observable {
         this.players.add(new Player(this));
         this.players.add(new Player(this));
         this.players.add(new Player(this));
-        this.hand = new Hand();
+        this.hand = new Hand(this);
         this.areas = new Area[LONGUEUR][LONGUEUR];
         this.lands = new ArrayList<>();
         for (int i = 0; i < LONGUEUR; i++) {
@@ -172,6 +172,7 @@ public class Model extends Observable {
         }
         return nearby;
     }
+
 
     public void addArtifact(Key key){
         this.artifacts.add(key);

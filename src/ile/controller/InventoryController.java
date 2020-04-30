@@ -38,10 +38,12 @@ public class InventoryController implements  MouseListener {
         //drop a key
         if (this.model.getHand().hasKey()) {
             for (int i = 0 ; i < this.inventory.getDropCases().length ; i++) {
-                if (this.inventory.getDropCases()[i].inCase(x, y)){
-                    this.model.getPlayers().get(i).getKey().add(this.model.getHand().getKey().get(0));
-                    this.model.getHand().getKey().remove(0);
-                    break;
+                if (this.inventory.getDropCases()[i].inCase(x, y)) {
+                    if (this.model.getHand().isNearby(this.model.getPlayers().get(i).getArea())) {
+                        this.model.getPlayers().get(i).getKey().add(this.model.getHand().getKey().get(0));
+                        this.model.getHand().removeKey();
+                        break;
+                    }
                 }
             }
         } else {
@@ -50,6 +52,8 @@ public class InventoryController implements  MouseListener {
                 for (int j = 0 ; j < this.inventory.getTakeCases().get(i).size() ; j++) {
                     if (this.inventory.getTakeCases().get(i).get(j).inCase(x, y)) {
                         this.model.getHand().addKey(this.model.getPlayers().get(i).positionKey().get(j));
+                        //the hand takes the player's coordonates
+                        this.model.getHand().setHand(this.model.getPlayers().get(i).getX(), this.model.getPlayers().get(i).getY());
                         for (Key k : this.model.getPlayers().get(i).getKey()) {
                             if (k == this.model.getPlayers().get(i).positionKey().get(j)) {
                                 this.model.getPlayers().get(i).getKey().remove(k);
@@ -70,12 +74,6 @@ public class InventoryController implements  MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        inventory.getParent().repaint();
-        int x = e.getX();
-        int y = e.getY();
-        if (this.model.getHand().hasKey()) {
-
-        }
     }
 
     @Override
