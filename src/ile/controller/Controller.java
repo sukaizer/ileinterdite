@@ -185,8 +185,10 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     this.model.getPlayers().get(this.model.getTour()).probArtifact();
                     break;
                 case KeyEvent.VK_E:
-                    if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote)
+                    if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote){
                         this.model.deplacementPilote((PlayerPilote) this.model.getPlayers().get(this.model.getTour()));
+                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                    }
                     break;
             }
         }
@@ -212,8 +214,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
                     if (this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
                         int[] a = area.unflood();
+                        if(this.model.unflooding(a[0], a[1]))
                         this.model.getPlayers().get(this.model.getTour()).loseEnergy();
-                        this.model.unflooding(a[0], a[1]);
                     }
                 }
             }
@@ -226,16 +228,24 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerIngenieur) { //classe Ingenieur
                         if (this.model.getPlayers().get(this.model.getTour()).hasEnergy() && this.model.getFlood((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())) < 2) {
                             int[] a = area.unflood();
-                            this.model.getPlayers().get(this.model.getTour()).loseEnergy();
-                            this.model.unflooding(a[0], a[1]);
-                            this.model.unflooding((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour()));
+                            if(this.model.unflooding(a[0], a[1])){
+                                if(((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())).getFlood() == 1){
+                                    this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                                }else if (((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())).getFlood() == 0){
+                                    this.model.unflooding((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour()));
+                                }
+                            }
                         }
                     }
                     if (this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
                         int[] a = area.unflood();
-                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
-                        if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerNautilus)
-                        this.model.unflooding(a[0], a[1],true);
+                        if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerNautilus){
+                            if(this.model.unflooding(a[0], a[1],true))
+                                this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                        }else{
+                            if(this.model.unflooding(a[0], a[1]))
+                            this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                        }
                     }
                 }
             }

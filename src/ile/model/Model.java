@@ -106,16 +106,20 @@ public class Model extends Observable {
         }
     }
 
-    public void unflooding(int x, int y) {
+    public boolean unflooding(int x, int y) {
         if (this.areas[x][y].getState() == State.Flooded){
             this.areas[x][y].unFloodState();
+            return true;
         }
+        return false;
     }
 
-    public void unflooding(int x, int y, boolean b){
+    public boolean unflooding(int x, int y, boolean b){
         if (this.areas[x][y].getState() == State.Flooded || this.areas[x][y].getState() == State.Submerged){
             this.areas[x][y].unFloodState();
+            return true;
         }
+        return false;
     }
 
     /**
@@ -237,11 +241,12 @@ public class Model extends Observable {
     }
 
     public ArrayList<Area> nonSubmergedAreas(){
-        ArrayList<Area> a = new ArrayList<>();
+        /*ArrayList<Area> a = new ArrayList<>();
         for (Area area:this.lands) {
             if(!area.getState().equals(State.Submerged)) a.add(area);
         }
-        return a;
+        return a;*/
+        return this.lands;
     }
 
     public void deplacementPilote(PlayerPilote p){
