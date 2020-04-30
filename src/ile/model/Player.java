@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Player {
-    //TODO
-    //on s'en occupera plus tard
     protected int x;
     protected int y;
     protected ArrayList<Key> pocket;
     protected Key[] keyPosition;
-    public int energy;
+    protected int energy;
     protected final double PROBKEY = 0.20;
     protected Model model;
+    protected int nbMoves;
+    protected int nbUnflooded;
 
     public Player(Model model) {
         this.model = model;
@@ -21,7 +21,8 @@ public class Player {
         this.pocket = new ArrayList<>();
         this.energy = 3;
         this.keyPosition = new Key[4];
-
+        this.nbMoves = 0;
+        this.nbUnflooded = 0;
     }
 
     public void reset() {
@@ -40,11 +41,25 @@ public class Player {
         return this.energy > 0;
     }
 
-
-    public boolean endTour() {
-        return this.energy == 0;
+    public int getEnergy(){
+        return this.energy;
     }
 
+    public int getNbMoves(){
+        return this.nbMoves;
+    }
+
+    public int getNbUnflooded(){
+        return this.nbUnflooded;
+    }
+
+    public void setNbMoves(){
+        this.nbMoves++;
+    }
+
+    public void setNbUnflooded(){
+        this.nbUnflooded++;
+    }
 
     //mettre le compteur d'energy dans la fonction Action
     public void Deplacement(Direction d) {

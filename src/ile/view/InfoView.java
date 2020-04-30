@@ -1,10 +1,7 @@
 package ile.view;
 
 import ile.Observer;
-import ile.model.Area;
-import ile.model.Model;
-import ile.model.PlayerExplorateur;
-import ile.model.State;
+import ile.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,24 +36,27 @@ public class InfoView extends JPanel implements Observer {
     public void paintComponent(Graphics g) {
         this.b = false;
         this.b2 = false;
-        this.actionCount.setText("Nombre d'actions restantes : " + this.model.getPlayers().get(this.model.getTour()).energy);
 
-        if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerExplorateur) {
-            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) this.model.getPlayers().get(this.model.getTour()));
+        Player player = this.model.getPlayers().get(this.model.getTour());
+
+        this.actionCount.setText("Nombre d'actions restantes : " + player.getEnergy());
+
+        if (player instanceof PlayerExplorateur) {
+            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) player);
             for (Area area : nearby) {
-                if (area.getState().equals(State.Flooded) && this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
+                if (area.getState().equals(State.Flooded) && player.hasEnergy()) {
                     this.b = true;
                 }
             }
         } else {
-            Area[] nearby = this.model.getNearby(this.model.getPlayers().get(this.model.getTour()).getArea()); //les cases a coté du joueur dont c'est le tour
+            Area[] nearby = this.model.getNearby(player.getArea()); //les cases a coté du joueur dont c'est le tour
             for (Area area : nearby) {
-                if (area.getState().equals(State.Flooded) && this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
+                if (area.getState().equals(State.Flooded) && player.hasEnergy()) {
                     this.b = true;
                 }
             }
 
-            if (this.model.getPlayers().get(this.model.getTour()).takeArtifact()) {
+            if (player.takeArtifact()) {
                 this.b2 = true;
             }
         }

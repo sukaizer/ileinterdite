@@ -50,144 +50,145 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent e) {
         grid.getParent().repaint();
+        Player player = this.model.getPlayers().get(this.model.getTour());
 
-        if(this.model.getPlayers().get(this.model.getTour()) instanceof PlayerExplorateur) { //déplacements spéciaux Explorateur
+        if(player instanceof PlayerExplorateur) { //déplacements spéciaux Explorateur
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_NUMPAD8:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX(), this.model.getPlayers().get(this.model.getTour()).getY() - 1);
+                        Area a = this.model.getArea(player.getX(), player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP);
+                            player.Deplacement(Direction.UP);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD2:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX(), this.model.getPlayers().get(this.model.getTour()).getY() + 1);
+                        Area a = this.model.getArea(player.getX(), player.getY() + 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN);
+                            player.Deplacement(Direction.DOWN);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD4:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() - 1, this.model.getPlayers().get(this.model.getTour()).getY());
+                        Area a = this.model.getArea(player.getX() - 1, player.getY());
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.LEFT);
+                            player.Deplacement(Direction.LEFT);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD6:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() + 1, this.model.getPlayers().get(this.model.getTour()).getY());
+                        Area a = this.model.getArea(player.getX() + 1, player.getY());
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
+                            player.Deplacement(Direction.RIGHT);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD7:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() - 1, this.model.getPlayers().get(this.model.getTour()).getY() - 1);
+                        Area a = this.model.getArea(player.getX() - 1, player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP_LEFT);
+                            player.Deplacement(Direction.UP_LEFT);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD9:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() + 1, this.model.getPlayers().get(this.model.getTour()).getY() - 1);
+                        Area a = this.model.getArea(player.getX() + 1, player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP_RIGHT);
+                            player.Deplacement(Direction.UP_RIGHT);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD1:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() - 1, this.model.getPlayers().get(this.model.getTour()).getY() + 1);
+                        Area a = this.model.getArea(player.getX() - 1, player.getY() + 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN_LEFT);
+                            player.Deplacement(Direction.DOWN_LEFT);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD3:
                     try {
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() + 1, this.model.getPlayers().get(this.model.getTour()).getY() - 1);
+                        Area a = this.model.getArea(player.getX() + 1, player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN_RIGHT);
+                            player.Deplacement(Direction.DOWN_RIGHT);
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_A:
-                    this.model.getPlayers().get(this.model.getTour()).probArtifact();
+                    player.probArtifact();
                     break;
             }
-        }else if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPlongeur){
+        }else if (player instanceof PlayerPlongeur){
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_NUMPAD8:
-                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP);
+                    player.Deplacement(Direction.UP);
                     break;
                 case KeyEvent.VK_NUMPAD2:
-                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN);
+                    player.Deplacement(Direction.DOWN);
                     break;
                 case KeyEvent.VK_NUMPAD4:
-                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.LEFT);
+                    player.Deplacement(Direction.LEFT);
                     break;
                 case KeyEvent.VK_NUMPAD6:
-                    this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
+                    player.Deplacement(Direction.RIGHT);
                     break;
                 case KeyEvent.VK_A:
-                    this.model.getPlayers().get(this.model.getTour()).probArtifact();
+                    player.probArtifact();
                     break;
             }
         }else{
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_NUMPAD8:
                     try{
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX(),this.model.getPlayers().get(this.model.getTour()).getY() - 1);
+                        Area a = this.model.getArea(player.getX(),player.getY() - 1);
                         if(!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.UP);
+                            player.Deplacement(Direction.UP);
                         }
                     }catch (IndexOutOfBoundsException ignored){ }
                     break;
                 case KeyEvent.VK_NUMPAD2:
                     try{
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX(),this.model.getPlayers().get(this.model.getTour()).getY() + 1);
+                        Area a = this.model.getArea(player.getX(),player.getY() + 1);
                         if(!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.DOWN);
+                            player.Deplacement(Direction.DOWN);
                         }
                     }catch (IndexOutOfBoundsException ignored){ }
                     break;
                 case KeyEvent.VK_NUMPAD4:
                     try{
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() - 1,this.model.getPlayers().get(this.model.getTour()).getY());
+                        Area a = this.model.getArea(player.getX() - 1,player.getY());
                         if(!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.LEFT);
+                            player.Deplacement(Direction.LEFT);
                         }
                     }catch (IndexOutOfBoundsException ignored){ }
                     break;
                 case KeyEvent.VK_NUMPAD6:
                     try{
-                        Area a = this.model.getArea(this.model.getPlayers().get(this.model.getTour()).getX() + 1,this.model.getPlayers().get(this.model.getTour()).getY());
+                        Area a = this.model.getArea(player.getX() + 1,player.getY());
                         if(!a.getState().equals(State.Submerged)) {
-                            this.model.getPlayers().get(this.model.getTour()).Deplacement(Direction.RIGHT);
+                            player.Deplacement(Direction.RIGHT);
                         }
                     }catch (IndexOutOfBoundsException ignored){ }
                     break;
                 case KeyEvent.VK_A:
-                    this.model.getPlayers().get(this.model.getTour()).probArtifact();
+                    player.probArtifact();
                     break;
                 case KeyEvent.VK_E:
-                    if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerPilote){
-                        this.model.deplacementPilote((PlayerPilote) this.model.getPlayers().get(this.model.getTour()));
-                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                    if (player instanceof PlayerPilote){
+                        this.model.deplacementPilote((PlayerPilote) player);
+                        player.loseEnergy();
                     }
                     break;
             }
@@ -207,44 +208,47 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
         int x = e.getX();
         int y = e.getY();
         int t = this.grid.getTaille();
+        Player player = this.model.getPlayers().get(this.model.getTour());
 
-        if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerExplorateur) {
-            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) this.model.getPlayers().get(this.model.getTour()));
+        if (player instanceof PlayerExplorateur) {
+            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) player);
             for (Area area : nearby) {
                 if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
-                    if (this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
+                    if (player.hasEnergy()) {
                         int[] a = area.unflood();
-                        if(this.model.unflooding(a[0], a[1]))
-                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                        if(this.model.unflooding(a[0], a[1])){
+                            player.loseEnergy();
+
+                        }
                     }
                 }
             }
 
         } else {
-            Area[] nearby = this.model.getNearby(this.model.getPlayers().get(this.model.getTour()).getArea()); //les cases a coté du joueur dont c'est le tour
+            Area[] nearby = this.model.getNearby(player.getArea()); //les cases a coté du joueur dont c'est le tour
 
             for (Area area : nearby) {
                 if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
-                    if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerIngenieur) { //classe Ingenieur
-                        if (this.model.getPlayers().get(this.model.getTour()).hasEnergy() && this.model.getFlood((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())) < 2) {
+                    if (player instanceof PlayerIngenieur) { //classe Ingenieur
+                        if (player.hasEnergy() && this.model.getFlood((PlayerIngenieur) player) < 2) {
                             int[] a = area.unflood();
                             if(this.model.unflooding(a[0], a[1])){
-                                if(((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())).getFlood() == 1){
-                                    this.model.getPlayers().get(this.model.getTour()).loseEnergy();
-                                }else if (((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour())).getFlood() == 0){
-                                    this.model.unflooding((PlayerIngenieur) this.model.getPlayers().get(this.model.getTour()));
+                                if(((PlayerIngenieur) player).getFlood() == 1){
+                                    player.loseEnergy();
+                                }else if (((PlayerIngenieur) player).getFlood() == 0){
+                                    this.model.unflooding((PlayerIngenieur) player);
                                 }
                             }
                         }
                     }
-                    if (this.model.getPlayers().get(this.model.getTour()).hasEnergy()) {
+                    if (player.hasEnergy()) {
                         int[] a = area.unflood();
-                        if (this.model.getPlayers().get(this.model.getTour()) instanceof PlayerNautilus){
+                        if (player instanceof PlayerNautilus){
                             if(this.model.unflooding(a[0], a[1],true))
-                                this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                                player.loseEnergy();
                         }else{
                             if(this.model.unflooding(a[0], a[1]))
-                            this.model.getPlayers().get(this.model.getTour()).loseEnergy();
+                            player.loseEnergy();
                         }
                     }
                 }
