@@ -2,6 +2,7 @@ package ile.controller;
 
 import ile.Observer;
 import ile.model.Key;
+import ile.model.PlayerMessager;
 import ile.view.InventoryView;
 import ile.model.Model;
 
@@ -20,10 +21,10 @@ public class InventoryController implements  MouseListener {
     InventoryView inventory;
 
 
-    private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.JPG"));
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
 
 
     public InventoryController(Model model, InventoryView inventory) throws IOException {
@@ -41,9 +42,10 @@ public class InventoryController implements  MouseListener {
         if (this.model.getHand().hasKey()) {
             for (int i = 0 ; i < this.inventory.getDropCases().length ; i++) {
                 if (this.inventory.getDropCases()[i].inCase(x, y)) {
-                    if (this.model.getHand().isNearby(this.model.getPlayers().get(i).getArea())) {
+                    if (this.model.getHand().isNearby(this.model.getPlayers().get(i).getArea()) || this.model.getHand().getFlying()) {
                         this.model.getPlayers().get(i).getKey().add(this.model.getHand().getKey().get(0));
                         this.model.getHand().removeKey();
+                        this.model.getHand().setFlying(false);
                         break;
                     }
                 }
@@ -56,6 +58,7 @@ public class InventoryController implements  MouseListener {
                         this.model.getHand().addKey(this.model.getPlayers().get(i).positionKey().get(j));
                         //the hand takes the player's coordonates
                         this.model.getHand().setHand(this.model.getPlayers().get(i).getX(), this.model.getPlayers().get(i).getY());
+                        if (this.model.getPlayers().get(i) instanceof PlayerMessager) this.model.getHand().setFlying(true);
                         for (Key k : this.model.getPlayers().get(i).getKey()) {
                             if (k == this.model.getPlayers().get(i).positionKey().get(j)) {
                                 this.model.getPlayers().get(i).getKey().remove(k);
