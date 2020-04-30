@@ -99,29 +99,16 @@ public class MenuView extends JPanel {
 
     public void paintComponent(Graphics g) {
 
-        //g.setColor(new Color(224, 255, 0));
-        //g.fill3DRect(WIDTH/12, HEIGHT/2, 75, 75, true);
         g.drawImage(imagePlayer[0], WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        //g.setColor(new Color(59, 255, 0));
-        //g.fill3DRect(3 * WIDTH/12, HEIGHT/2, 75, 75, true);
         g.drawImage(imagePlayer[1], 3 *WIDTH/12, HEIGHT/2, 75, 75, this);
 
-
-        //g.setColor(new Color(255, 0, 3));
-        //g.fill3DRect(5 * WIDTH/12, HEIGHT/2, 75, 75, true);
         g.drawImage(imagePlayer[2], 5 *WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        //g.setColor(new Color(255, 0, 227));
-        //g.fill3DRect(7 * WIDTH/12, HEIGHT/2, 75, 75, true);
         g.drawImage(imagePlayer[3], 7*WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        //g.setColor(new Color(78, 255, 233));
-        //g.fill3DRect(9 * WIDTH/12, HEIGHT/2, 75, 75, true);
         g.drawImage(imagePlayer[4], 9*WIDTH/12, HEIGHT/2, 75, 75, this);
 
-        //g.setColor(new Color(0, 0, 0));
-        //g.fill3DRect(11 * WIDTH/12, HEIGHT/2, 75, 75, true);
         g.drawImage(imagePlayer[5], 11*WIDTH/12, HEIGHT/2, 75, 75, this);
 
     }

@@ -46,14 +46,18 @@ public class View {
         int HEIGHT = this.frame.getHeight();
 
         this.frame.getContentPane().removeAll();
+
         this.frame.setLayout(new BorderLayout());
         this.frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
         JPanel end = new JPanel();
         end.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         end.setLayout(null);
+
         JLabel label = new JLabel("Perdu, un des joueurs ne s'en est pas sorti...");
-        label.setBounds(WIDTH / 2, HEIGHT / 4, 500, 500);
+        label.setFont(new Font("Calibri", Font.PLAIN, 35));
+        Dimension d = label.getPreferredSize();
+        label.setBounds(WIDTH / 2 - d.width/2, HEIGHT / 6, d.width, d.height);
         label.setVisible(true);
         end.add(label);
         this.frame.add(end, BorderLayout.CENTER);
@@ -68,14 +72,18 @@ public class View {
         int HEIGHT = this.frame.getHeight();
 
         this.frame.getContentPane().removeAll();
+
         this.frame.setLayout(new BorderLayout());
         this.frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
         JPanel end = new JPanel();
         end.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         end.setLayout(null);
-        JLabel label = new JLabel("Bravo vous avez gagné !");
-        label.setBounds(WIDTH / 2, HEIGHT / 4, 500, 500);
+
+        JLabel label = new JLabel("Bravo, vous avez réussi à vous échapper !");
+        label.setFont(new Font("Calibri", Font.PLAIN, 35));
+        Dimension d = label.getPreferredSize();
+        label.setBounds(WIDTH / 2 - d.width/2, HEIGHT / 6, d.width, d.height);
         label.setVisible(true);
         end.add(label);
         this.frame.add(end, BorderLayout.CENTER);
