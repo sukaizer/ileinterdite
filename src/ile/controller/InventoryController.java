@@ -43,6 +43,7 @@ public class InventoryController implements MouseListener {
                         this.model.getPlayers().get(i).getKey().add(this.model.getHand().getKey().get(0));
                         this.model.getHand().removeKey();
                         this.model.getHand().setFlying(false);
+                        this.model.getPlayers().get(this.model.getTour()).loseEnergy();
                         break;
                     }
                 }
