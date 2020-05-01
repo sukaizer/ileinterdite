@@ -1,6 +1,11 @@
 package ile.model;
 
 public class PlayerExplorateur extends Player {
+
+    /**
+     * Constructeur de classe PlayerExplorateur
+     * @param model
+     */
     public PlayerExplorateur(Model model) {
         super(model);
     }

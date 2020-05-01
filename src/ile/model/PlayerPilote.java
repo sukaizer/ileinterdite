@@ -5,10 +5,17 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class PlayerPilote extends Player {
 
+    /**
+     * Constructeur de classe PlayerPilote
+     * @param model
+     */
     public PlayerPilote(Model model) {
         super(model);
     }
 
+    /**
+     * Effectue le déplacement spécial
+     */
     public void deplacementPilote() {
         if (this.energy > 0) {
             ArrayList<Area> a = this.model.nonSubmergedAreas();

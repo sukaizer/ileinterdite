@@ -21,6 +21,12 @@ public class GridView extends JPanel implements Observer {
     private BufferedImage submerged;
     private View view;
 
+    /**
+     * Constructeur de classe GridView
+     * @param model modèle lié au programme
+     * @param view la vue principale comprenant toutes autres
+     * @throws IOException lié aux images
+     */
     public GridView(Model model, View view) throws IOException {
         this.model = model;
         this.view = view;
@@ -91,6 +97,10 @@ public class GridView extends JPanel implements Observer {
         repaint();
     }
 
+    /**
+     * Fonction de dessin principale
+     * @param g
+     */
     public void paint(Graphics g) {
         for (int i = 1; i <= Model.LONGUEUR; i++) {
             for (int j = 1; j <= Model.LONGUEUR; j++) {
@@ -160,12 +170,12 @@ public class GridView extends JPanel implements Observer {
     }
 
 
+    /**
+     * Retourne la TAILLE
+     * @return int
+     */
     public int getTaille() {
         return TAILLE;
-    }
-
-    public BufferedImage[] getImagePlayer() {
-        return this.imagePlayer;
     }
 
 }

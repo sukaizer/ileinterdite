@@ -16,6 +16,10 @@ public class InfoView extends JPanel implements Observer {
     private boolean b = false;
     private boolean b2 = false;
 
+    /**
+     * Consructeur de classe InfoView
+     * @param model modèle lié au programme
+     */
     public InfoView(Model model) {
         this.model = model;
         this.floodIndication = new JLabel("Vous pouvez cliquer sur une case à assécher");
@@ -32,6 +36,10 @@ public class InfoView extends JPanel implements Observer {
         this.artifactIndication.setForeground(new Color(255, 0, 47));
     }
 
+    /**
+     * Méthode de dessin
+     * @param g
+     */
     @Override
     public void paintComponent(Graphics g) {
         this.b = false;

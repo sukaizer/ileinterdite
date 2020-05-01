@@ -14,15 +14,17 @@ public class View {
     private JFrame frame;
     private Model model;
 
+    /**
+     * Constructeur de classe View
+     * @param model modèle lié au programme
+     * @throws IOException lié aux images
+     */
     public View(Model model) throws IOException {
 
         this.frame = new JFrame();
         this.frame.setTitle("L'ile interdite");
         this.frame.setResizable(false);
 
-        /**
-         * On lie les éléments pour plus tard
-         */
         this.grid = new GridView(model, this); //vue correspondant à la grille
         this.command = new ButtonView(model, this.grid, this); //vue correspondant aux boutons
         this.inventory = new InventoryView(model); //vue correspondant à l'inventaire
@@ -43,6 +45,9 @@ public class View {
 
     }
 
+    /**
+     * A afficher quand on perd
+     */
     public void endGameLoose() {
         int WIDTH = this.frame.getWidth();
         int HEIGHT = this.frame.getHeight();
@@ -156,6 +161,9 @@ public class View {
         this.frame.setVisible(true);
     }
 
+    /**
+     * A afficher quand on gagne
+     */
     public void endGameWin() {
         int WIDTH = this.frame.getWidth();
         int HEIGHT = this.frame.getHeight();

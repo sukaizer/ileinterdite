@@ -26,6 +26,12 @@ public class MenuView extends JPanel {
     public JLabel description;
     public int count = 0;
 
+    /**
+     * Constructeur de classe
+     * @param model modèle lié au programme
+     * @param startView la première fenetre à se lancer, correspondant au menu du choix
+     * @throws IOException lié aux images
+     */
     public MenuView(Model model, StartView startView) throws IOException {
         this.model = model;
         this.startView = startView;
@@ -96,6 +102,10 @@ public class MenuView extends JPanel {
 
     }
 
+    /**
+     * Méthode de dessin
+     * @param g
+     */
     public void paintComponent(Graphics g) {
 
         g.drawImage(imagePlayer[0], WIDTH / 12, HEIGHT / 2, 75, 75, this);

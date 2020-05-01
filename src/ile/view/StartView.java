@@ -10,6 +10,11 @@ public class StartView {
     private MenuView menu;
     private JFrame frame;
 
+    /**
+     * Constructeur de classe StartView
+     * @param model modèle lié au programme
+     * @throws IOException
+     */
     public StartView(Model model) throws IOException {
 
         this.frame = new JFrame();
@@ -25,6 +30,9 @@ public class StartView {
         this.frame.setVisible(true);
     }
 
+    /**
+     * Permet de "fermer" la fenetre
+     */
     public void closeWindow() {
         this.frame.setVisible(false);
     }
