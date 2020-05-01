@@ -210,7 +210,6 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 case KeyEvent.VK_E:
                     if (player instanceof PlayerPilote) {
                         this.model.deplacementPilote((PlayerPilote) player);
-                        player.loseEnergy();
                     }
                     break;
             }

@@ -40,7 +40,6 @@ public class MenuController implements MouseInputListener {
         menu.getParent().repaint();
         int x = e.getX();
         int y = e.getY();
-        System.out.println(menu.count);
         if (x >= MenuView.WIDTH / 12 && x <= MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p1) {
             if (count1 == 0) {
                 count1++;
