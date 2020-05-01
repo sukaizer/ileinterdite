@@ -4,7 +4,6 @@ import ile.model.Model;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class StartView {
@@ -17,7 +16,7 @@ public class StartView {
         this.frame.setTitle("L'ile interdite");
         this.frame.setResizable(false);
 
-        this.menu = new MenuView(model,this);
+        this.menu = new MenuView(model, this);
 
         this.frame.setLayout(new FlowLayout());
         this.frame.add(menu);
@@ -26,7 +25,7 @@ public class StartView {
         this.frame.setVisible(true);
     }
 
-    public void closeWindow(){
+    public void closeWindow() {
         this.frame.setVisible(false);
     }
 }

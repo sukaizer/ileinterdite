@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ileinterdite:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ileinterdite_jar</output-path>
+    <root id="archive" name="ileinterdite.jar">
+      <element id="module-output" name="ileinterdite" />
+    </root>
+  </artifact>
+</component>

@@ -1,22 +1,19 @@
 package ile.controller;
 
-import ile.Observer;
 import ile.model.Key;
+import ile.model.Model;
 import ile.model.PlayerMessager;
 import ile.view.InventoryView;
-import ile.model.Model;
 
-import javax.swing.*;
-import java.awt.*;
 import javax.imageio.ImageIO;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 
-public class InventoryController implements  MouseListener {
+public class InventoryController implements MouseListener {
     Model model;
     InventoryView inventory;
 
@@ -40,7 +37,7 @@ public class InventoryController implements  MouseListener {
         int y = e.getY();
         //drop a key
         if (this.model.getHand().hasKey()) {
-            for (int i = 0 ; i < this.inventory.getDropCases().length ; i++) {
+            for (int i = 0; i < this.inventory.getDropCases().length; i++) {
                 if (this.inventory.getDropCases()[i].inCase(x, y)) {
                     if (this.model.getHand().isNearby(this.model.getPlayers().get(i).getArea()) || this.model.getHand().getFlying()) {
                         this.model.getPlayers().get(i).getKey().add(this.model.getHand().getKey().get(0));
@@ -52,13 +49,14 @@ public class InventoryController implements  MouseListener {
             }
         } else {
             //take a key
-            for (int i = 0 ; i < this.inventory.getTakeCases().size() ; i++) {
-                for (int j = 0 ; j < this.inventory.getTakeCases().get(i).size() ; j++) {
+            for (int i = 0; i < this.inventory.getTakeCases().size(); i++) {
+                for (int j = 0; j < this.inventory.getTakeCases().get(i).size(); j++) {
                     if (this.inventory.getTakeCases().get(i).get(j).inCase(x, y)) {
                         this.model.getHand().addKey(this.model.getPlayers().get(i).positionKey().get(j));
                         //the hand takes the player's coordonates
                         this.model.getHand().setHand(this.model.getPlayers().get(i).getX(), this.model.getPlayers().get(i).getY());
-                        if (this.model.getPlayers().get(i) instanceof PlayerMessager) this.model.getHand().setFlying(true);
+                        if (this.model.getPlayers().get(i) instanceof PlayerMessager)
+                            this.model.getHand().setFlying(true);
                         for (Key k : this.model.getPlayers().get(i).getKey()) {
                             if (k == this.model.getPlayers().get(i).positionKey().get(j)) {
                                 this.model.getPlayers().get(i).getKey().remove(k);
@@ -72,20 +70,19 @@ public class InventoryController implements  MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+    }
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+    }
 
     @Override
     public void mouseEntered(MouseEvent e) {
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {}
-
-    public void paint(Graphics g) {
-
+    public void mouseExited(MouseEvent e) {
     }
 
 }

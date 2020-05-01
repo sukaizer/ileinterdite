@@ -2,13 +2,9 @@ package ile;
 
 import ile.model.Model;
 import ile.view.StartView;
-import ile.view.View;
 
-import java.io.IOException;
-import java.util.*;
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.io.IOException;
 
 public class Main {
 

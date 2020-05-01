@@ -9,9 +9,9 @@ public class PlayerPilote extends Player {
         super(model);
     }
 
-    public void deplacementPilote(){
+    public void deplacementPilote() {
         ArrayList<Area> a = this.model.nonSubmergedAreas();
-        int n = ThreadLocalRandom.current().nextInt(0,a.size());
+        int n = ThreadLocalRandom.current().nextInt(0, a.size());
         this.x = a.get(n).getX();
         this.y = a.get(n).getY();
     }

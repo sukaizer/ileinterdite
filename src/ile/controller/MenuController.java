@@ -1,11 +1,13 @@
 package ile.controller;
 
 import ile.model.*;
-import ile.view.*;
+import ile.view.MenuView;
+import ile.view.StartView;
+import ile.view.View;
 
 import javax.swing.event.MouseInputListener;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class MenuController implements MouseInputListener {
@@ -27,7 +29,7 @@ public class MenuController implements MouseInputListener {
     private boolean p6 = false;
 
 
-    public MenuController(Model model, StartView view,MenuView menu){
+    public MenuController(Model model, StartView view, MenuView menu) {
         this.model = model;
         this.view = view;
         this.menu = menu;
@@ -39,8 +41,8 @@ public class MenuController implements MouseInputListener {
         int x = e.getX();
         int y = e.getY();
         System.out.println(menu.count);
-        if(x >= MenuView.WIDTH /12  && x <= MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p1) {
-            if(count1 == 0){
+        if (x >= MenuView.WIDTH / 12 && x <= MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p1) {
+            if (count1 == 0) {
                 count1++;
                 count2 = 0;
                 count3 = 0;
@@ -49,15 +51,15 @@ public class MenuController implements MouseInputListener {
                 count6 = 0;
                 menu.description.setText("Peut se déplacer et assécher en diagonale");
                 Dimension s = menu.description.getPreferredSize();
-                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setBounds(MenuView.WIDTH / 2 - s.width / 2, MenuView.HEIGHT / 2 + 200, s.width, s.height);
                 menu.description.setVisible(true);
-            }else{
-                if(menu.count < 3){
+            } else {
+                if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerExplorateur(model));
                     this.p1 = true;
-                }else{
+                } else {
                     model.addPlayer(new PlayerExplorateur(model));
                     try {
                         View NewView = new View(model);
@@ -67,8 +69,8 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 3* MenuView.WIDTH /12  && x <= 3* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p2){
-            if(count2 == 0){
+        } else if (x >= 3 * MenuView.WIDTH / 12 && x <= 3 * MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p2) {
+            if (count2 == 0) {
                 count2++;
                 count1 = 0;
                 count3 = 0;
@@ -77,15 +79,15 @@ public class MenuController implements MouseInputListener {
                 count6 = 0;
                 menu.description.setText("Peut assécher deux zones pour le prix d'une");
                 Dimension s = menu.description.getPreferredSize();
-                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setBounds(MenuView.WIDTH / 2 - s.width / 2, MenuView.HEIGHT / 2 + 200, s.width, s.height);
                 menu.description.setVisible(true);
-            }else{
-                if(menu.count < 3){
+            } else {
+                if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerIngenieur(model));
                     this.p2 = true;
-                }else{
+                } else {
                     model.addPlayer(new PlayerIngenieur(model));
                     try {
                         View NewView = new View(model);
@@ -95,8 +97,8 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 5* MenuView.WIDTH /12  && x <= 5* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p3){
-            if(count3 == 0){
+        } else if (x >= 5 * MenuView.WIDTH / 12 && x <= 5 * MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p3) {
+            if (count3 == 0) {
                 count3++;
                 count1 = 0;
                 count2 = 0;
@@ -105,15 +107,15 @@ public class MenuController implements MouseInputListener {
                 count6 = 0;
                 menu.description.setText("Peut donner une clé à un joueur distant");
                 Dimension s = menu.description.getPreferredSize();
-                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setBounds(MenuView.WIDTH / 2 - s.width / 2, MenuView.HEIGHT / 2 + 200, s.width, s.height);
                 menu.description.setVisible(true);
-            }else{
-                if(menu.count < 3){
+            } else {
+                if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerMessager(model));
                     this.p3 = true;
-                }else{
+                } else {
                     model.addPlayer(new PlayerMessager(model));
                     try {
                         View NewView = new View(model);
@@ -123,8 +125,8 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 7* MenuView.WIDTH /12  && x <= 7* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p4){
-            if(count4 == 0){
+        } else if (x >= 7 * MenuView.WIDTH / 12 && x <= 7 * MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p4) {
+            if (count4 == 0) {
                 count4++;
                 count1 = 0;
                 count2 = 0;
@@ -133,15 +135,15 @@ public class MenuController implements MouseInputListener {
                 count6 = 0;
                 menu.description.setText("Peut assécher une zone submergée");
                 Dimension s = menu.description.getPreferredSize();
-                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setBounds(MenuView.WIDTH / 2 - s.width / 2, MenuView.HEIGHT / 2 + 200, s.width, s.height);
                 menu.description.setVisible(true);
-            }else{
-                if(menu.count < 3){
+            } else {
+                if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerNautilus(model));
                     this.p4 = true;
-                }else{
+                } else {
                     model.addPlayer(new PlayerNautilus(model));
                     try {
                         View NewView = new View(model);
@@ -151,8 +153,8 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 9* MenuView.WIDTH /12  && x <= 9* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p5){
-            if(count5 == 0){
+        } else if (x >= 9 * MenuView.WIDTH / 12 && x <= 9 * MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p5) {
+            if (count5 == 0) {
                 count5++;
                 count1 = 0;
                 count2 = 0;
@@ -161,15 +163,15 @@ public class MenuController implements MouseInputListener {
                 count6 = 0;
                 menu.description.setText("En appuyant sur E, vous vous déplacerez sur une case safe aléatoire");
                 Dimension s = menu.description.getPreferredSize();
-                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setBounds(MenuView.WIDTH / 2 - s.width / 2, MenuView.HEIGHT / 2 + 200, s.width, s.height);
                 menu.description.setVisible(true);
-            }else{
-                if(menu.count < 3){
+            } else {
+                if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerPilote(model));
                     this.p5 = true;
-                }else{
+                } else {
                     model.addPlayer(new PlayerPilote(model));
                     try {
                         View NewView = new View(model);
@@ -179,8 +181,8 @@ public class MenuController implements MouseInputListener {
                     }
                 }
             }
-        }else if(x >= 11* MenuView.WIDTH /12  && x <= 11* MenuView.WIDTH /12 + 75 && y >= MenuView.HEIGHT/2 && y <= MenuView.HEIGHT/2 + 75 && !this.p6){
-            if(count6 == 0){
+        } else if (x >= 11 * MenuView.WIDTH / 12 && x <= 11 * MenuView.WIDTH / 12 + 75 && y >= MenuView.HEIGHT / 2 && y <= MenuView.HEIGHT / 2 + 75 && !this.p6) {
+            if (count6 == 0) {
                 count6++;
                 count1 = 0;
                 count2 = 0;
@@ -189,15 +191,15 @@ public class MenuController implements MouseInputListener {
                 count5 = 0;
                 menu.description.setText("Peut traverser les zones submergées sans danger");
                 Dimension s = menu.description.getPreferredSize();
-                menu.description.setBounds(MenuView.WIDTH/2 - s.width/2, MenuView.HEIGHT/2 + 200,s.width,s.height);
+                menu.description.setBounds(MenuView.WIDTH / 2 - s.width / 2, MenuView.HEIGHT / 2 + 200, s.width, s.height);
                 menu.description.setVisible(true);
-            }else{
-                if(menu.count < 3){
+            } else {
+                if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
                     model.addPlayer(new PlayerPlongeur(model));
                     this.p6 = true;
-                }else{
+                } else {
                     model.addPlayer(new PlayerPlongeur(model));
                     try {
                         View NewView = new View(model);

@@ -8,15 +8,15 @@ public class PlayerIngenieur extends Player {
         this.flood = 0;
     }
 
-    public void setFlood(){
+    public void setFlood() {
         this.flood = 0;
     }
 
-    public void floodPlus(){
+    public void floodPlus() {
         this.flood++;
     }
 
-    public int getFlood(){
+    public int getFlood() {
         return this.flood;
     }
 

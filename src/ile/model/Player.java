@@ -41,23 +41,23 @@ public class Player {
         return this.energy > 0;
     }
 
-    public int getEnergy(){
+    public int getEnergy() {
         return this.energy;
     }
 
-    public int getNbMoves(){
+    public int getNbMoves() {
         return this.nbMoves;
     }
 
-    public int getNbUnflooded(){
+    public int getNbUnflooded() {
         return this.nbUnflooded;
     }
 
-    public void setNbMoves(){
+    public void setNbMoves() {
         this.nbMoves++;
     }
 
-    public void setNbUnflooded(){
+    public void setNbUnflooded() {
         this.nbUnflooded++;
     }
 

@@ -1,12 +1,9 @@
 package ile.view;
 
-import ile.model.*;
+import ile.model.Model;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class View {
@@ -62,10 +59,9 @@ public class View {
         JLabel label = new JLabel("Perdu, un des joueurs ne s'en est pas sorti...");
         label.setFont(new Font("Calibri", Font.PLAIN, 35));
         Dimension d = label.getPreferredSize();
-        label.setBounds(WIDTH / 2 - d.width/2, HEIGHT / 6, d.width, d.height);
+        label.setBounds(WIDTH / 2 - d.width / 2, HEIGHT / 6, d.width, d.height);
         label.setVisible(true);
         end.add(label);
-
 
 
         JLabel t1 = new JLabel("Joueur 1");
@@ -92,7 +88,7 @@ public class View {
         JLabel t2 = new JLabel("Joueur 2");
         t2.setFont(new Font("Calibri", Font.PLAIN, 25));
         Dimension d2 = label.getPreferredSize();
-        t2.setBounds(2* WIDTH / 8 , HEIGHT / 4, d2.width, d2.height);
+        t2.setBounds(2 * WIDTH / 8, HEIGHT / 4, d2.width, d2.height);
         t2.setVisible(true);
         end.add(t2);
 
@@ -106,14 +102,14 @@ public class View {
         JLabel stats22 = new JLabel("Nombre de zones asséchées : " + this.model.getPlayers().get(1).getNbUnflooded());
         stats22.setFont(new Font("Calibri", Font.PLAIN, 15));
         Dimension s22 = label.getPreferredSize();
-        stats22.setBounds(2 *WIDTH / 8, HEIGHT / 2, s22.width, s22.height);
+        stats22.setBounds(2 * WIDTH / 8, HEIGHT / 2, s22.width, s22.height);
         stats22.setVisible(true);
         end.add(stats22);
 
         JLabel t3 = new JLabel("Joueur 3");
         t3.setFont(new Font("Calibri", Font.PLAIN, 25));
         Dimension d3 = label.getPreferredSize();
-        t3.setBounds(4 *WIDTH / 8, HEIGHT / 4, d3.width, d3.height);
+        t3.setBounds(4 * WIDTH / 8, HEIGHT / 4, d3.width, d3.height);
         t3.setVisible(true);
         end.add(t3);
 
@@ -127,14 +123,14 @@ public class View {
         JLabel stats32 = new JLabel("Nombre de zones asséchées : " + this.model.getPlayers().get(2).getNbUnflooded());
         stats32.setFont(new Font("Calibri", Font.PLAIN, 15));
         Dimension s32 = label.getPreferredSize();
-        stats32.setBounds(4 *WIDTH / 8, HEIGHT / 2, s32.width, s32.height);
+        stats32.setBounds(4 * WIDTH / 8, HEIGHT / 2, s32.width, s32.height);
         stats32.setVisible(true);
         end.add(stats32);
 
         JLabel t4 = new JLabel("Joueur 4");
         t4.setFont(new Font("Calibri", Font.PLAIN, 25));
         Dimension d4 = label.getPreferredSize();
-        t4.setBounds(6 *WIDTH / 8, HEIGHT / 4, d4.width, d4.height);
+        t4.setBounds(6 * WIDTH / 8, HEIGHT / 4, d4.width, d4.height);
         t4.setVisible(true);
         end.add(t4);
 
@@ -148,7 +144,7 @@ public class View {
         JLabel stats42 = new JLabel("Nombre de zones asséchées : " + this.model.getPlayers().get(3).getNbUnflooded());
         stats42.setFont(new Font("Calibri", Font.PLAIN, 15));
         Dimension s42 = label.getPreferredSize();
-        stats42.setBounds(6 *WIDTH / 8, HEIGHT / 2, s42.width, s42.height);
+        stats42.setBounds(6 * WIDTH / 8, HEIGHT / 2, s42.width, s42.height);
         stats42.setVisible(true);
         end.add(stats42);
 
@@ -176,10 +172,9 @@ public class View {
         JLabel label = new JLabel("Gagné, vous avez réussi à vous échapper");
         label.setFont(new Font("Calibri", Font.PLAIN, 35));
         Dimension d = label.getPreferredSize();
-        label.setBounds(WIDTH / 2 - d.width/2, HEIGHT / 6, d.width, d.height);
+        label.setBounds(WIDTH / 2 - d.width / 2, HEIGHT / 6, d.width, d.height);
         label.setVisible(true);
         end.add(label);
-
 
 
         JLabel t1 = new JLabel("Joueur 1");
@@ -206,7 +201,7 @@ public class View {
         JLabel t2 = new JLabel("Joueur 2");
         t2.setFont(new Font("Calibri", Font.PLAIN, 25));
         Dimension d2 = label.getPreferredSize();
-        t2.setBounds(2* WIDTH / 8 , HEIGHT / 4, d2.width, d2.height);
+        t2.setBounds(2 * WIDTH / 8, HEIGHT / 4, d2.width, d2.height);
         t2.setVisible(true);
         end.add(t2);
 
@@ -220,14 +215,14 @@ public class View {
         JLabel stats22 = new JLabel("Nombre de zones asséchées : " + this.model.getPlayers().get(1).getNbUnflooded());
         stats22.setFont(new Font("Calibri", Font.PLAIN, 15));
         Dimension s22 = label.getPreferredSize();
-        stats22.setBounds(2 *WIDTH / 8, HEIGHT / 2, s22.width, s22.height);
+        stats22.setBounds(2 * WIDTH / 8, HEIGHT / 2, s22.width, s22.height);
         stats22.setVisible(true);
         end.add(stats22);
 
         JLabel t3 = new JLabel("Joueur 3");
         t3.setFont(new Font("Calibri", Font.PLAIN, 25));
         Dimension d3 = label.getPreferredSize();
-        t3.setBounds(4 *WIDTH / 8, HEIGHT / 4, d3.width, d3.height);
+        t3.setBounds(4 * WIDTH / 8, HEIGHT / 4, d3.width, d3.height);
         t3.setVisible(true);
         end.add(t3);
 
@@ -241,14 +236,14 @@ public class View {
         JLabel stats32 = new JLabel("Nombre de zones asséchées : " + this.model.getPlayers().get(2).getNbUnflooded());
         stats32.setFont(new Font("Calibri", Font.PLAIN, 15));
         Dimension s32 = label.getPreferredSize();
-        stats32.setBounds(4 *WIDTH / 8, HEIGHT / 2, s32.width, s32.height);
+        stats32.setBounds(4 * WIDTH / 8, HEIGHT / 2, s32.width, s32.height);
         stats32.setVisible(true);
         end.add(stats32);
 
         JLabel t4 = new JLabel("Joueur 4");
         t4.setFont(new Font("Calibri", Font.PLAIN, 25));
         Dimension d4 = label.getPreferredSize();
-        t4.setBounds(6 *WIDTH / 8, HEIGHT / 4, d4.width, d4.height);
+        t4.setBounds(6 * WIDTH / 8, HEIGHT / 4, d4.width, d4.height);
         t4.setVisible(true);
         end.add(t4);
 
@@ -262,7 +257,7 @@ public class View {
         JLabel stats42 = new JLabel("Nombre de zones asséchées : " + this.model.getPlayers().get(3).getNbUnflooded());
         stats42.setFont(new Font("Calibri", Font.PLAIN, 15));
         Dimension s42 = label.getPreferredSize();
-        stats42.setBounds(6 *WIDTH / 8, HEIGHT / 2, s42.width, s42.height);
+        stats42.setBounds(6 * WIDTH / 8, HEIGHT / 2, s42.width, s42.height);
         stats42.setVisible(true);
         end.add(stats42);
 

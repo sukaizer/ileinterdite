@@ -26,7 +26,7 @@ public class Hand {
     }
 
     public void addKey(Key k) {
-        if(this.key.size() == 0) {
+        if (this.key.size() == 0) {
             this.key.add(k);
         }
     }
@@ -36,33 +36,17 @@ public class Hand {
         this.y = b;
     }
 
-    public int getHandX() {
-        return this.x;
-    }
-
-    public int getHandY() {
-        return this.y;
-    }
-
-    /**
-     * Renvoie une nouvelle zone sur laquelle se trouve le joueur
-     * @return
-     */
-    public Area getArea(){
-        return this.model.getArea(this.x,this.y);
-    }
-
     public boolean isNearby(Area a) {
-        for (int i = -1 ; i <= 1 ; i++) {
-            if ((this.x+i == a.getX() && this.y == a.getY()) || (this.x == a.getX() && this.y+i == a.getY())) {
+        for (int i = -1; i <= 1; i++) {
+            if ((this.x + i == a.getX() && this.y == a.getY()) || (this.x == a.getX() && this.y + i == a.getY())) {
                 return true;
             }
         }
         return false;
     }
 
-    public void removeKey(){
-        if(this.key.size() == 1) {
+    public void removeKey() {
+        if (this.key.size() == 1) {
             this.key.remove(0);
         }
     }
