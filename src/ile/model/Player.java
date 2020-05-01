@@ -14,6 +14,10 @@ public class Player {
     protected int nbMoves;
     protected int nbUnflooded;
 
+    /**
+     * Constructeur de classe Player
+     * @param model le modèle lié au programme
+     */
     public Player(Model model) {
         this.model = model;
         this.x = ThreadLocalRandom.current().nextInt(0, Model.LONGUEUR);
@@ -25,43 +29,72 @@ public class Player {
         this.nbUnflooded = 0;
     }
 
+    /**
+     * Redonne l'énergie du joueur,
+     * qui permet d'effectuer tout type
+     * d'action
+     */
     public void reset() {
         this.energy = 3;
     }
 
-    public void gainEnergy() {
-        this.energy++;
-    }
-
+    /**
+     * Enlève 1 d'énergie au joueur
+     */
     public void loseEnergy() {
         this.energy--;
     }
 
+    /**
+     * Teste si le joueur a encore de l'énergie
+     * @return boolean
+     */
     public boolean hasEnergy() {
         return this.energy > 0;
     }
 
+    /**
+     * Retourne l'énergie du joueur
+     * @return int
+     */
     public int getEnergy() {
         return this.energy;
     }
 
+    /**
+     * Retourne le nombre de déplacements effectués par le joueur
+     * @return int
+     */
     public int getNbMoves() {
         return this.nbMoves;
     }
 
+    /**
+     * Retourne le nombre de cases asséchées par le joueur
+     * @return int
+     */
     public int getNbUnflooded() {
         return this.nbUnflooded;
     }
 
+    /**
+     * Augmente le nombre de déplacements effectués
+     */
     public void setNbMoves() {
         this.nbMoves++;
     }
 
+    /**
+     * Augmente le nombre de cases asséchées
+     */
     public void setNbUnflooded() {
         this.nbUnflooded++;
     }
 
-    //mettre le compteur d'energy dans la fonction Action
+    /**
+     * Deplacement du joueur
+     * @param d direction du déplacement
+     */
     public void Deplacement(Direction d) {
         if (this.energy > 0) {
             switch (d) {
@@ -96,20 +129,32 @@ public class Player {
     /**
      * Renvoie une nouvelle zone sur laquelle se trouve le joueur
      *
-     * @return
+     * @return Area
      */
     public Area getArea() {
         return this.model.getArea(this.x, this.y);
     }
 
+    /**
+     * Retourne la coordonnée x du joueur
+     * @return int
+     */
     public int getX() {
         return this.x;
     }
 
+    /**
+     * Retourne la coordonnée y du joueur
+     * @return int
+     */
     public int getY() {
         return this.y;
     }
 
+    /**
+     * Ajoute une clé à la poche du joueur (avec une proba
+     * égale à PRBOKEY)
+     */
     public void addKey() {
         float probK = ThreadLocalRandom.current().nextFloat();
         if (probK <= PROBKEY) {
@@ -117,6 +162,10 @@ public class Player {
         }
     }
 
+    /**
+     * Méthode permettant d'ajouter une clé d'un certain type
+     * @return
+     */
     public Key probKey() {
         float probK = ThreadLocalRandom.current().nextFloat();
         if (probK >= 0.75) {
@@ -128,7 +177,11 @@ public class Player {
         } else return Key.Water;
     }
 
-    public void probArtifact() {                      //touhouhijacklol
+    /**
+     * Ajoute l'artefact si le joueur possède la bonne clé et
+     * s'il se trouve sur la bonne case
+     */
+    public void addArtifact() {
         if (this.getArea().getType() == Type.Water) {
             if (this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water))
                 this.model.addArtifact(Key.Water);
@@ -144,7 +197,10 @@ public class Player {
         }
     }
 
-
+    /**
+     * Teste si un joueur peut prendre un artefact
+     * @return boolean
+     */
     public boolean takeArtifact() {
         if (this.getArea().getType() == Type.Water) {
             return this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water);
@@ -158,14 +214,18 @@ public class Player {
         return false;
     }
 
+    /**
+     * Retourne la poche, càd la liste de clés du joueur
+     * @return ArrayList<Key>
+     */
     public ArrayList<Key> getKey() {
         return this.pocket;
     }
 
 
-    /*
-    return the number of the same jey before this one for a character
-    @key : the position of the key (always under the pocket size)
+    /**
+     * Retourne le nombre de clés que le joueur possède
+     * @return int : position de la clé
      */
     public int numberKeys(Key type) {
         int res = 0;
@@ -177,8 +237,9 @@ public class Player {
         return res;
     }
 
-    /*
-    return a [0;3] int indicating the position of a key to print in the Inventory
+    /**
+     * Retourne la position de la clé
+     * @return ArrayLisy<Key>
      */
     public ArrayList<Key> positionKey() {
         ArrayList<Key> po = new ArrayList<>();

@@ -23,7 +23,12 @@ public class InventoryController implements MouseListener {
     private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
     private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.JPG"));
 
-
+    /**
+     * Constructeur de classe InventoryController
+     * @param model le modèle lié au programme
+     * @param inventory la vu lié à l'affichage de l'inventaire
+     * @throws IOException nécessaire car on charge des images
+     */
     public InventoryController(Model model, InventoryView inventory) throws IOException {
         this.model = model;
         this.inventory = inventory;

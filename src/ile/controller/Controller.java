@@ -15,6 +15,13 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
     GridView grid;
     View view;
 
+    /**
+     * Constructeur de classe Controller
+     * @param model le modèle lié au programme
+     * @param buttons la classe comprenant les boutons
+     * @param grid la classe affichant l'interface principale de jeu
+     * @param view la vue principale comprenant toutes autres
+     */
     public Controller(Model model, ButtonView buttons, GridView grid, View view) {
         this.model = model;
         this.view = view;
@@ -137,7 +144,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     }
                     break;
                 case KeyEvent.VK_A:
-                    player.probArtifact();
+                    player.addArtifact();
                     break;
             }
         } else if (player instanceof PlayerPlongeur) {
@@ -159,7 +166,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     player.setNbMoves();
                     break;
                 case KeyEvent.VK_A:
-                    player.probArtifact();
+                    player.addArtifact();
                     break;
             }
         } else {
@@ -205,7 +212,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     }
                     break;
                 case KeyEvent.VK_A:
-                    player.probArtifact();
+                    player.addArtifact();
                     break;
                 case KeyEvent.VK_E:
                     if (player instanceof PlayerPilote) {

@@ -28,7 +28,12 @@ public class MenuController implements MouseInputListener {
     private boolean p5 = false;
     private boolean p6 = false;
 
-
+    /**
+     * Constructeur de classe MenuController
+     * @param model le modèle lié au programme
+     * @param view la vue principale comprenant toutes autres
+     * @param menu la vue correspondant au menu de choix des personnages
+     */
     public MenuController(Model model, StartView view, MenuView menu) {
         this.model = model;
         this.view = view;
