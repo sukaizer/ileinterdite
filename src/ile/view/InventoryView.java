@@ -70,19 +70,10 @@ public class InventoryView extends JPanel implements Observer {
         this.model = model;
         this.setLayout(null);
 
-        this.imageElement[0] = ImageIO.read(new File("src/files/air.png"));
-        this.imageElement[1] = ImageIO.read(new File("src/files/water.png"));
-        this.imageElement[2] = ImageIO.read(new File("src/files/fire.png"));
-        this.imageElement[3] = ImageIO.read(new File("src/files/earth.png"));
-
-
-        /*
-        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/explo.JPG"));
-        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/inge.JPG"));
-        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/messager.JPG"));
-        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/nautilus.JPG"));
-        this.imagePlayer[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/pilote.JPG"));
-        this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));*/
+        this.imageElement[0] = ImageIO.read(new File("src/files/artefact_air.png"));
+        this.imageElement[1] = ImageIO.read(new File("src/files/artefact_water.png"));
+        this.imageElement[2] = ImageIO.read(new File("src/files/artefact_fire.png"));
+        this.imageElement[3] = ImageIO.read(new File("src/files/artefact_earth.png"));
 
 
         this.imagePlayer[0] = ImageIO.read(new File("src/files/explo.JPG"));

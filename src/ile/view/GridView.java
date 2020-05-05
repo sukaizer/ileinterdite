@@ -56,29 +56,12 @@ public class GridView extends JPanel implements Observer {
         this.imagePlayer[4] = ImageIO.read(new File("src/files/pilote.JPG"));
         this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));
 
-        this.imageElement[0] = ImageIO.read(new File("src/files/air.PNG"));
-        this.imageElement[1] = ImageIO.read(new File("src/files/water.PNG"));
-        this.imageElement[2] = ImageIO.read(new File("src/files/fire.PNG"));
-        this.imageElement[3] = ImageIO.read(new File("src/files/earth.PNG"));
+        this.imageElement[0] = ImageIO.read(new File("src/files/artefact_air.png"));
+        this.imageElement[1] = ImageIO.read(new File("src/files/artefact_water.png"));
+        this.imageElement[2] = ImageIO.read(new File("src/files/artefact_fire.png"));
+        this.imageElement[3] = ImageIO.read(new File("src/files/artefact_earth.png"));
         this.imageElement[4] = ImageIO.read(new File("src/files/h.PNG"));
 
-        /*
-        this.grass = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/grass.JPG"));
-        this.flooded = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/flooded.jpg"));
-        this.submerged = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/submerged.jpg"));
-
-        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/explo.JPG"));
-        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/inge.JPG"));
-        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/messager.JPG"));
-        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/nautilus.JPG"));
-        this.imagePlayer[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/pilote.JPG"));
-        this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));
-
-        this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
-        this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
-        this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
-        this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
-        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));*/
 
 
         //on ajoute un controlleur pour la fenetre principale
@@ -118,19 +101,19 @@ public class GridView extends JPanel implements Observer {
                     }
                 } else { //paint des elements + heliport
                     if (a.getType().equals(Type.Air)) {
-                        g.setColor(new Color(159, 160, 255));
+                        g.setColor(new Color(255, 255, 255, 67));
                         g.fill3DRect(x, y, TAILLE, TAILLE, true);
                         g.drawImage(imageElement[0], x, y, TAILLE, TAILLE, this);
                     } else if (a.getType().equals(Type.Water)) {
-                        g.setColor(new Color(0, 191, 255));
+                        g.setColor(new Color(255, 255, 255, 67));
                         g.fill3DRect(x, y, TAILLE, TAILLE, true);
                         g.drawImage(imageElement[1], x, y, TAILLE, TAILLE, this);
                     } else if (a.getType().equals(Type.Fire)) {
-                        g.setColor(new Color(255, 102, 0));
+                        g.setColor(new Color(255, 255, 255, 67));
                         g.fill3DRect(x, y, TAILLE, TAILLE, true);
                         g.drawImage(imageElement[2], x, y, TAILLE, TAILLE, this);
                     } else if (a.getType().equals(Type.Earth)) {
-                        g.setColor(new Color(153, 102, 51));
+                        g.setColor(new Color(255, 255, 255, 67));
                         g.fill3DRect(x, y, TAILLE, TAILLE, true);
                         g.drawImage(imageElement[3], x, y, TAILLE, TAILLE, this);
                     } else if (a.getType().equals(Type.Heliport)) {
