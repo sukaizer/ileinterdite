@@ -2,7 +2,7 @@ package ile.controller;
 
 import ile.Observer;
 import ile.model.Key;
-import ile.model.PlayerMessager;
+import ile.model.PlayerMessenger;
 import ile.view.InventoryView;
 import ile.model.Model;
 
@@ -27,18 +27,27 @@ public class InventoryController implements  MouseListener {
     private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
 
 
+    /**
+     * Constructeur de la classe InventoryController
+     * @param model le modèle lié au programme
+     * @param inventory la vue liée à l'inventaire
+     * @throws IOException
+     */
     public InventoryController(Model model, InventoryView inventory) throws IOException {
         this.model = model;
         this.inventory = inventory;
     }
 
-
+    /**
+     * Activation du click de la souris pour controller l'inventaire
+     * @param e click de la souris
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         inventory.getParent().repaint();
         int x = e.getX();
         int y = e.getY();
-        //drop a key
+        //lache la clé
         if (this.model.getHand().hasKey()) {
             for (int i = 0 ; i < this.inventory.getDropCases().length ; i++) {
                 if (this.inventory.getDropCases()[i].inCase(x, y)) {
@@ -51,14 +60,14 @@ public class InventoryController implements  MouseListener {
                 }
             }
         } else {
-            //take a key
+            //prend une clé
             for (int i = 0 ; i < this.inventory.getTakeCases().size() ; i++) {
                 for (int j = 0 ; j < this.inventory.getTakeCases().get(i).size() ; j++) {
                     if (this.inventory.getTakeCases().get(i).get(j).inCase(x, y)) {
                         this.model.getHand().addKey(this.model.getPlayers().get(i).positionKey().get(j));
                         //the hand takes the player's coordonates
                         this.model.getHand().setHand(this.model.getPlayers().get(i).getX(), this.model.getPlayers().get(i).getY());
-                        if (this.model.getPlayers().get(i) instanceof PlayerMessager) this.model.getHand().setFlying(true);
+                        if (this.model.getPlayers().get(i) instanceof PlayerMessenger) this.model.getHand().setFlying(true);
                         for (Key k : this.model.getPlayers().get(i).getKey()) {
                             if (k == this.model.getPlayers().get(i).positionKey().get(j)) {
                                 this.model.getPlayers().get(i).getKey().remove(k);

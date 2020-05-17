@@ -12,6 +12,12 @@ public class ButtonView extends JPanel {
     private View view;
     JButton buttonEndTurnPlayer;
 
+    /**
+     * Constructeur de classe ButtonView
+     * @param model modèle lié au programme
+     * @param grid la classe affichant l'interface principale de jeu
+     * @param view la vue principale comprenant toutes autres
+     */
     public ButtonView(Model model, GridView grid, View view) {
         this.model = model;
         this.grid = grid;
@@ -25,7 +31,10 @@ public class ButtonView extends JPanel {
         setFocusable(true);
     }
 
-
+    /**
+     * Retourne le bouton
+     * @return JButton
+     */
     public JButton getButtonEndTurnPlayer() {
         return this.buttonEndTurnPlayer;
     }

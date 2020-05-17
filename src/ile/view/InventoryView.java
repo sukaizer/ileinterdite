@@ -7,12 +7,9 @@ import ile.model.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -55,6 +52,9 @@ public class InventoryView extends JPanel implements Observer{
     private JLabel title;
     private ArrayList<JLabel> players;
 
+    /**
+     * Classe interne pour dessiner des cases invisibles correspondant aux zones clickables des clés
+     */
     public class Case {
         private int x;
         private int y;
@@ -62,6 +62,14 @@ public class InventoryView extends JPanel implements Observer{
         private int height;
         private Key key;
 
+        /**
+         * Constructeur de la classe interne Case
+         * @param x la coordonnée x de la Case
+         * @param y la coordonnée y de la Case
+         * @param width la longueur de la Case
+         * @param height la hauteur de la Case
+         * @param k la clé qui se trouve de la Case
+         */
         public Case(int x, int y, int width, int height, Key k) {
             this.x = x;
             this.y = y;
@@ -70,31 +78,20 @@ public class InventoryView extends JPanel implements Observer{
             this.key = k;
         }
 
-        public Case(int x, int y, int width, int height, int key){
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-            switch (key){
-                case 0:
-                    this.key = Key.Air;
-                    break;
-                case 1:
-                    this.key = Key.Water;
-                    break;
-                case 2:
-                    this.key = Key.Fire;
-                    break;
-                case 3:
-                    this.key = Key.Earth;
-                    break;
-            }
-        }
-
+        /**
+         * retourne la clé contenue dans la case
+         * @return key
+         */
         public Key getCaseKey() {
             return this.key;
         }
 
+        /**
+         * Renvoie true si le click de la souris est dans la zone clickable
+         * @param a abscisse enregistrée au moment du click
+         * @param b ordonnée enregistrée au moment du click
+         * @return bool
+         */
         public boolean inCase(int a, int b) {
             return (a >= this.x && a <= (this.x+this.width) && b >= this.y && b <= (this.y+this.height));
         }
@@ -169,26 +166,30 @@ public class InventoryView extends JPanel implements Observer{
         addMouseListener(ctrl);
     }
 
+    /**
+     * L'interface [Observer] demande de fournir une méthode [update], qui
+     * sera appelée lorsque la vue sera notifiée d'un changement dans le
+     * modèle. Ici on se content de réafficher toute la grille avec la méthode
+     * prédéfinie [repaint].
+     */
     public void update() {
         repaint();
     }
 
-
-//les JLabels du nb de clés se mettent derrière les graphics
-// problème sur update de graphics et de JLabel
-    //pas de doublons dans getKeys
-    //le bons nombre de clés
-    //conditions des ifs bien remplies
+    /**
+     * Fonction de dessin principale
+     * @param g
+     */
     public void paint(Graphics g){
         super.paint(g);
         this.getParent().repaint();
         //players
         for (int i = 0; i < this.model.getPlayers().size(); i++) {
-            if (this.model.getPlayers().get(i) instanceof PlayerExplorateur) {
+            if (this.model.getPlayers().get(i) instanceof PlayerExplorator) {
                 g.drawImage(imagePlayer[0],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
-            } else if (this.model.getPlayers().get(i) instanceof PlayerIngenieur) {
+            } else if (this.model.getPlayers().get(i) instanceof PlayerEngineer) {
                 g.drawImage(imagePlayer[1],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
-            } else if (this.model.getPlayers().get(i) instanceof PlayerMessager) {
+            } else if (this.model.getPlayers().get(i) instanceof PlayerMessenger) {
                 g.drawImage(imagePlayer[2],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE,this);
             } else if (this.model.getPlayers().get(i) instanceof PlayerNautilus) {
                 g.drawImage(imagePlayer[3],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE,this);
@@ -294,6 +295,9 @@ public class InventoryView extends JPanel implements Observer{
         }
     }
 
+    /**
+     * Creer une nouvelle zone clickable pour chaque type de clé si la clé n'a pas déjà été dessinée
+     */
     public void fillTakeCase() {
         boolean refill = false;
         for (int i = 0 ; i < this.model.getPlayers().size() ; i++) {
@@ -312,12 +316,18 @@ public class InventoryView extends JPanel implements Observer{
         }
     }
 
-
-
+    /**
+     * Retourne les zones clickables des clés
+     * @return ArrayList<ArrayList<Case>>
+     */
     public ArrayList<ArrayList<Case>> getTakeCases() {
         return this.takeCases;
     }
 
+    /**
+     * Retourne les zones clickables où l'on peut lacher les clés
+     * @return Case[]
+     */
     public Case[] getDropCases() {
         return dropCases;
     }

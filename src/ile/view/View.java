@@ -17,6 +17,11 @@ public class View {
     private JFrame frame;
     private Model model;
 
+    /**
+     * Constructeur de classe View
+     * @param model modèle lié au programme
+     * @throws IOException lié aux images
+     */
     public View(Model model) throws IOException {
 
         this.frame = new JFrame();
@@ -46,6 +51,9 @@ public class View {
 
     }
 
+    /**
+     * A afficher quand on perd
+     */
     public void endGameLoose() {
         int WIDTH = this.frame.getWidth();
         int HEIGHT = this.frame.getHeight();
@@ -160,6 +168,9 @@ public class View {
         this.frame.setVisible(true);
     }
 
+    /**
+     * A afficher quand on gagne
+     */
     public void endGameWin() {
         int WIDTH = this.frame.getWidth();
         int HEIGHT = this.frame.getHeight();

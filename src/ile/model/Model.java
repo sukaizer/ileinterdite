@@ -14,6 +14,9 @@ public class Model extends Observable {
     private ArrayList<Key> artifacts;
     private int tour;
 
+    /**
+     * Constructeur de classe Model
+     */
     public Model(){
         this.tour = 0;
         this.players = new ArrayList<>();
@@ -70,26 +73,51 @@ public class Model extends Observable {
 
     }
 
+    /**
+     * Ajoute un joueur donné aux joueurs présents
+     * @param player
+     */
     public void addPlayer(Player player){
         this.players.add(player);
     }
 
+    /**
+     * Renvoie la case selon les coordonnées x et y voulues
+     * @param x coord x
+     * @param y coord y
+     * @return Area
+     */
     public Area getArea(int x, int y){
         return areas[x][y];
     }
 
+    /**
+     * Retourne la liste comprenant les joueurs
+     * @return ArrayList<Player>
+     */
     public ArrayList<Player> getPlayers(){
         return this.players;
     }
 
+    /**
+     * Retourne la main associée au modèle
+     * @return Hand
+     */
     public Hand getHand() {
         return this.hand;
     }
 
+    /**
+     * Retourne le tour auquel le jeu en est
+     * @return int
+     */
     public int getTour(){
         return this.tour;
     }
 
+    /**
+     * Passe au prochain tour
+     */
     public void nextTour(){
         if(this.tour < 3){
             this.tour++;
@@ -98,6 +126,9 @@ public class Model extends Observable {
         }
     }
 
+    /**
+     * Inonde 3 cases aléatoires
+     */
     public void flooding(){
         for (int i = 0; i < 3; i++) {
             int n = ThreadLocalRandom.current().nextInt(0,lands.size());
@@ -108,6 +139,12 @@ public class Model extends Observable {
         }
     }
 
+    /**
+     * Assèche une case, si possible
+     * @param x coord x de la case à assécher
+     * @param y coord y de la case à assécher
+     * @return boolean
+     */
     public boolean unflooding(int x, int y) {
         if (this.areas[x][y].getState() == State.Flooded){
             this.areas[x][y].unFloodState();
@@ -116,6 +153,13 @@ public class Model extends Observable {
         return false;
     }
 
+    /**
+     * Assèche une case, si possible (version PlayerNautilus)
+     * @param x coord x de la case à assécher
+     * @param y coord y de la case à assécher
+     * @param b ignoré.
+     * @return boolean
+     */
     public boolean unflooding(int x, int y, boolean b){
         if (this.areas[x][y].getState() == State.Flooded || this.areas[x][y].getState() == State.Submerged){
             this.areas[x][y].unFloodState();
@@ -126,7 +170,8 @@ public class Model extends Observable {
 
     /**
      * Retourne les cases adjacentes.
-     * @param a
+     *
+     * @param a la case de base
      * @return
      */
     public Area[] getNearby(Area a){
@@ -189,10 +234,11 @@ public class Model extends Observable {
 
     /**
      * Retourne les cases autour du joueur
-     * @param a joueur de type explorateur
+     *
+     * @param a joueur de type PlayerExplorateur
      * @return ArrayList<Area>
      */
-    public ArrayList<Area> getNearby(PlayerExplorateur a){
+    public ArrayList<Area> getNearby(PlayerExplorator a){
         ArrayList<Area> nearby = new ArrayList<>();
         for (int i = a.getX() - 1; i < a.getX() + 2 ; i++) {
             for (int j = a.getY() - 1; j < a.getY() + 2 ; j++) {
@@ -204,16 +250,27 @@ public class Model extends Observable {
         return nearby;
     }
 
-
-
+    /**
+     * Ajoute un artefact à la liste d'artefacts
+     * @param key artefact de type Key
+     */
     public void addArtifact(Key key){
         this.artifacts.add(key);
     }
 
+    /**
+     * Retourne la liste d'artefacts
+     * @return ArrayList<Key>
+     */
     public ArrayList<Key> getArtifacts() {
         return this.artifacts;
     }
 
+    /**
+     * Teste si la partie est gagnée,
+     * retourne vrai si gagnée
+     * @return boolean
+     */
     public boolean testWin(){
         int n = 0;
         if(this.artifacts.size() == 4){
@@ -232,35 +289,57 @@ public class Model extends Observable {
     }
 
     /**
-     *
-     * @return true if loose
+     * Teste si la partie est perdue,
+     * retourne vrai si perdue
+     * @return boolean
      */
     public boolean testLoose(){
         for (Player player : this.players) {
-            if(player.getArea().getState() == State.Submerged && !(player instanceof PlayerPlongeur)){
+            if(player.getArea().getState() == State.Submerged && !(player instanceof PlayerDiver)){
                 return true;
             }
         }
         return false;
     }
 
-    public ArrayList<Area> nonSubmergedAreas(){
+    /**
+     * Retourne la liste de cases non submergées
+     * @return ArrayList<Area>
+     */
+    public ArrayList<Area> unSubmergedAreas(){
         return this.lands;
     }
 
+    /**
+     * Effectue le déplacement spécial du joueur
+     * @param p le joueur de type PlayerPilote
+     */
     public void deplacementPilote(PlayerPilote p){
-        p.deplacementPilote();
+        p.movePilote();
     }
 
-    public void unflooding(PlayerIngenieur p){
+    /**
+     * Effectue l'asséchement (version spéciale)
+     * @param p joueur de type PlayerIngenieur
+     */
+    public void unflooding(PlayerEngineer p){
         p.floodPlus();
     }
 
-    public int getFlood(PlayerIngenieur p){
+    /**
+     * Retourne la valeur flood du joueur
+     * @param p joueur de type PlayerIngenieur
+     * @return int
+     */
+    public int getFlood(PlayerEngineer p){
         return p.getFlood();
     }
 
-    public void resetFlood(PlayerIngenieur p){
+    /**
+     * Remet à zéro la valeur flood du joueur
+     * @param p joueur de type PlayerIngenieur
+     */
+    public void resetFlood(PlayerEngineer p){
         p.setFlood();
     }
 
