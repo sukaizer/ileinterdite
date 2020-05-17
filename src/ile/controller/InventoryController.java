@@ -67,6 +67,7 @@ public class InventoryController implements  MouseListener {
                         this.model.getHand().addKey(this.model.getPlayers().get(i).positionKey().get(j));
                         //the hand takes the player's coordonates
                         this.model.getHand().setHand(this.model.getPlayers().get(i).getX(), this.model.getPlayers().get(i).getY());
+                        this.inventory.getTakeCases().get(i).remove(j);
                         if (this.model.getPlayers().get(i) instanceof PlayerMessenger) this.model.getHand().setFlying(true);
                         for (Key k : this.model.getPlayers().get(i).getKey()) {
                             if (k == this.model.getPlayers().get(i).positionKey().get(j)) {

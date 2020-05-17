@@ -21,7 +21,11 @@ public class InventoryView extends JPanel implements Observer{
     private final static int HEIGHT = 40*Model.LONGUEUR;
     private final static int SIDE = Model.LONGUEUR*4;
     private final static int inSIDE = SIDE/2;
+    private final static int OV = 10;
     private static int margin;
+
+    private int mx;
+    private int my;
 
     /*
     private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
@@ -99,8 +103,16 @@ public class InventoryView extends JPanel implements Observer{
 
     private ArrayList<ArrayList<Case>> takeCases;
     private Case[] dropCases;
+
+    /**
+     * Constructeur de InventoryView
+     * @param model le modèle du programme
+     * @throws IOException
+     */
     public InventoryView(Model model) throws IOException {
         this.model = model;
+        this.mx = 0;
+        this.my = 0;
         this.setLayout(null);
 
         this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
@@ -274,23 +286,58 @@ public class InventoryView extends JPanel implements Observer{
         }
 
         //hand
-        if (this.model.getHand().hasKey()) {
+        try{
             Point p = this.getMousePosition();
-            int x = p.x;
-            int y = p.y;
+            mx = p.x;
+            my = p.y;
+        } catch (NullPointerException e) {
+        }
+
+        for (ArrayList<Case> player: this.takeCases) {
+            for (Case c : player) {
+                if (c.inCase(mx, my)) {
+                    g.setColor(new Color(255, 255, 51));
+                    g.fill3DRect(c.x-OV/2, c.y-OV/2, SIDE+OV, SIDE+OV, true);
+                    switch (c.getCaseKey()) {
+                        case Fire:
+                            g.drawImage(keyFire, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                        case Water:
+                            g.drawImage(keyWater, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                        case Earth:
+                            g.drawImage(keyEarth, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                        case Air:
+                            g.drawImage(keyAir, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                    }
+                }
+            }
+        }
+
+        //colorie en vert la case de drop si on peut y lacher la clé en main
+        if (this.model.getHand().hasKey()) {
             switch (this.model.getHand().getKey().get(0)) {
                 case Fire:
-                    g.drawImage(keyFire, x, y, SIDE, SIDE, this);
+                    g.drawImage(keyFire, mx, my, SIDE, SIDE, this);
                     break;
                 case Water:
-                    g.drawImage(keyWater, x, y, SIDE, SIDE, this);
+                    g.drawImage(keyWater, mx, my, SIDE, SIDE, this);
                     break;
                 case Earth:
-                    g.drawImage(keyEarth, x, y, SIDE, SIDE, this);
+                    g.drawImage(keyEarth, mx, my, SIDE, SIDE, this);
                     break;
                 case Air:
-                    g.drawImage(keyAir, x, y, SIDE, SIDE, this);
+                    g.drawImage(keyAir, mx, my, SIDE, SIDE, this);
                     break;
+            }
+            for (int i = 0 ; i < this.dropCases.length ; i++) {
+                if (this.dropCases[i].inCase(mx, my)) {
+                    if (this.model.getHand().isNearby(this.model.getPlayers().get(i).getArea()) || this.model.getHand().getFlying())
+                        g.setColor(new Color(0,200, 0, 100));
+                        g.fill3DRect(this.dropCases[i].x, this.dropCases[i].y,WIDTH-SIDE,HEIGHT/this.model.getPlayers().size(),false);
+                }
             }
         }
     }
