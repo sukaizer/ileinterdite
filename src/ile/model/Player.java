@@ -181,7 +181,7 @@ public class Player {
      * Ajoute l'artefact si le joueur possède la bonne clé et
      * s'il se trouve sur la bonne case
      */
-    public void probArtifact() {
+    public void addArtifact() {
         if (this.getArea().getType() == Type.Water) {
             if (this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water))
                 this.model.addArtifact(Key.Water);

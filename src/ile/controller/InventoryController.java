@@ -1,6 +1,7 @@
 package ile.controller;
 
 import ile.model.Key;
+import ile.model.Model;
 import ile.model.PlayerMessenger;
 import ile.view.InventoryView;
 

@@ -224,8 +224,9 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     player.addArtifact();
                     break;
                 case KeyEvent.VK_E:
-                    if (player instanceof PlayerPilote) {
+                    if (player instanceof PlayerPilote && player.hasEnergy()) {
                         this.model.deplacementPilote((PlayerPilote) player);
+                        player.loseEnergy();
                     }
                     break;
             }

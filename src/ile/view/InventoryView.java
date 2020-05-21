@@ -26,27 +26,6 @@ public class InventoryView extends JPanel implements Observer {
     private int mx;
     private int my;
 
-    /*
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
-    */
-
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
-
-
-    /*
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
-*/
-
-
     private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
     private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
     private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
@@ -56,7 +35,6 @@ public class InventoryView extends JPanel implements Observer {
     private BufferedImage two = ImageIO.read(new File("src/files/2.PNG"));
     private BufferedImage three = ImageIO.read(new File("src/files/3.PNG"));
     private BufferedImage four = ImageIO.read(new File("src/files/4.PNG"));
-
 
     private BufferedImage[] imageElement = new BufferedImage[4];
     private BufferedImage[] imagePlayer = new BufferedImage[6];
@@ -176,13 +154,6 @@ public class InventoryView extends JPanel implements Observer {
         repaint();
     }
 
-
-    //les JLabels du nb de clés se mettent derrière les graphics
-    // problème sur update de graphics et de JLabel
-    //pas de doublons dans getKeys
-    //le bons nombre de clés
-    //conditions des ifs bien remplies
-    public void paint(Graphics g) {
     /**
      * Fonction de dessin principale
      * @param g
@@ -418,6 +389,7 @@ public class InventoryView extends JPanel implements Observer {
      * Retourne les zones clickables des clés
      * @return ArrayList<ArrayList<Case>>
      */
+
     public ArrayList<ArrayList<Case>> getTakeCases() {
         return this.takeCases;
     }

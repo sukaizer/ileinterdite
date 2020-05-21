@@ -7,18 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="647b6749-2ffc-42fa-b6cb-ef29407ff9ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/files/artefact_air.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/files/artefact_earth.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/files/artefact_fire.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/files/artefact_water.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/model/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/ButtonView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/ButtonView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/GridView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/GridView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/InfoView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/InfoView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/InventoryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/InventoryView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ileinterdite/ile/view/View.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ile/view/GridView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/GridView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ile/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ile/view/InventoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ile/view/InventoryView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
