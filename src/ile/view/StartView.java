@@ -33,7 +33,7 @@ public class StartView {
     /**
      * Permet de "fermer" la fenetre
      */
-    public void closeWindow() {
+    public void closeWindow(){
         this.frame.setVisible(false);
     }
 }

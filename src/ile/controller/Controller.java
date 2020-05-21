@@ -29,6 +29,11 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
         this.grid = grid;
     }
 
+    /**
+     * Activation du bouton fin de tour
+     * Les nombre d'actions des joueurs est remis à 3 et 3 cases de l'ile se font inonder
+     * @param e click du bouton
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         grid.getParent().repaint();
@@ -38,8 +43,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                 this.model.flooding();
                 for (int i = 0; i < this.model.getPlayers().size(); i++) {
                     this.model.getPlayers().get(i).reset();
-                    if (this.model.getPlayers().get(i) instanceof PlayerIngenieur) {
-                        this.model.resetFlood((PlayerIngenieur) this.model.getPlayers().get(i));
+                    if (this.model.getPlayers().get(i) instanceof PlayerEngineer) {
+                        this.model.resetFlood((PlayerEngineer) this.model.getPlayers().get(i));
                     }
                 }
             }
@@ -56,18 +61,22 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
     public void keyTyped(KeyEvent e) {
     }
 
+    /**
+     * Activation des boutons pour donner des ordres de déplacements à l'objet joueur dont c'est le tour
+     * @param e touches du clavier
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         grid.getParent().repaint();
         Player player = this.model.getPlayers().get(this.model.getTour());
 
-        if (player instanceof PlayerExplorateur) { //déplacements spéciaux Explorateur
+        if(player instanceof PlayerExplorator) { //déplacements spéciaux Explorateur
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_NUMPAD8:
                     try {
                         Area a = this.model.getArea(player.getX(), player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.UP);
+                            player.move(Direction.UP);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -77,7 +86,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX(), player.getY() + 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.DOWN);
+                            player.move(Direction.DOWN);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -87,7 +96,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX() - 1, player.getY());
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.LEFT);
+                            player.move(Direction.LEFT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -97,7 +106,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX() + 1, player.getY());
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.RIGHT);
+                            player.move(Direction.RIGHT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -107,7 +116,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX() - 1, player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.UP_LEFT);
+                            player.move(Direction.UP_LEFT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -117,7 +126,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX() + 1, player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.UP_RIGHT);
+                            player.move(Direction.UP_RIGHT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -127,7 +136,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX() - 1, player.getY() + 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.DOWN_LEFT);
+                            player.move(Direction.DOWN_LEFT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -137,7 +146,7 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     try {
                         Area a = this.model.getArea(player.getX() + 1, player.getY() - 1);
                         if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.DOWN_RIGHT);
+                            player.move(Direction.DOWN_RIGHT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -147,22 +156,22 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
                     player.addArtifact();
                     break;
             }
-        } else if (player instanceof PlayerPlongeur) {
+        }else if (player instanceof PlayerDiver){
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_NUMPAD8:
-                    player.Deplacement(Direction.UP);
+                    player.move(Direction.UP);
                     player.setNbMoves();
                     break;
                 case KeyEvent.VK_NUMPAD2:
-                    player.Deplacement(Direction.DOWN);
+                    player.move(Direction.DOWN);
                     player.setNbMoves();
                     break;
                 case KeyEvent.VK_NUMPAD4:
-                    player.Deplacement(Direction.LEFT);
+                    player.move(Direction.LEFT);
                     player.setNbMoves();
                     break;
                 case KeyEvent.VK_NUMPAD6:
-                    player.Deplacement(Direction.RIGHT);
+                    player.move(Direction.RIGHT);
                     player.setNbMoves();
                     break;
                 case KeyEvent.VK_A:
@@ -172,40 +181,40 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
         } else {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_NUMPAD8:
-                    try {
-                        Area a = this.model.getArea(player.getX(), player.getY() - 1);
-                        if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.UP);
+                    try{
+                        Area a = this.model.getArea(player.getX(),player.getY() - 1);
+                        if(!a.getState().equals(State.Submerged)) {
+                            player.move(Direction.UP);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD2:
-                    try {
-                        Area a = this.model.getArea(player.getX(), player.getY() + 1);
-                        if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.DOWN);
+                    try{
+                        Area a = this.model.getArea(player.getX(),player.getY() + 1);
+                        if(!a.getState().equals(State.Submerged)) {
+                            player.move(Direction.DOWN);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD4:
-                    try {
-                        Area a = this.model.getArea(player.getX() - 1, player.getY());
-                        if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.LEFT);
+                    try{
+                        Area a = this.model.getArea(player.getX() - 1,player.getY());
+                        if(!a.getState().equals(State.Submerged)) {
+                            player.move(Direction.LEFT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
                     }
                     break;
                 case KeyEvent.VK_NUMPAD6:
-                    try {
-                        Area a = this.model.getArea(player.getX() + 1, player.getY());
-                        if (!a.getState().equals(State.Submerged)) {
-                            player.Deplacement(Direction.RIGHT);
+                    try{
+                        Area a = this.model.getArea(player.getX() + 1,player.getY());
+                        if(!a.getState().equals(State.Submerged)) {
+                            player.move(Direction.RIGHT);
                             player.setNbMoves();
                         }
                     } catch (IndexOutOfBoundsException ignored) {
@@ -232,6 +241,10 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
     public void keyReleased(KeyEvent e) {
     }
 
+    /**
+     * Activation du click de la souris pour donner des ordres d'assèchement à l'objet joueur dont c'est le tour
+     * @param e click de la souris
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         grid.getParent().repaint();
@@ -240,8 +253,8 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
         int t = this.grid.getTaille();
         Player player = this.model.getPlayers().get(this.model.getTour());
 
-        if (player instanceof PlayerExplorateur) {
-            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) player);
+        if (player instanceof PlayerExplorator) {
+            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorator) player);
             for (Area area : nearby) {
                 if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
                     if (player.hasEnergy()) {
@@ -259,15 +272,15 @@ public class Controller implements ActionListener, KeyListener, MouseListener {
 
             for (Area area : nearby) {
                 if (y >= area.getY() * t && y <= area.getY() * t + t && x >= area.getX() * t && x <= area.getX() * t + t) {
-                    if (player instanceof PlayerIngenieur) { //classe Ingenieur
-                        if (player.hasEnergy() && this.model.getFlood((PlayerIngenieur) player) < 2) {
+                    if (player instanceof PlayerEngineer) { //classe Ingenieur
+                        if (player.hasEnergy() && this.model.getFlood((PlayerEngineer) player) < 2) {
                             int[] a = area.unflood();
-                            if (this.model.unflooding(a[0], a[1])) {
-                                if (((PlayerIngenieur) player).getFlood() == 1) {
+                            if(this.model.unflooding(a[0], a[1])){
+                                if(((PlayerEngineer) player).getFlood() == 1){
                                     player.loseEnergy();
                                     player.setNbUnflooded();
-                                } else if (((PlayerIngenieur) player).getFlood() == 0) {
-                                    this.model.unflooding((PlayerIngenieur) player);
+                                }else if (((PlayerEngineer) player).getFlood() == 0){
+                                    this.model.unflooding((PlayerEngineer) player);
                                     player.setNbUnflooded();
                                 }
                             }

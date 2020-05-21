@@ -16,11 +16,35 @@ import java.util.ArrayList;
 public class InventoryView extends JPanel implements Observer {
     private Model model;
 
-    private final static int WIDTH = 50 * Model.LONGUEUR;
-    private final static int HEIGHT = 40 * Model.LONGUEUR;
-    private final static int SIDE = Model.LONGUEUR * 4;
-    private final static int inSIDE = SIDE / 2;
+    private final static int WIDTH = 50*Model.LONGUEUR;
+    private final static int HEIGHT = 40*Model.LONGUEUR;
+    private final static int SIDE = Model.LONGUEUR*4;
+    private final static int inSIDE = SIDE/2;
+    private final static int OV = 10;
     private static int margin;
+
+    private int mx;
+    private int my;
+
+    /*
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
+    */
+
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
+
+
+    /*
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
+*/
 
 
     private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
@@ -39,6 +63,9 @@ public class InventoryView extends JPanel implements Observer {
 
     private JLabel title;
 
+    /**
+     * Classe interne pour dessiner des cases invisibles correspondant aux zones clickables des clés
+     */
     public class Case {
         private int x;
         private int y;
@@ -46,6 +73,14 @@ public class InventoryView extends JPanel implements Observer {
         private int height;
         private Key key;
 
+        /**
+         * Constructeur de la classe interne Case
+         * @param x la coordonnée x de la Case
+         * @param y la coordonnée y de la Case
+         * @param width la longueur de la Case
+         * @param height la hauteur de la Case
+         * @param k la clé qui se trouve de la Case
+         */
         public Case(int x, int y, int width, int height, Key k) {
             this.x = x;
             this.y = y;
@@ -54,10 +89,20 @@ public class InventoryView extends JPanel implements Observer {
             this.key = k;
         }
 
+        /**
+         * retourne la clé contenue dans la case
+         * @return key
+         */
         public Key getCaseKey() {
             return this.key;
         }
 
+        /**
+         * Renvoie true si le click de la souris est dans la zone clickable
+         * @param a abscisse enregistrée au moment du click
+         * @param b ordonnée enregistrée au moment du click
+         * @return bool
+         */
         public boolean inCase(int a, int b) {
             return (a >= this.x && a <= (this.x + this.width) && b >= this.y && b <= (this.y + this.height));
         }
@@ -66,8 +111,15 @@ public class InventoryView extends JPanel implements Observer {
     private ArrayList<ArrayList<Case>> takeCases;
     private Case[] dropCases;
 
+    /**
+     * Constructeur de InventoryView
+     * @param model le modèle du programme
+     * @throws IOException
+     */
     public InventoryView(Model model) throws IOException {
         this.model = model;
+        this.mx = 0;
+        this.my = 0;
         this.setLayout(null);
 
         this.imageElement[0] = ImageIO.read(new File("src/files/artefact_air.png"));
@@ -114,6 +166,12 @@ public class InventoryView extends JPanel implements Observer {
         addMouseListener(ctrl);
     }
 
+    /**
+     * L'interface [Observer] demande de fournir une méthode [update], qui
+     * sera appelée lorsque la vue sera notifiée d'un changement dans le
+     * modèle. Ici on se content de réafficher toute la grille avec la méthode
+     * prédéfinie [repaint].
+     */
     public void update() {
         repaint();
     }
@@ -125,16 +183,21 @@ public class InventoryView extends JPanel implements Observer {
     //le bons nombre de clés
     //conditions des ifs bien remplies
     public void paint(Graphics g) {
+    /**
+     * Fonction de dessin principale
+     * @param g
+     */
+    public void paint(Graphics g){
         super.paint(g);
         this.getParent().repaint();
         //players
         for (int i = 0; i < this.model.getPlayers().size(); i++) {
-            if (this.model.getPlayers().get(i) instanceof PlayerExplorateur) {
-                g.drawImage(imagePlayer[0], WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
-            } else if (this.model.getPlayers().get(i) instanceof PlayerIngenieur) {
-                g.drawImage(imagePlayer[1], WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
-            } else if (this.model.getPlayers().get(i) instanceof PlayerMessager) {
-                g.drawImage(imagePlayer[2], WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
+            if (this.model.getPlayers().get(i) instanceof PlayerExplorator) {
+                g.drawImage(imagePlayer[0],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
+            } else if (this.model.getPlayers().get(i) instanceof PlayerEngineer) {
+                g.drawImage(imagePlayer[1],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
+            } else if (this.model.getPlayers().get(i) instanceof PlayerMessenger) {
+                g.drawImage(imagePlayer[2],WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE,this);
             } else if (this.model.getPlayers().get(i) instanceof PlayerNautilus) {
                 g.drawImage(imagePlayer[3], WIDTH / 15, (i + 1) * HEIGHT / this.model.getPlayers().size(), SIDE, SIDE, this);
             } else if (this.model.getPlayers().get(i) instanceof PlayerPilote) {
@@ -274,29 +337,65 @@ public class InventoryView extends JPanel implements Observer {
         }
 
         //hand
-        if (this.model.getHand().hasKey()) {
-            try{
-                Point p = this.getMousePosition();
-                int x = p.x;
-                int y = p.y;
-                switch (this.model.getHand().getKey().get(0)) {
-                    case Fire:
-                        g.drawImage(keyFire, x, y, SIDE, SIDE, this);
-                        break;
-                    case Water:
-                        g.drawImage(keyWater, x, y, SIDE, SIDE, this);
-                        break;
-                    case Earth:
-                        g.drawImage(keyEarth, x, y, SIDE, SIDE, this);
-                        break;
-                    case Air:
-                        g.drawImage(keyAir, x, y, SIDE, SIDE, this);
-                        break;
+        try{
+            Point p = this.getMousePosition();
+            mx = p.x;
+            my = p.y;
+        } catch (NullPointerException e) {
+        }
+
+        for (ArrayList<Case> player: this.takeCases) {
+            for (Case c : player) {
+                if (c.inCase(mx, my)) {
+                    g.setColor(new Color(255, 255, 51));
+                    g.fill3DRect(c.x-OV/2, c.y-OV/2, SIDE+OV, SIDE+OV, true);
+                    switch (c.getCaseKey()) {
+                        case Fire:
+                            g.drawImage(keyFire, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                        case Water:
+                            g.drawImage(keyWater, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                        case Earth:
+                            g.drawImage(keyEarth, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                        case Air:
+                            g.drawImage(keyAir, c.x, c.y, SIDE, SIDE, this);
+                            break;
+                    }
                 }
-            }catch (NullPointerException ignored){}
+            }
+        }
+
+        //colorie en vert la case de drop si on peut y lacher la clé en main
+        if (this.model.getHand().hasKey()) {
+            switch (this.model.getHand().getKey().get(0)) {
+                case Fire:
+                    g.drawImage(keyFire, mx, my, SIDE, SIDE, this);
+                    break;
+                case Water:
+                    g.drawImage(keyWater, mx, my, SIDE, SIDE, this);
+                    break;
+                case Earth:
+                    g.drawImage(keyEarth, mx, my, SIDE, SIDE, this);
+                    break;
+                case Air:
+                    g.drawImage(keyAir, mx, my, SIDE, SIDE, this);
+                    break;
+            }
+            for (int i = 0 ; i < this.dropCases.length ; i++) {
+                if (this.dropCases[i].inCase(mx, my)) {
+                    if (this.model.getHand().isNearby(this.model.getPlayers().get(i).getArea()) || this.model.getHand().getFlying())
+                        g.setColor(new Color(0,200, 0, 100));
+                        g.fill3DRect(this.dropCases[i].x, this.dropCases[i].y,WIDTH-SIDE,HEIGHT/this.model.getPlayers().size(),false);
+                }
+            }
         }
     }
 
+    /**
+     * Creer une nouvelle zone clickable pour chaque type de clé si la clé n'a pas déjà été dessinée
+     */
     public void fillTakeCase() {
         boolean refill = false;
         for (int i = 0; i < this.model.getPlayers().size(); i++) {
@@ -315,11 +414,18 @@ public class InventoryView extends JPanel implements Observer {
         }
     }
 
-
+    /**
+     * Retourne les zones clickables des clés
+     * @return ArrayList<ArrayList<Case>>
+     */
     public ArrayList<ArrayList<Case>> getTakeCases() {
         return this.takeCases;
     }
 
+    /**
+     * Retourne les zones clickables où l'on peut lacher les clés
+     * @return Case[]
+     */
     public Case[] getDropCases() {
         return dropCases;
     }

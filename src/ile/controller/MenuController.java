@@ -34,12 +34,16 @@ public class MenuController implements MouseInputListener {
      * @param view la vue principale comprenant toutes autres
      * @param menu la vue correspondant au menu de choix des personnages
      */
-    public MenuController(Model model, StartView view, MenuView menu) {
+    public MenuController(Model model, StartView view,MenuView menu){
         this.model = model;
         this.view = view;
         this.menu = menu;
     }
 
+    /**
+     * Activation du click pour choisir les joueurs dans le menu
+     * @param e click de la souris
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         menu.getParent().repaint();
@@ -61,10 +65,10 @@ public class MenuController implements MouseInputListener {
                 if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
-                    model.addPlayer(new PlayerExplorateur(model));
+                    model.addPlayer(new PlayerExplorator(model));
                     this.p1 = true;
-                } else {
-                    model.addPlayer(new PlayerExplorateur(model));
+                }else{
+                    model.addPlayer(new PlayerExplorator(model));
                     try {
                         View NewView = new View(model);
                         this.view.closeWindow();
@@ -89,10 +93,10 @@ public class MenuController implements MouseInputListener {
                 if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
-                    model.addPlayer(new PlayerIngenieur(model));
+                    model.addPlayer(new PlayerEngineer(model));
                     this.p2 = true;
-                } else {
-                    model.addPlayer(new PlayerIngenieur(model));
+                }else{
+                    model.addPlayer(new PlayerEngineer(model));
                     try {
                         View NewView = new View(model);
                         this.view.closeWindow();
@@ -117,10 +121,10 @@ public class MenuController implements MouseInputListener {
                 if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
-                    model.addPlayer(new PlayerMessager(model));
+                    model.addPlayer(new PlayerMessenger(model));
                     this.p3 = true;
-                } else {
-                    model.addPlayer(new PlayerMessager(model));
+                }else{
+                    model.addPlayer(new PlayerMessenger(model));
                     try {
                         View NewView = new View(model);
                         this.view.closeWindow();
@@ -201,10 +205,10 @@ public class MenuController implements MouseInputListener {
                 if (menu.count < 3) {
                     menu.count++;
                     menu.description.setVisible(false);
-                    model.addPlayer(new PlayerPlongeur(model));
+                    model.addPlayer(new PlayerDiver(model));
                     this.p6 = true;
-                } else {
-                    model.addPlayer(new PlayerPlongeur(model));
+                }else{
+                    model.addPlayer(new PlayerDiver(model));
                     try {
                         View NewView = new View(model);
                         this.view.closeWindow();

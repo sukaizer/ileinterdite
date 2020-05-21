@@ -49,8 +49,8 @@ public class InfoView extends JPanel implements Observer {
 
         this.actionCount.setText("Nombre d'actions restantes : " + player.getEnergy());
 
-        if (player instanceof PlayerExplorateur) {
-            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorateur) player);
+        if (player instanceof PlayerExplorator) {
+            ArrayList<Area> nearby = this.model.getNearby((PlayerExplorator) player);
             for (Area area : nearby) {
                 if (area.getState().equals(State.Flooded) && player.hasEnergy()) {
                     this.b = true;
@@ -73,7 +73,12 @@ public class InfoView extends JPanel implements Observer {
         this.artifactIndication.setVisible(b2);
     }
 
-
+    /**
+     * L'interface [Observer] demande de fournir une méthode [update], qui
+     * sera appelée lorsque la vue sera notifiée d'un changement dans le
+     * modèle. Ici on se content de réafficher toute la grille avec la méthode
+     * prédéfinie [repaint].
+     */
     @Override
     public void update() {
         repaint();

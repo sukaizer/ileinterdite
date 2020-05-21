@@ -1,17 +1,21 @@
 package ile.model;
 
-public class PlayerExplorateur extends Player {
+public class PlayerExplorator extends Player {
 
     /**
-     * Constructeur de classe PlayerExplorateur
+     * Constructeur de classe PlayerExplorator
      * @param model
      */
-    public PlayerExplorateur(Model model) {
+    public PlayerExplorator(Model model) {
         super(model);
     }
 
+    /**
+     * Permet à l'explorateur de se déplacer en diagonales
+     * @param d direction du déplacement
+     */
     @Override
-    public void Deplacement(Direction d) {
+    public void move(Direction d) {
         if (this.energy > 0) {
             switch (d) {
                 case UP:

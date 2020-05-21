@@ -57,7 +57,7 @@ public class Player {
      * Retourne l'énergie du joueur
      * @return int
      */
-    public int getEnergy() {
+    public int getEnergy(){
         return this.energy;
     }
 
@@ -65,7 +65,7 @@ public class Player {
      * Retourne le nombre de déplacements effectués par le joueur
      * @return int
      */
-    public int getNbMoves() {
+    public int getNbMoves(){
         return this.nbMoves;
     }
 
@@ -73,21 +73,21 @@ public class Player {
      * Retourne le nombre de cases asséchées par le joueur
      * @return int
      */
-    public int getNbUnflooded() {
+    public int getNbUnflooded(){
         return this.nbUnflooded;
     }
 
     /**
      * Augmente le nombre de déplacements effectués
      */
-    public void setNbMoves() {
+    public void setNbMoves(){
         this.nbMoves++;
     }
 
     /**
      * Augmente le nombre de cases asséchées
      */
-    public void setNbUnflooded() {
+    public void setNbUnflooded(){
         this.nbUnflooded++;
     }
 
@@ -95,7 +95,7 @@ public class Player {
      * Deplacement du joueur
      * @param d direction du déplacement
      */
-    public void Deplacement(Direction d) {
+    public void move(Direction d) {
         if (this.energy > 0) {
             switch (d) {
                 case UP:
@@ -181,7 +181,7 @@ public class Player {
      * Ajoute l'artefact si le joueur possède la bonne clé et
      * s'il se trouve sur la bonne case
      */
-    public void addArtifact() {
+    public void probArtifact() {
         if (this.getArea().getType() == Type.Water) {
             if (this.pocket.contains(Key.Water) && !this.model.getArtifacts().contains(Key.Water))
                 this.model.addArtifact(Key.Water);

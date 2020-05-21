@@ -16,14 +16,11 @@ public class PlayerPilote extends Player {
     /**
      * Effectue le déplacement spécial
      */
-    public void deplacementPilote() {
-        if (this.energy > 0) {
-            ArrayList<Area> a = this.model.nonSubmergedAreas();
-            int n = ThreadLocalRandom.current().nextInt(0, a.size());
-            this.x = a.get(n).getX();
-            this.y = a.get(n).getY();
-            this.energy--;
-        }
+    public void movePilote(){
+        ArrayList<Area> a = this.model.unSubmergedAreas();
+        int n = ThreadLocalRandom.current().nextInt(0,a.size());
+        this.x = a.get(n).getX();
+        this.y = a.get(n).getY();
     }
 
 }

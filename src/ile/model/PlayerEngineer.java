@@ -1,13 +1,13 @@
 package ile.model;
 
-public class PlayerIngenieur extends Player {
+public class PlayerEngineer extends Player {
     private int flood;
 
     /**
-     * Constructeur de classe PlayerIngenieur
+     * Constructeur de classe PlayerEngineer
      * @param model
      */
-    public PlayerIngenieur(Model model) {
+    public PlayerEngineer(Model model) {
         super(model);
         this.flood = 0;
     }
@@ -15,14 +15,14 @@ public class PlayerIngenieur extends Player {
     /**
      * Met l'attribut flood à 0
      */
-    public void setFlood() {
+    public void setFlood(){
         this.flood = 0;
     }
 
     /**
      * Augmente de 1 flood
      */
-    public void floodPlus() {
+    public void floodPlus(){
         this.flood++;
     }
 
@@ -30,7 +30,7 @@ public class PlayerIngenieur extends Player {
      * Retourne flood
      * @return int
      */
-    public int getFlood() {
+    public int getFlood(){
         return this.flood;
     }
 

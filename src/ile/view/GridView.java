@@ -130,13 +130,13 @@ public class GridView extends JPanel implements Observer {
                 g.setColor(new Color(254, 255, 255));
                 g.fillRect(p.getX() * TAILLE + 3 - 3, p.getY() * TAILLE + 3 - 3, TAILLE, TAILLE);
             }
-            if (p instanceof PlayerExplorateur) {
+            if(p instanceof PlayerExplorator){
                 g.drawImage(imagePlayer[0], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
                 i++;
-            } else if (p instanceof PlayerIngenieur) {
+            }else if(p instanceof PlayerEngineer) {
                 g.drawImage(imagePlayer[1], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
                 i++;
-            } else if (p instanceof PlayerMessager) {
+            }else if(p instanceof PlayerMessenger) {
                 g.drawImage(imagePlayer[2], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
                 i++;
             } else if (p instanceof PlayerNautilus) {
@@ -145,13 +145,12 @@ public class GridView extends JPanel implements Observer {
             } else if (p instanceof PlayerPilote) {
                 g.drawImage(imagePlayer[4], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
                 i++;
-            } else if (p instanceof PlayerPlongeur) {
+            }else if(p instanceof PlayerDiver) {
                 g.drawImage(imagePlayer[5], p.getX() * TAILLE + 3, p.getY() * TAILLE + 3, TAILLE - 6, TAILLE - 6, this);
                 i++;
             }
         }
     }
-
 
     /**
      * Retourne la TAILLE
