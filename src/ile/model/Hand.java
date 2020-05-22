@@ -7,6 +7,7 @@ public class Hand {
     private Model model;
     private int x;
     private int y;
+    private int player;
     private boolean flying;
 
     /**
@@ -58,30 +59,6 @@ public class Hand {
     }
 
     /**
-     * getter de la coordonnées x de la main
-     * @return int
-     */
-    public int getHandX() {
-        return this.x;
-    }
-
-    /**
-     * getter de la coordonnées y de la main
-     * @return int
-     */
-    public int getHandY() {
-        return this.y;
-    }
-
-    /**
-     * Renvoie une nouvelle zone sur laquelle se trouve le joueur
-     * @return
-     */
-    public Area getArea(){
-        return this.model.getArea(this.x,this.y);
-    }
-
-    /**
      * Renvoie si oui ou non la zone en paramètre se trouve près de la main
      * @param a
      * @return
@@ -121,4 +98,11 @@ public class Hand {
         return this.flying;
     }
 
+    public void setPlayer(int p) {
+        this.player = p;
+    }
+
+    public int getPlayer() {
+        return this.player;
+    }
 }

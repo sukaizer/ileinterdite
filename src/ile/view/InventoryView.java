@@ -26,6 +26,7 @@ public class InventoryView extends JPanel implements Observer {
     private int mx;
     private int my;
 
+    /*
     private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
     private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
     private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
@@ -34,7 +35,18 @@ public class InventoryView extends JPanel implements Observer {
     private BufferedImage one = ImageIO.read(new File("src/files/1.PNG"));
     private BufferedImage two = ImageIO.read(new File("src/files/2.PNG"));
     private BufferedImage three = ImageIO.read(new File("src/files/3.PNG"));
-    private BufferedImage four = ImageIO.read(new File("src/files/4.PNG"));
+    private BufferedImage four = ImageIO.read(new File("src/files/4.PNG"));*/
+
+
+    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
+    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
+    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
+    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));
+
+    private BufferedImage one = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/1.PNG"));
+    private BufferedImage two = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/2.PNG"));
+    private BufferedImage three = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/3.PNG"));
+    private BufferedImage four = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/4.PNG"));
 
     private BufferedImage[] imageElement = new BufferedImage[4];
     private BufferedImage[] imagePlayer = new BufferedImage[6];
@@ -100,6 +112,7 @@ public class InventoryView extends JPanel implements Observer {
         this.my = 0;
         this.setLayout(null);
 
+        /*
         this.imageElement[0] = ImageIO.read(new File("src/files/artefact_air.png"));
         this.imageElement[1] = ImageIO.read(new File("src/files/artefact_water.png"));
         this.imageElement[2] = ImageIO.read(new File("src/files/artefact_fire.png"));
@@ -111,8 +124,20 @@ public class InventoryView extends JPanel implements Observer {
         this.imagePlayer[2] = ImageIO.read(new File("src/files/messager.JPG"));
         this.imagePlayer[3] = ImageIO.read(new File("src/files/nautilus.JPG"));
         this.imagePlayer[4] = ImageIO.read(new File("src/files/pilote.JPG"));
-        this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));*/
 
+        this.imageElement[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/air.png"));
+        this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
+        this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
+        this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
+
+
+        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/explo.JPG"));
+        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/inge.JPG"));
+        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/messager.JPG"));
+        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/nautilus.JPG"));
+        this.imagePlayer[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/pilote.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));
 
         model.addObserver(this);
         Dimension dim = new Dimension(WIDTH, HEIGHT);
@@ -315,25 +340,12 @@ public class InventoryView extends JPanel implements Observer {
         } catch (NullPointerException e) {
         }
 
-        for (ArrayList<Case> player: this.takeCases) {
-            for (Case c : player) {
-                if (c.inCase(mx, my)) {
-                    g.setColor(new Color(255, 255, 51));
+        for (int pl = 0 ; pl < this.takeCases.size() ; pl++) {
+            for (Case c : this.takeCases.get(pl)) {
+                if (c.inCase(mx, my) && pl == this.model.getTour()) {
+                    g.setColor(new Color(255, 255, 51, 100));
                     g.fill3DRect(c.x-OV/2, c.y-OV/2, SIDE+OV, SIDE+OV, true);
-                    switch (c.getCaseKey()) {
-                        case Fire:
-                            g.drawImage(keyFire, c.x, c.y, SIDE, SIDE, this);
-                            break;
-                        case Water:
-                            g.drawImage(keyWater, c.x, c.y, SIDE, SIDE, this);
-                            break;
-                        case Earth:
-                            g.drawImage(keyEarth, c.x, c.y, SIDE, SIDE, this);
-                            break;
-                        case Air:
-                            g.drawImage(keyAir, c.x, c.y, SIDE, SIDE, this);
-                            break;
-                    }
+
                 }
             }
         }

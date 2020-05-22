@@ -93,12 +93,21 @@ public class MenuView extends JPanel {
         this.add(this.description);
         this.description.setVisible(false);
 
+        /*
         this.imagePlayer[0] = ImageIO.read(new File("src/files/explo.JPG"));
         this.imagePlayer[1] = ImageIO.read(new File("src/files/inge.JPG"));
         this.imagePlayer[2] = ImageIO.read(new File("src/files/messager.JPG"));
         this.imagePlayer[3] = ImageIO.read(new File("src/files/nautilus.JPG"));
         this.imagePlayer[4] = ImageIO.read(new File("src/files/pilote.JPG"));
-        this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("src/files/plongeur.JPG"));*/
+
+
+        this.imagePlayer[0] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/explo.JPG"));
+        this.imagePlayer[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/inge.JPG"));
+        this.imagePlayer[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/messager.JPG"));
+        this.imagePlayer[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/nautilus.JPG"));
+        this.imagePlayer[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/pilote.JPG"));
+        this.imagePlayer[5] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/plongeur.JPG"));
 
     }
 
