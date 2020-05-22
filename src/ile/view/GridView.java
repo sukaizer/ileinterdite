@@ -44,7 +44,7 @@ public class GridView extends JPanel implements Observer {
          * chargement des images
          *
          **/
-/*
+
         this.grass = ImageIO.read(new File("src/files/grass.JPG"));
         this.flooded = ImageIO.read(new File("src/files/flooded.JPG"));
         this.submerged = ImageIO.read(new File("src/files/submerged.JPG"));
@@ -61,8 +61,8 @@ public class GridView extends JPanel implements Observer {
         this.imageElement[2] = ImageIO.read(new File("src/files/artefact_fire.png"));
         this.imageElement[3] = ImageIO.read(new File("src/files/artefact_earth.png"));
         this.imageElement[4] = ImageIO.read(new File("src/files/h.PNG"));
-*/
 
+        /*
         this.grass = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/grass.JPG"));
         this.flooded = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/flooded.jpg"));
         this.submerged = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/submerged.jpg"));
@@ -79,7 +79,7 @@ public class GridView extends JPanel implements Observer {
         this.imageElement[1] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/water.png"));
         this.imageElement[2] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/fire.png"));
         this.imageElement[3] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/earth.png"));
-        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));
+        this.imageElement[4] = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/h.png"));*/
 
 
         //on ajoute un controlleur pour la fenetre principale
