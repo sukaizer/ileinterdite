@@ -18,16 +18,10 @@ public class InventoryController implements MouseListener {
     InventoryView inventory;
 
 
-    private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.JPG"));
-
-    /*
-    private BufferedImage keyWater = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kwater.JPG"));
-    private BufferedImage keyFire = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kfire.JPG"));
-    private BufferedImage keyAir = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kair.JPG"));
-    private BufferedImage keyEarth = ImageIO.read(new File("/home/gozea/IleInterdite2/ileinterdite/src/files/kearth.JPG"));*/
+    private BufferedImage keyWater = ImageIO.read(new File("src/files/kwater.jpg"));
+    private BufferedImage keyFire = ImageIO.read(new File("src/files/kfire.jpg"));
+    private BufferedImage keyAir = ImageIO.read(new File("src/files/kair.jpg"));
+    private BufferedImage keyEarth = ImageIO.read(new File("src/files/kearth.jpg"));
 
     /**
      * Constructeur de la classe InventoryController
