@@ -1,7 +1,6 @@
 package ile.model;
 
 import ile.Observable;
-
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
